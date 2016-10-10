@@ -7,9 +7,9 @@ Source : pour l'instant, uniquement Perseus: fichier XML bruts et fichiers XML d
 
 Structure du répertoire
 
-auteur1/
+    auteur1/
 
-|
+    |
 
     --> __cts__.xml
 
