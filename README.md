@@ -8,10 +8,17 @@ Source : pour l'instant, uniquement Perseus: fichier XML bruts et fichiers XML d
 Structure du répertoire
 
 auteur1/
+
 |
---> __cts__.xml
---> oeuvre1/
-    |
+
     --> __cts__.xml
-    --> auteur1.oeuvre1.perseus-grc1.xml
-    --> Perseus_text_identifiant.xml
+
+    --> oeuvre1/
+
+        |
+
+        --> __cts__.xml
+
+        --> auteur1.oeuvre1.perseus-grc1.xml
+
+        --> Perseus_text_identifiant.xml
