@@ -144,6 +144,12 @@
         console.log( "fiche!" );
 		console.log( $(this).attr("id"));
     });
+	
+	$("#table-container tbody").on("click", "h3", function(event){
+    console.log($(this).text());
+});
+
+
  
     });
 
