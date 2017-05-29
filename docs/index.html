@@ -75,7 +75,7 @@
                 var col_idx = v[0]
                 var func = v[1];
                 this.csv_data[row_id][col_idx]= func(this.csv_data[row_id][col_idx]);
-              })
+              }.bind(this)
             }
 
             for (col_id = 0; col_id < this.csv_data[row_id].length; col_id++) { 
