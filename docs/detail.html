@@ -46,10 +46,10 @@
 
       <h2>Textes pour Zoomathia</h2>
 
-      <p>En construction.</p>
-      <p>Cliquez sur un lien dans la première colonne pour voir des détails.</p>
+      <p>Detail.</p>
       
-      <div id='table-container'></div>
+{% include get_detail.html ref=1 %}
+
 
     </div><!-- /.container -->
 
@@ -74,40 +74,6 @@
         <script type="text/javascript" src="js/main.js"></script>
 		<script type="text/javascript" src="js/csv_to_html_table.js"></script>
 	
-	 <script type="text/javascript">
-	 function ValidURL(str) {
-	    var pattern = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-		if(!pattern.test(str)) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-      function format_link(link){
-        if (link) {		
-		  if (ValidURL(link)) {
-			return "<a href='" + link + "' target='_blank'>" + link + "</a>";
-			}
-		  else 
-			return "";
-		}			
-        else
-          return "";
-      }
-
-	  function detail_link(ref){
-        return "<a href='"detail"' target='_blank'>Cliquez pour la fiche détaillée (texte " + ref + ")</a>";
-      }
-	  
-      CsvToHtmlTable.init({
-        csv_path: 'data/ZOOM_corpus.csv',
-        element: 'table-container', 
-        allow_download: true,
-        csv_options: {separator: ',', delimiter: '"'},
-        datatables_options: {"paging": false},
-        custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
-      });
-    </script>
+	
     </body>
 </html>
