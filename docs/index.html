@@ -112,7 +112,7 @@
       }
 
 	  function detail_link(ref){
-        return "<a class='get-fiche' href='' >Cliquez pour la fiche détaillée (texte " + ref + ")</a>";
+        return '<button type="button" class="btn btn-primary" id="button-text-ref" data-toggle="button">Fiche détaillée\n(texte ' + ref + ')</button>';
       }
 	  
 	  
@@ -133,9 +133,9 @@
         console.log( "A button with the alert class was clicked!" );
     });
 	
-	$( "a.get_fiche" ).on( "click", function() {
+	$( "button" ).on( "click", function() {
         console.log( "fiche!" );
-		console.log( $(this).attr("class"));
+		console.log( $(this).attr("id"));
     });
  
     });
