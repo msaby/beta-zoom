@@ -1,0 +1,27 @@
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Corpus Zoomathia - en construction</title>
+        <meta name="description" content="Corpus Zoomathia - en construction">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link rel="stylesheet" href="assets/css/main.css">
+		<link rel="stylesheet" type="text/css" href="assets/Bootstrap-3.3.7/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/Bootstrap-3.3.7/css/bootstrap-theme.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/DataTables-1.10.15/css/dataTables.bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/AutoFill-2.2.0/css/autoFill.bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/Buttons-1.3.1/css/buttons.bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/FixedColumns-3.2.2/css/fixedColumns.bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/FixedHeader-3.1.2/css/fixedHeader.bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/KeyTable-2.2.1/css/keyTable.bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/Responsive-2.1.1/css/responsive.bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/RowGroup-1.0.0/css/rowGroup.bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/Scroller-1.4.2/css/scroller.bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/Select-1.2.2/css/select.bootstrap.css"/>
+ 
+<style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+		

@@ -1,0 +1,26 @@
+---
+# this is an empty front matter
+---
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="fr"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+<head>
+{% include meta %}
+</head>
+<body>
+{% include header.html %}
+
+<section class="main-content">
+<div class="container-fluid">
+{% include get_detail.html ref=1 %}
+      
+    </div><!-- /.container -->
+	</section>
+	  <footer>
+{% include footer.html %}
+      </footer>
+{% include scripts.html %}
+ </body>
+</html>
