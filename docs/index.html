@@ -95,7 +95,7 @@
 		$("#" + el).html("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
 		if (allow_download) 
 			$("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger le CSV</a></p>");
-		getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting));
+		getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting)});
 
 	}
 
