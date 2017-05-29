@@ -34,22 +34,31 @@
 {% include scripts.html %}
  <script type="text/javascript">
 	var csv_data_brut = [];
-	var CsvToHtmlTable = CsvToHtmlTable || {};
-	CsvToHtmlTable = {
-	init: function (options) {
-      options = options || {};
-      var csv_path = options.csv_path || "";
-      var el = options.element || "table-container";
-      var allow_download = options.allow_download || false;
-      var csv_options = options.csv_options || {};
-      var datatables_options = options.datatables_options || {};
-      var custom_formatting = options.custom_formatting || [];
-	  this.truc = "un truc"
-      $("#" + el).html("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
-	  if (allow_download) 
-		  $("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger le CSV</a></p>");
+	function getData(path) {
+		return $.ajax({
+			url : path,
+			type: 'GET'
+    });
+	function handleData(data /* , textStatus, jqXHR */ ) {
+    console.log(data);
+    //do some stuff
+}
+	function csv2table(options) {
+		options = options || {};
+		var csv_path = options.csv_path || "";
+		var el = options.element || "table-container";
+		var allow_download = options.allow_download || false;
+		var csv_options = options.csv_options || {};
+		var datatables_options = options.datatables_options || {};
+		var custom_formatting = options.custom_formatting || [];
+		$("#" + el).html("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
+		if (allow_download) 
+			$("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger le CSV</a></p>");
+		getData(csv_path).done(handleData);
+	}
 
-      $.when($.get(csv_path)).then(
+/*
+
         function(data){      
 	        csv_data_brut = $.csv.toArrays(data, csv_options);
           var csv_data = csv_data_brut;
@@ -106,6 +115,8 @@ console.log(csv_data_brut);
 	}
 }
 
+*/
+
 
 	 function ValidURL(str) {
 	    var pattern = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
@@ -136,41 +147,75 @@ console.log(csv_data_brut);
 	  function display_text(num_text) {
 		el = 'fiche';
 		contenu_fiche = "<div class = 'content-fiche container' id='content-fiche-'"+num_text+"'>";
-		contenu_fiche = contenu_fiche+"<h3 class='titre-fiche'>Fiche "+num_text+"</h3>";
-		contenu_fiche = contenu_fiche+"<div class = 'container content-fiche-author>";
-		contenu_fiche = contenu_fiche+"<div class = 'row cle-valeur'>";
-		contenu_fiche = contenu_fiche+"<div class = 'cle col-sm-4'>";
-		contenu_fiche = contenu_fiche+"Auteur";
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"<div class = 'valeur col-sm-8'>";
-		contenu_fiche = contenu_fiche+"Aristote";
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"<div class = 'container content-fiche-work";
-		contenu_fiche = contenu_fiche+"<div class = 'row cle-valeur'>";	
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"<div class = 'container content-fiche-text";
-		contenu_fiche = contenu_fiche+"<div class = 'row cle-valeur'>";		
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"<div class = 'container content-fiche-passage";
-		contenu_fiche = contenu_fiche+"<div class = 'row cle-valeur'>";		
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"<div class = 'container content-fiche-process";
-		contenu_fiche = contenu_fiche+"<div class = 'row cle-valeur'>";		
-		contenu_fiche = contenu_fiche+"</div>";
-		contenu_fiche = contenu_fiche+"</div>";
-		
-		contenu_fiche = contenu_fiche+"</div>";
+		contenu_fiche += "<row>";
+		contenu_fiche += "<div class='col-md-6' id='infos'>";
+		contenu_fiche +="<h3 class='titre-fiche'>Fiche "+num_text+"</h3>";
+		contenu_fiche +="<div class = 'content-fiche-author>";
+		contenu_fiche +="<h4>Informations sur l'auteur</h4>";
+		contenu_fiche +="<div class = 'row cle-valeur'>";
+		contenu_fiche +="<div class = 'cle col-md-2'>";
+		contenu_fiche +="Auteur";
+		contenu_fiche += "</div>";
+		contenu_fiche += "<div class = 'valeur col-md-4'>";
+		contenu_fiche +="Aristote";
+		contenu_fiche += "</div>";
+		contenu_fiche += "</div>"; // row
+		contenu_fiche += "</div>"; // content-fiche-author
+		contenu_fiche +="<div class = 'content-fiche-work>";
+		contenu_fiche +="<h4>Informations sur l'oeuvre</h4>";
+		contenu_fiche +="<div class = 'row cle-valeur'>";
+		contenu_fiche +="<div class = 'cle col-md-2'>";
+		contenu_fiche +="Titre";
+		contenu_fiche += "</div>";
+		contenu_fiche += "<div class = 'valeur col-md-4'>";
+		contenu_fiche +="Aristote";
+		contenu_fiche += "</div>";
+		contenu_fiche += "</div>"; // row
+		contenu_fiche += "</div>"; // content-fiche-work
+		contenu_fiche +="<div class = 'content-fiche-text>";
+		contenu_fiche +="<h4>Informations sur le texte</h4>";
+		contenu_fiche +="<div class = 'row cle-valeur'>";
+		contenu_fiche +="<div class = 'cle col-md-2'>";
+		contenu_fiche +="Edition";
+		contenu_fiche += "</div>";
+		contenu_fiche += "<div class = 'valeur col-md-4'>";
+		contenu_fiche +="Aristote";
+		contenu_fiche += "</div>";
+		contenu_fiche += "</div>"; // row
+		contenu_fiche += "</div>"; // content-fiche-text
+		contenu_fiche +="<div class = 'content-fiche-passage>";
+		contenu_fiche +="<h4>Informations sur le(s) passage(s)</h4>";
+		contenu_fiche +="<div class = 'row cle-valeur'>";
+		contenu_fiche +="<div class = 'cle col-md-2'>";
+		contenu_fiche +="Edition";
+		contenu_fiche += "</div>";
+		contenu_fiche += "<div class = 'valeur col-md-4'>";
+		contenu_fiche +="Aristote";
+		contenu_fiche += "</div>";
+		contenu_fiche += "</div>"; // row
+		contenu_fiche += "</div>"; // content-fiche-passage
+		contenu_fiche +="<div class = 'content-fiche-process>";
+		contenu_fiche +="<h4>Informations sur le processus de travail</h4>";
+		contenu_fiche +="<div class = 'row cle-valeur'>";
+		contenu_fiche +="<div class = 'cle col-md-2'>";
+		contenu_fiche +="Edition";
+		contenu_fiche += "</div>";
+		contenu_fiche += "<div class = 'valeur col-md-4'>";
+		contenu_fiche +="Aristote";
+		contenu_fiche += "</div>";
+		contenu_fiche += "</div>"; // row
+		contenu_fiche += "</div>"; // content-fiche-process		
+		contenu_fiche += "</div>"; 	
+		contenu_fiche += "<div class='col-md-6' id='texte'><p>Texte</p></div>";
+		contenu_fiche += "</row>";
+		contenu_fiche += "</div>"; 	
 		$("#" + el).html(contenu_fiche);
 		
 	  }
 	   
 	$( document ).ready(function(){
-	  var corpus_csv = $.csv.toObjects('data/ZOOM_corpus.csv');
+	  // var corpus_csv = $.csv.toObjects('data/ZOOM_corpus.csv');
+	  /*
 	  CsvToHtmlTable.init({
         csv_path: 'data/ZOOM_corpus.csv',
         element: 'table-container', 
@@ -179,14 +224,25 @@ console.log(csv_data_brut);
         datatables_options: {"paging": false},
         custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
       });
+      */
+      var options = {
+      	csv_path: 'data/ZOOM_corpus.csv',
+        element: 'table-container', 
+        allow_download: true,
+        csv_options: {separator: ',', delimiter: '"'},
+        datatables_options: {"paging": false},
+        custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]};
+      csv2table(options)
 	  $("table").on("click", "button", function(event){
 		display_text($(this).attr('value'));
 		ele="#fiche";
 		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
 	  });
+	  /*
 	  CsvToHtmlTable.get_line({
         numtext: 1
       });
+      */
 	});
 	  
     </script>
