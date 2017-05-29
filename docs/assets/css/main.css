@@ -9,7 +9,8 @@
 div .content-fiche {background-color: #f4f5f5;}
 div .content-fiche div {background-color: #9cbaed;
 margin:1px;}
-
+div .cle-valeur {display:inline;}
+.cle {font-weight:bold;}
 
 
 
