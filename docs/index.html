@@ -15,11 +15,14 @@
 <section class="main-content">
 <div class="container-fluid">
 
-      <h2>Textes pour Zoomathia</h2>
+      <h2 class="alert">Textes pour Zoomathia</h2>
 
       <p>En construction.</p>
       <p>Cliquez sur un lien dans la première colonne pour voir des détails.</p>
-      
+	  
+	  <div id='fiche'></div>
+
+	  
       <div id='table-container'></div>
 
     </div><!-- /.container -->
@@ -86,6 +89,7 @@
     }
 }
 
+
 	 function ValidURL(str) {
 	    var pattern = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
 		if(!pattern.test(str)) {
@@ -111,6 +115,10 @@
         return "<a href='' target='_blank'>Cliquez pour la fiche détaillée (texte " + ref + ")</a>";
       }
 	  
+	  
+	  $( document ).ready(function(){
+		var corpus_csv = $.csv.toObjects('data/ZOOM_corpus.csv')
+	    
       CsvToHtmlTable.init({
         csv_path: 'data/ZOOM_corpus.csv',
         element: 'table-container', 
@@ -119,6 +127,19 @@
         datatables_options: {"paging": false},
         custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
       });
+	  
+	  });
+	  
+    $( "h2.alert" ).on( "click", function() {
+        console.log( "A button with the alert class was clicked!" );
+    });
+ 
+    
+});
+
+
+
+	  
     </script>
 </body>
 </html>
