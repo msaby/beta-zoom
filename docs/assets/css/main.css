@@ -6,8 +6,8 @@
 
 
 
-div .content-fiche {background-color: #f4f5f5;}
-div .content-fiche div {background-color: #9cbaed;}
+#bloc-infos {background-color: #f4f5f5;}
+#bloc-texte {background-color: #9cbaed;}
 .cle {font-weight:bold; 
 border-right: 1px solid red;}
 
