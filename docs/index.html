@@ -36,7 +36,6 @@
 	 var CsvToHtmlTable = CsvToHtmlTable || {};
 	CsvToHtmlTable = {
     init: function (options) {
-
       options = options || {};
       var csv_path = options.csv_path || "";
       var el = options.element || "table-container";
@@ -88,9 +87,9 @@
           
         });
     }
-	get_line: function (options) {
-		options = options || {};
-		var numtext = options.numtext || "";
+	get_line: function (opt) {
+		opt = opt || {};
+		var numtext = opt.numtext || "";
 		console.log(numtext);
 	}
 
@@ -157,8 +156,6 @@
 		contenu_fiche = contenu_fiche+"</div>";
 		$("#" + el).html(contenu_fiche);
 		
-		
-		
 	  }
 	   
 	  $( document ).ready(function(){
@@ -182,11 +179,6 @@
 		}
     
 });
-
-
- 
-
-
 	  
     </script>
 </body>
