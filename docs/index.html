@@ -50,7 +50,7 @@
 		  $("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger le CSV</a></p>");
 
       $.when($.get(csv_path)).then(	  
-       this.csv_data= function (data){      
+       function d (data){      
 	
           var csv_data_temp = $.csv.toArrays(data, csv_options);
 		  var csv_data_display = csv_data_display;
@@ -95,6 +95,7 @@
 		  return csv_data_temp;
 
         }
+		this.csv_data= d (data);
 		);
 		console.log("csv apres fonction");
 		console.log(this.csv_data);
