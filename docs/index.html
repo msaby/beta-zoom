@@ -86,7 +86,11 @@
 
           
         });
-    }
+    },
+	get_line: function () {
+		console.log("tt");
+		console.log(csv_path);
+	}
 }
 
 
@@ -165,6 +169,9 @@
 	  $("table").on("click", "button", function(event){
 		display_text($(this).attr('value'));
 	  });
+	  CsvToHtmlTable.get_line({
+        numtext: 1
+      });
 	});
 	  
     </script>
