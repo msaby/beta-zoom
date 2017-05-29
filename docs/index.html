@@ -152,10 +152,9 @@
 		
 	  }
 	   
-	  $( document ).ready(function(){
-		var corpus_csv = $.csv.toObjects('data/ZOOM_corpus.csv')
-	    
-      CsvToHtmlTable.init({
+	$( document ).ready(function(){
+	  var corpus_csv = $.csv.toObjects('data/ZOOM_corpus.csv');
+	  CsvToHtmlTable.init({
         csv_path: 'data/ZOOM_corpus.csv',
         element: 'table-container', 
         allow_download: true,
@@ -163,13 +162,10 @@
         datatables_options: {"paging": false},
         custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
       });
-	 
-	 
-	$("table").on("click", "button", function(event){
+	  $("table").on("click", "button", function(event){
 		display_text($(this).attr('value'));
-		}
-    
-});
+	  });
+	});
 	  
     </script>
 </body>
