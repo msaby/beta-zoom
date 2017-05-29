@@ -88,6 +88,12 @@
           
         });
     }
+	get_line: function (options) {
+		options = options || {};
+		var numtext = options.numtext || "";
+		console.log(numtext);
+	}
+
 }
 
 
@@ -151,6 +157,8 @@
 		contenu_fiche = contenu_fiche+"</div>";
 		$("#" + el).html(contenu_fiche);
 		
+		
+		
 	  }
 	   
 	  $( document ).ready(function(){
@@ -164,9 +172,10 @@
         datatables_options: {"paging": false},
         custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
       });
-	  
-	  
-  
+	 
+	 CsvToHtmlTable.get_line({
+        numtext: 1
+      });
 
 	$("table").on("click", "button", function(event){
 		display_text($(this).attr('value'));
@@ -176,8 +185,6 @@
 
 
  
-    });
-
 
 
 	  
