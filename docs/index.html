@@ -18,7 +18,6 @@
       <h2 class="alert">Textes pour Zoomathia</h2>
 
       <p>En construction.</p>
-<button type="button" class="btn" id="button-text-ref" data-toggle="button">test2</button>
 
       <p>Cliquez sur un lien dans la première colonne pour voir des détails.</p>
 	  
@@ -114,9 +113,45 @@
       }
 
 	  function detail_link(ref){
-        return '<button type="button" class="btn" id="button-text-'+ref+'" data-toggle="button">Fiche détaillée\n(texte ' + ref + ')</button>';
+        return '<button type="button" class="btn btn-info" id="button-text-'+ref+'" value="'+ref+'" data-toggle="button">Fiche texte ' + ref + ')</button>';
       }
 	  
+	  
+	  function display_text(num_text) {
+		el = 'fiche';
+		contenu_fiche = "<div class = 'content-fiche' id='content-fiche-'"+num_text+"'>";
+		contenu_fiche = contenu_fiche+"<h3 class='titre-fiche'>Fiche "+num_text+"</h3>";
+		contenu_fiche = contenu_fiche+"<div class = 'content-fiche-author>";
+		contenu_fiche = contenu_fiche+"<div class = 'cle-valeur'>;
+		contenu_fiche = contenu_fiche+"<div class = 'cle'>;
+		contenu_fiche = contenu_fiche+"Auteur";
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"<div class = 'valeur'>;
+		contenu_fiche = contenu_fiche+"Aristote";
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"<div class = 'content-fiche-work";
+		contenu_fiche = contenu_fiche+"<div class = 'cle-valeur'>;		
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"<div class = 'content-fiche-text";
+		contenu_fiche = contenu_fiche+"<div class = 'cle-valeur'>;		
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"<div class = 'content-fiche-passage";
+		contenu_fiche = contenu_fiche+"<div class = 'cle-valeur'>;		
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"<div class = 'content-fiche-process";
+		contenu_fiche = contenu_fiche+"<div class = 'cle-valeur'>;		
+		contenu_fiche = contenu_fiche+"</div>;
+		contenu_fiche = contenu_fiche+"</div>;
+		
+		contenu_fiche = contenu_fiche+"</div>";
+		$("#" + el).html(contenu_fiche);
+		
+	  }
 	   
 	  $( document ).ready(function(){
 		var corpus_csv = $.csv.toObjects('data/ZOOM_corpus.csv')
@@ -134,8 +169,8 @@
   
 
 	$("table").on("click", "button", function(event){
-    console.log($(this).text());
-    console.log($(this).attr('id'));
+		display_text($(this).attr('value'));
+		}
     
 });
 
