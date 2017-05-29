@@ -112,7 +112,7 @@
       }
 
 	  function detail_link(ref){
-        return "<a class='get-fiche' href='#' target='_blank'>Cliquez pour la fiche détaillée (texte " + ref + ")</a>";
+        return "<a class='get-fiche' href='' >Cliquez pour la fiche détaillée (texte " + ref + ")</a>";
       }
 	  
 	  
@@ -135,6 +135,7 @@
 	
 	$( "a.get_fiche" ).on( "click", function() {
         console.log( "fiche!" );
+		console.log( $(this).attr("class"));
     });
  
     });
