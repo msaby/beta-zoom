@@ -51,6 +51,7 @@
       $.when($.get(csv_path)).then(
         function(data){      
           this.csv_data = $.csv.toArrays(data, csv_options);
+		  console.log(csv_data);
 		  this.csv_nb_lines = this.csv_data.length;
 		  this.csv_nb_columns = this.csv_data[0].length;
           
@@ -91,6 +92,8 @@
     },
 	get_line: function (num_line) {
 		console.log(this.csv_data);
+		console.log(this.csv_nb_lines);
+		
 		for (head_id = 0; head_id < this.csv_data[0].length; head_id++) {
 			console.log(this.csv_data[0][head_id]);	
 	}
