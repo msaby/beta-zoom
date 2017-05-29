@@ -44,7 +44,7 @@
       var csv_options = options.csv_options || {};
       var datatables_options = options.datatables_options || {};
       var custom_formatting = options.custom_formatting || [];
-	  this.truc = "un truc"
+	  this.truc = "un truc";
       $("#" + el).html("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
 	  if (allow_download) 
 		  $("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger le CSV</a></p>");
@@ -53,6 +53,8 @@
         function(data){      
 	console.log("truc1");
 	console.log(this.truc);
+this.truc = "un autre truc";
+
 
           this.csv_data = $.csv.toArrays(data, csv_options);
 		  console.log(this.csv_data);
@@ -106,7 +108,9 @@
 
     },
 	get_line: function (num_line) {
-		console.log(this.csv_data);
+		console.log("truc3");
+	console.log(this.truc);
+	console.log(this.csv_data);
 		console.log(this.csv_nb_lines);
 		
 		for (head_id = 0; head_id < this.csv_data[0].length; head_id++) {
