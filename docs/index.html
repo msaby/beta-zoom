@@ -33,7 +33,7 @@
       </footer>
 {% include scripts.html %}
  <script type="text/javascript">
-	var csv_data = [];
+	var csv_data_brut = [];
 	var CsvToHtmlTable = CsvToHtmlTable || {};
 	CsvToHtmlTable = {
 	init: function (options) {
@@ -54,7 +54,9 @@
 	console.log("truc1");
 	console.log(this.truc);
 
-          csv_data = $.csv.toArrays(data, csv_options);
+          csv_data_brut = $.csv.toArrays(data, csv_options);
+          csv_data = csv_data_brut;
+
 		  console.log(csv_data);
 		  
           var table_head = "<thead><tr>";
@@ -95,7 +97,6 @@
 
         });
 		console.log("csv");
-		console.log(that.csv_data);
 
 		console.log(csv_data);
 		console.log("truc2");
@@ -104,7 +105,7 @@
 
     },
 	get_line: function (num_line) {
-		console.log("truc2");
+		console.log("fonction - truc2");
 	console.log(this.truc);
 console.log("retest");
 console.log(csv_data);
