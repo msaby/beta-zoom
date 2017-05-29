@@ -33,11 +33,10 @@
       </footer>
 {% include scripts.html %}
  <script type="text/javascript">
-	 var CsvToHtmlTable = CsvToHtmlTable || {};
+	var csv_data = [],
+	var CsvToHtmlTable = CsvToHtmlTable || {};
 	CsvToHtmlTable = {
-	this.csv_data:[],
-    init: function (options) {
-	  var that = this;
+	init: function (options) {
       options = options || {};
       var csv_path = options.csv_path || "";
       var el = options.element || "table-container";
@@ -55,22 +54,20 @@
 	console.log("truc1");
 	console.log(this.truc);
 
-          this.csv_data = $.csv.toArrays(data, csv_options);
-		  console.log(this.csv_data);
-		  this.csv_nb_lines = this.csv_data.length;
-		  this.csv_nb_columns = this.csv_data[0].length;
-          
+          csv_data = $.csv.toArrays(data, csv_options);
+		  console.log(csv_data);
+		  
           var table_head = "<thead><tr>";
 
-          for (head_id = 0; head_id < this.csv_data[0].length; head_id++) { 
-            table_head += "<th>" + this.csv_data[0][head_id] + "</th>";
+          for (head_id = 0; head_id < csv_data[0].length; head_id++) { 
+            table_head += "<th>" + csv_data[0][head_id] + "</th>";
           }
 
           table_head += "</tr></thead>";
           $('#' + el + '-table').append(table_head);
           $('#' + el + '-table').append("<tbody></tbody>");
 
-          for (row_id = 1; row_id < this.csv_data.length; row_id++) { 
+          for (row_id = 1; row_id < csv_data.length; row_id++) { 
             var row_html = "<tr>";
 
             //takes in an array of column index and function pairs
@@ -78,13 +75,13 @@
               $.each(custom_formatting, function(i, v){
                 var col_idx = v[0]
                 var func = v[1];
-                this.csv_data[row_id][col_idx]= func(this.csv_data[row_id][col_idx]);
-              }.apply(that)
+                csv_data[row_id][col_idx]= func(csv_data[row_id][col_idx]);
+              }
 			  )
             }
 
-            for (col_id = 0; col_id < this.csv_data[row_id].length; col_id++) { 
-              row_html += "<td>" + this.csv_data[row_id][col_id] + "</td>";
+            for (col_id = 0; col_id < csv_data[row_id].length; col_id++) { 
+              row_html += "<td>" + csv_data[row_id][col_id] + "</td>";
             }
               
             row_html += "</tr>";
@@ -94,13 +91,13 @@
           $('#' + el + '-table').DataTable(datatables_options);
 
           console.log ("apres");
-		  console.log(this.csv_data);
+		  console.log(csv_data);
 
-        }.apply(that));
+        });
 		console.log("csv");
 		console.log(that.csv_data);
 
-		console.log(this.csv_data);
+		console.log(csv_data);
 		console.log("truc2");
 	console.log(this.truc);
 
@@ -109,11 +106,11 @@
 	get_line: function (num_line) {
 		console.log("truc2");
 	console.log(this.truc);
-console.log(this.csv_data);
-		console.log(this.csv_nb_lines);
+console.log("retest");
+console.log(csv_data);
 		
-		for (head_id = 0; head_id < this.csv_data[0].length; head_id++) {
-			console.log(this.csv_data[0][head_id]);	
+		for (head_id = 0; head_id < csv_data[0].length; head_id++) {
+			console.log(csv_data[0][head_id]);	
 	}
 	}
 }
