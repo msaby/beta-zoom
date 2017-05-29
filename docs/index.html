@@ -231,8 +231,9 @@ console.log(csv_data_brut);
         allow_download: true,
         csv_options: {separator: ',', delimiter: '"'},
         datatables_options: {"paging": false},
-        custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]};
-      csv2table(options)
+        custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
+    };
+      csv2table(options);
 	  $("table").on("click", "button", function(event){
 		display_text($(this).attr('value'));
 		ele="#fiche";
