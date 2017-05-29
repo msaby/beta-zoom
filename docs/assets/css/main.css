@@ -10,7 +10,12 @@
 #bloc-texte {background-color: #9cbaed;}
 .cle {font-weight:bold; 
 border-right: 1px solid red;}
-
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
 
 
 
