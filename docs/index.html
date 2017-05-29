@@ -50,7 +50,7 @@
 		  $("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger le CSV</a></p>");
 
       $.when($.get(csv_path)).then(
-        function(data){      
+        function d(data){      
 	console.log("truc1");
 	console.log(this.truc);
 this.truc = "un autre truc";
@@ -76,7 +76,7 @@ this.truc = "un autre truc";
 
             //takes in an array of column index and function pairs
             if (custom_formatting != []) {
-              $.each(custom_formatting, function(i, v){
+              $.each(custom_formatting, function (i, v){
                 var col_idx = v[0]
                 var func = v[1];
                 this.csv_data[row_id][col_idx]= func(this.csv_data[row_id][col_idx]);
@@ -97,10 +97,11 @@ this.truc = "un autre truc";
           console.log ("apres");
 		  console.log(this.csv_data);
 
-        }.bind(this));
-		console.log("csv");
+        }.bind(this)
+		d();
+		);
+		console.log("csv apres fonction");
 		console.log(that.csv_data);
-
 		console.log(this.csv_data);
 		console.log("truc2");
 	console.log(this.truc);
