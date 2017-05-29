@@ -90,6 +90,9 @@
 
           
         });
+		console.log("csv");
+		console.log(this.csv_data);
+
     },
 	get_line: function (num_line) {
 		console.log(this.csv_data);
@@ -177,8 +180,7 @@
 	  $("table").on("click", "button", function(event){
 		display_text($(this).attr('value'));
 		ele="#fiche";
-		$(window).scrollTop(ele.offset().top).scrollLeft(ele.offset().left);
-	
+		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
 	  });
 	  CsvToHtmlTable.get_line({
         numtext: 1
