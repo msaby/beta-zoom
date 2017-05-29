@@ -80,9 +80,14 @@
 	function handleData(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting ) {
     csv_data_as_array = $.csv.toArrays(data, csv_options);
     displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
+    $("table").on("click", "button", function(event){
+		display_text($(this).attr('value'));
+		ele="#fiche";
+		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
+	  });
     //do some stuff
 }
-	function csv2table(options) {
+	function process(options) {
 		options = options || {};
 		var csv_path = options.csv_path || "";
 		var el = options.element || "table-container";
@@ -273,12 +278,8 @@ console.log(csv_data_brut);
         datatables_options: {"paging": false},
         custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
     };
-      csv2table(options);
-	  $("table").on("click", "button", function(event){
-		display_text($(this).attr('value'));
-		ele="#fiche";
-		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
-	  });
+      process(options);
+	  
 	  /*
 	  CsvToHtmlTable.get_line({
         numtext: 1
