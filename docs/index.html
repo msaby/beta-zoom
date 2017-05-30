@@ -94,8 +94,11 @@
 		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
 	  });
     $("table").on("click", ".btn-text-DL", function(event){
-		var win = window.open(get_text_file_path(), '_blank');
-		win.focus();   
+		// var win = window.open(get_text_file_path(), '_blank');
+		// win.focus();   
+		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){alert data});
+		
+
 	  });
 }
 	
