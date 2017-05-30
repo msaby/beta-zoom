@@ -82,7 +82,7 @@
             $('#' + el + '-table tbody').append(row_html);
           }
 
-          var tableau = $('#' + el + '-table').DataTable(datatables_options);
+       //   var tableau = $('#' + el + '-table').DataTable(datatables_options);
 				
 				
 
@@ -137,7 +137,6 @@
 	csv_data_as_array = $.csv.toArrays(data, csv_options);
 	displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 	}	
-	
 	
 	function handleData(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
 	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting )});
