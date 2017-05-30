@@ -84,16 +84,12 @@
 		  
 		  var col_entetes = [];
 		  for(var i= 1; i < csv_entetes.length; i++) {
-			console.log (csv_entetes[i][2]);
 			var a = {}
 			a["title"]=csv_entetes[i][2];
-			console.log (a);
 			col_entetes.push (a);
 		  } 
-		  console.log (col_entetes);
 		  
 		  datatables_options ["columns"] = col_entetes;
-		  console.log (datatables_options);
 		  
 		  var tableau = $('#' + el + '-table').DataTable(datatables_options);
 
