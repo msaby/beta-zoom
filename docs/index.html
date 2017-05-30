@@ -80,6 +80,19 @@
           }
 
           var tableau = $('#' + el + '-table').DataTable(datatables_options);
+	
+/*	
+		  $('#example').dataTable( {
+  "columns": [
+    { "title": "My column title" },
+    null,
+    null,
+    null,
+    null
+  ]
+} );
+
+*/
 		  // inutile pour l'instant
 		  /*
 		  $('a.display-all').on( 'click', function (e) {
@@ -100,6 +113,9 @@
 	
 
 	function handleData_entete(data, textStatus, jqXHR,csv_options) {
+	console.log (data);
+	console.log (csv_options);
+	
 		csv_entetes= $.csv.toArrays(data, csv_options);
 	}	
 	
