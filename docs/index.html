@@ -112,20 +112,19 @@
 	
 	
 
-	function handleData_entete(data, textStatus, jqXHR,csv_options) {
+	function handleData_entete(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
+
 	console.log (data);
 	console.log (csv_options);
 	
 		csv_entetes= $.csv.toArrays(data, csv_options);
 			console.log (csv_entetes);
 
-	}	
-	
-	
-	function handleData(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
-    csv_data_as_array = $.csv.toArrays(data, csv_options);
-	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data,textStatus,jqXHR,csv_options)});
-    displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
+			
+			    csv_data_as_array = $.csv.toArrays(data, csv_options);
+
+			
+			 displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 				
 	
     $("table").on("click", ".btn-text-info", function(event){
@@ -140,6 +139,12 @@
 				// getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting)});
 
 	  });
+	}	
+	
+	
+	function handleData(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
+	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting )});
+   
 }
 	
 	
