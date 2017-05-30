@@ -215,6 +215,18 @@
 	  		if (i[1]=="author"){	
 	  			meta_author.push([i[0],i[2]]);
 	  		} 
+	  		if (i[1]=="work"){	
+	  			meta_author.push([i[0],i[2]]);
+	  		} 
+	  		if (i[1]=="text"){	
+	  			meta_author.push([i[0],i[2]]);
+	  		} 
+	  		if (i[1]=="passage"){	
+	  			meta_author.push([i[0],i[2]]);
+	  		} 
+	  		if (i[1]=="zoom"){	
+	  			meta_author.push([i[0],i[2]]);
+	  		} 
 	  	}
 
 		el = 'fiche';
@@ -229,10 +241,10 @@
 
 for (let i of meta_author) {
 		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-2'>";
+		contenu_fiche +="<div class = 'cle col-md-4'>";
 		contenu_fiche +=i[0];
 		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-4'>";
+		contenu_fiche += "<div class = 'valeur col-md-8'>";
 		contenu_fiche +=i[1];
 		contenu_fiche += "</div>";
 		contenu_fiche += "</div>"; // row
@@ -240,47 +252,57 @@ for (let i of meta_author) {
 		contenu_fiche += "</div>"; // content-fiche-author
 		contenu_fiche +="<div class = 'content-fiche-work'>";
 		contenu_fiche +="<h4>Informations sur l&apos;oeuvre</h4>";
+for (let i of meta_work) {
 		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-2'>";
-		contenu_fiche +="Titre";
+		contenu_fiche +="<div class = 'cle col-md-4'>";
+		contenu_fiche +=i[0];
 		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-4'>";
-		contenu_fiche +="Aristote";
+		contenu_fiche += "<div class = 'valeur col-md-8'>";
+		contenu_fiche +=i[1];
 		contenu_fiche += "</div>";
 		contenu_fiche += "</div>"; // row
+	}
 		contenu_fiche += "</div>"; // content-fiche-work
 		contenu_fiche +="<div class = 'content-fiche-text'>";
 		contenu_fiche +="<h4>Informations sur le texte</h4>";
+		
+	for (let i of meta_text) {
 		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-2'>";
-		contenu_fiche +="Edition";
+		contenu_fiche +="<div class = 'cle col-md-4'>";
+		contenu_fiche +=i[0];
 		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-4'>";
-		contenu_fiche +="Aristote";
+		contenu_fiche += "<div class = 'valeur col-md-8'>";
+		contenu_fiche +=i[1];
 		contenu_fiche += "</div>";
 		contenu_fiche += "</div>"; // row
+	}
 		contenu_fiche += "</div>"; // content-fiche-text
 		contenu_fiche +="<div class = 'content-fiche-passage'>";
 		contenu_fiche +="<h4>Informations sur le(s) passage(s)</h4>";
+		
+	for (let i of meta_passage) {
 		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-2'>";
-		contenu_fiche +="Edition";
+		contenu_fiche +="<div class = 'cle col-md-4'>";
+		contenu_fiche +=i[0];
 		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-4'>";
-		contenu_fiche +="Aristote";
+		contenu_fiche += "<div class = 'valeur col-md-8'>";
+		contenu_fiche +=i[1];
 		contenu_fiche += "</div>";
 		contenu_fiche += "</div>"; // row
+	}
 		contenu_fiche += "</div>"; // content-fiche-passage
 		contenu_fiche +="<div class = 'content-fiche-process'>";
-		contenu_fiche +="<h4>Informations sur le processus de travail</h4>";
+		contenu_fiche +="<h4>Informations sur le traitement</h4>";	
+	for (let i of meta_zoom) {
 		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-2'>";
-		contenu_fiche +="Edition";
+		contenu_fiche +="<div class = 'cle col-md-4'>";
+		contenu_fiche +=i[0];
 		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-4'>";
-		contenu_fiche +="Aristote";
+		contenu_fiche += "<div class = 'valeur col-md-8'>";
+		contenu_fiche +=i[1];
 		contenu_fiche += "</div>";
 		contenu_fiche += "</div>"; // row
+	}
 		contenu_fiche += "</div>"; // content-fiche-process		
 		contenu_fiche += "</div>"; // panel-body
 		contenu_fiche += "</div>"; // panel
@@ -328,7 +350,7 @@ for (let i of meta_author) {
 			"paging": false
 			// ,"columnDefs": [{ "visible": false,  "targets": [ 2 ] }]
 			},
-		custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
+		custom_formatting: [[0, detail_link]]
 		};
       process(options);
   });
