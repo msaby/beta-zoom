@@ -234,11 +234,13 @@
 		contenu_fiche += "</div>"; // row
 		contenu_fiche += "</div>"; // content-fiche-process		
 		contenu_fiche += "</div>"; 	
-		contenu_fiche += "<div class='col-md-6' id='bloc-texte'><p>Texte</p></div>";
+		contenu_fiche += "<div class='col-md-6' id='bloc-texte'><h4>Texte encodé</h4><div class='textajax'></div></div>";
 		contenu_fiche += "</row>";
 		contenu_fiche += "</div>"; 	
 		$("#" + el).html(contenu_fiche);
 		
+		
+		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){$("div .textajax").text(data);});
 	  }
 
 
