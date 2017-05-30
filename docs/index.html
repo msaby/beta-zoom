@@ -44,12 +44,31 @@
 			dataType: "text"
     });
 	}
+
+	function deepCopy(obj) {
+    if (Object.prototype.toString.call(obj) === '[object Array]') {
+        var out = [], i = 0, len = obj.length;
+        for ( ; i < len; i++ ) {
+            out[i] = arguments.callee(obj[i]);
+        }
+        return out;
+    }
+    if (typeof obj === 'object') {
+        var out = {}, i;
+        for ( i in obj ) {
+            out[i] = arguments.callee(obj[i]);
+        }
+        return out;
+    }
+    return obj;
+}
+
 	function displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 	// TODO correction pour ne pas modifier le tableau
 	{
 	
 
-		var csv_data_display = csv_data_as_array.slice();
+		var csv_data_display = deepCopy (csv_data_as_array);
 		var table_head = "<thead><tr>";
 
           for (head_id = 0; head_id < csv_data_display[0].length; head_id++) { 
