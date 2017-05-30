@@ -167,15 +167,7 @@
 
 	function handleData_entete(data, textStatus, jqXHR,data_tableau,el,csv_options,datatables_options,custom_formatting ) {
 
-	csv_entetes= $.csv.toArrays(data, csv_options);
-	console.log(csv_entetes[0]);
-	csv_entetes.shift();
-		console.log(csv_entetes[0]);
-				console.log(csv_entetes[1]);
-
-return;
-
-	for (var i=0;i<csv_entetes.length;i++) {csv_entetes[i].shift();}
+	csv_entetes= $.csv.toArrays(data, csv_options).shift();
 	csv_data_as_array = $.csv.toArrays(data_tableau, csv_options);
 
 	displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
