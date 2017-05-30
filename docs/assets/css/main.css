@@ -10,6 +10,7 @@
 #bloc-texte {background-color: #9cbaed;
 overflow-x:scroll;
 overflow-y:scroll;
+max-height:300px;
 }
 .cle {font-weight:bold; 
 border-right: 1px solid red;}
@@ -18,7 +19,6 @@ border-right: 1px solid red;}
   display: -webkit-flex;
   display: -ms-flexbox;
   display:         flex;
-  max-height:200 px;
 }
 
 
