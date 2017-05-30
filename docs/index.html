@@ -218,9 +218,13 @@
         element: 'table-container', 
         allow_download: true,
         csv_options: {separator: ',', delimiter: '"'},
-        datatables_options: {"paging": false,{ "visible": false,  "targets": [ 3 ] },{ "visible": false,  "targets": [ 2 ] }},
-	    custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
-    };
+        datatables_options: {
+			"language": {"search": "Recherchez un élément:"},
+			"paging": false,
+			"visible": false,
+			"columnDefs": { "visible": false,  "targets": [ 2,3,4 ] }},
+			"custom_formatting": [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
+			};
       process(options);
   });
 	  
