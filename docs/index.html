@@ -15,11 +15,12 @@
 <section class="main-content">
 <div class="container-fluid">
 
-      <h2 class="alert">Textes pour Zoomathia</h2>
+      <h2 class="alert">Textes pour Zoomathia (en construction)</h2>
 
-      <p>En construction.</p>
-
-      <p>Cliquez sur un bouton dans la première colonne pour afficher la fiche détaillée pour chaque texte.</p>
+      <p>Tableau affichée dynamiquement à partir d'un fichier csv.</p>
+	  <p>Seules certaines colonnes sont affichées.</p>
+	  <p>Cliquez sur un bouton dans la première colonne du tableau pour afficher la fiche détaillée pour chaque texte.</p>
+	  
 	  
 	  <div id='fiche'></div>
 
@@ -76,7 +77,14 @@
           }
 
           $('#' + el + '-table').DataTable(datatables_options);
-	
+		  
+		  $('#' + el + '-table').prepend ('<div>Toggle column: <a class="toggle-vis" data-column="0">Name</a> - <a class="toggle-vis" data-column="1">Position</a> - <a class="toggle-vis" data-column="2">Office</a> - <a class="toggle-vis" data-column="3">Age</a> - <a class="toggle-vis" data-column="4">Start date</a> - <a class="toggle-vis" data-column="5">Salary</a></div>');
+		  $('a.toggle-vis').on( 'click', function (e) {
+			e.preventDefault(); 
+			var column = table.column( $(this).attr('data-column') );
+			column.visible( ! column.visible() );
+		} );
+
 	}
 	
 	function get_text_file_path(path,filename) {
@@ -88,6 +96,10 @@
 	function handleData(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting ) {
     csv_data_as_array = $.csv.toArrays(data, csv_options);
     displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
+	
+	
+			
+	
     $("table").on("click", ".btn-text-info", function(event){
 		display_text($(this).attr('value'));
 		ele="#fiche";
@@ -224,7 +236,7 @@
         datatables_options: {
 			"language": {"search": "Recherchez un élément:"},
 			"paging": false,
-			"columnDefs": [{ "visible": false,  "targets": [ 2,3,4,5,6,8,10,11,12,13,14 ] }]},
+			"columnDefs": [{ "visible": false,  "targets": [ 2 ] }]},
 		custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
 		};
       process(options);
