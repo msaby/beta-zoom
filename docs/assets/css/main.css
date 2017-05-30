@@ -7,7 +7,9 @@
 
 
 #bloc-infos {background-color: #f4f5f5;}
-#bloc-texte {background-color: #9cbaed;}
+#bloc-texte {background-color: #9cbaed;
+overflow-x:scroll;
+overflow-y:scroll;}
 .cle {font-weight:bold; 
 border-right: 1px solid red;}
 .row-eq-height {

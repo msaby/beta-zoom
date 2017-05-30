@@ -81,16 +81,20 @@
             $('#' + el + '-table tbody').append(row_html);
           }
 
-          var tableau = $('#' + el + '-table').DataTable(datatables_options);
 		  
 		  var col_entetes = [];
 		  for(var i= 0; i < csv_entetes.length; i++) {
-			col_entetes.push ({"title":csv_entetes[2]});
+			var a = {}
+			a["title"]=csv_entetes[2];
+			col_entetes.push (a);
 		  } 
 		  console.log (col_entetes)
-		  tableau ({"columns":col_entetes});
 		  
+		  datatables_options.push (col_entetes);
+		  
+		  var tableau = $('#' + el + '-table').DataTable(datatables_options);
 
+		  
 		  // inutile pour l'instant
 		  /*
 		  $('a.display-all').on( 'click', function (e) {
