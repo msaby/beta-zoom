@@ -150,8 +150,11 @@
 	function handleData_entete(data, textStatus, jqXHR,data_tableau,el,csv_options,datatables_options,custom_formatting ) {
 
 	csv_entetes= $.csv.toArrays(data, csv_options);
+	console.log(csv_data_as_array);
 	csv_data_as_array = $.csv.toArrays(data_tableau, csv_options);
 	console.log(data_tableau);
+		console.log(csv_data_as_array);
+
 	displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 	}	
 	
