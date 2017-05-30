@@ -104,12 +104,9 @@
 		  var col_entetes = [];
 		  for(var i= 0; i < csv_entetes.length; i++) {
 			var a = {}
-					  console.log (csv_entetes[i]);
-
 			a["title"]=csv_entetes[i][2];
 			col_entetes.push (a);
 		  } 
-		  console.log (col_entetes);
 		  datatables_options ["columns"] = col_entetes;
 		  
 		  var tableau = $('#' + el + '-table').DataTable(datatables_options);
@@ -169,7 +166,6 @@
 
 	csv_entetes= $.csv.toArrays(data, csv_options);
 	csv_entetes.shift();
-	console.log(csv_entetes);
 	csv_data_as_array = $.csv.toArrays(data_tableau, csv_options);
 
 	displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
@@ -213,8 +209,8 @@
 		contenu_fiche = "<div class = 'content-fiche' id='content-fiche-'"+num_text+"'>";
 		contenu_fiche += "<row class='row-eq-height'>";
 		contenu_fiche += "<div class='col-md-6' id='bloc-infos'>";
-		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h3 class='titre-fiche'>Fiche "+num_text+"</h3><span class='pull-right clickable'><span> (cliquez pour réduire) </span><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
-		contenu_fiche += "<div class='panel-body'>";
+		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title titre-fiche'>Fiche "+num_text+"</h4><span class='pull-right clickable data-toggle='collapse' data-target='#collapse1'><span> (cliquez pour réduire) </span><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
+		contenu_fiche += "<div class='panel-body panel-collapse collapse in' id='collapse1'>";
 		contenu_fiche +="<div class = 'content-fiche-author'>";
 		contenu_fiche +="<h4>Informations sur l&apos;auteur</h4>";
 		contenu_fiche +="<div class = 'row cle-valeur'>";
@@ -274,8 +270,8 @@
 		contenu_fiche += "</div>"; // panel
 		contenu_fiche += "</div>"; //bloc-info
 		contenu_fiche += "<div class='col-md-6' id='bloc-texte'>";
-		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h3 class='titre-fiche'>Texte en TEI</h3><span class='pull-right clickable'><span> (cliquez pour réduire) </span><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
-		contenu_fiche += "<div class='panel-body'>";
+		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'>Texte en TEI</h4><span class='pull-right clickable' data-toggle='collapse' data-target='#collapse2'><span> (cliquez pour réduire) </span><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
+		contenu_fiche += "<div class='panel-body panel-collapse collapse in' id='collapse2'>";
 		contenu_fiche +="<div class='textajax'></div>";
 		contenu_fiche += "</div>"; // panel-body
 		contenu_fiche += "</div>"; // panel
