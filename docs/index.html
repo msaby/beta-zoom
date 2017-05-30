@@ -81,6 +81,9 @@
 
           var tableau = $('#' + el + '-table').DataTable(datatables_options);
 		  
+	
+	
+		  
 		  $('a.display-all').on( 'click', function (e) {
 			e.preventDefault(); 
 			tableau.columns().every( function () {
@@ -115,7 +118,7 @@
 
 	  });
 }
-
+	
 	
 	 function ValidURL(str) {
 	    var pattern = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
@@ -216,7 +219,7 @@
 	   function process(options) {
 		options = options || {};
 		var csv_path = options.csv_path || "";
-		var csv_path = options.csv_path_entete || "";
+		var csv_path_entete = options.csv_path_entete || "";
 		var el = options.element || "table-container";
 		var allow_download = options.allow_download || false;
 		var csv_options = options.csv_options || {};
