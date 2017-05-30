@@ -77,6 +77,12 @@
           $('#' + el + '-table').DataTable(datatables_options);
 	}
 	
+	function create_file_path(path,filename) {
+		var path = "tlg0627/tlg005";
+		var filename = "tlg0627.tlg005.perseus-grc1.xml";
+		return "data"+path+filename;
+	}
+	
 	function handleData(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting ) {
     csv_data_as_array = $.csv.toArrays(data, csv_options);
     displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
@@ -86,10 +92,12 @@
 		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
 	  });
     $("table").on("click", ".btn-text-DL", function(event){
-		alert ("todo")	
+		alert (create_file_path())	
 	  });
     //do some stuff
 }
+	
+	
 	
 	 function ValidURL(str) {
 	    var pattern = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
