@@ -127,7 +127,22 @@
 		return "texts/"+path+"/"+filename;
 	}
 	
-	
+	function get_info_text(num_text) {
+		var =-1;
+		for (var i=0;i < csv_data_as_array.length;i++){
+			if (csv_data_as_array[i][0] == num_text) {
+				j=i;
+				break;
+			}
+		}
+		if (j==-1) {return 0;}
+		var infos=[];
+		for(var i= 1; i < csv_entetes.length; i++) {
+			var a = [csv_entetes[i][2],csv_entetes[i][3],csv_data_as_array[j][i]];
+			infos.push (a);
+		}
+		return infos; 
+	}
 
 	function handleData_entete(data, textStatus, jqXHR,data_tableau,el,csv_options,datatables_options,custom_formatting ) {
 
@@ -169,6 +184,7 @@
 	  
 	  
 	  function display_text(num_text) {
+	  	console.log(get_info_text(num_text));
 		el = 'fiche';
 		contenu_fiche = "<div class = 'content-fiche' id='content-fiche-'"+num_text+"'>";
 		contenu_fiche += "<row class='row-eq-height'>";
