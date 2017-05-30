@@ -47,6 +47,9 @@
 	function displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 	// TODO correction pour ne pas modifier le tableau
 	{
+	
+					console.log (csv_entetes);
+
 		var csv_data_display = csv_data_as_array;
 		var table_head = "<thead><tr>";
 
@@ -82,7 +85,6 @@
           var tableau = $('#' + el + '-table').DataTable(datatables_options);
 				
 				
-				console.log (csv_entetes);
 
 /*	
 		  $('#example').dataTable( {
@@ -129,7 +131,7 @@
 	
 	
 
-	function handleData_entete(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
+	function handleData_entete(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting ) {
 
 	csv_entetes= $.csv.toArrays(data, csv_options);
 	csv_data_as_array = $.csv.toArrays(data, csv_options);
@@ -138,7 +140,7 @@
 	
 	
 	function handleData(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
-	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting )});
+	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting )});
    
 }
 	
