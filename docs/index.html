@@ -148,10 +148,7 @@
 	
 	function get_info_text(num_text) {
 		var j=-1;
-		console.log("num_text");
-		console.log(num_text);
 		for (var i=0;i < csv_data_as_array.length;i++){
-			console.log(csv_data_as_array[i][0])
 			if (csv_data_as_array[i][0] == num_text) {
 				j=i;
 				break;
@@ -169,11 +166,7 @@
 	function handleData_entete(data, textStatus, jqXHR,data_tableau,el,csv_options,datatables_options,custom_formatting ) {
 
 	csv_entetes= $.csv.toArrays(data, csv_options);
-	console.log(csv_data_as_array);
 	csv_data_as_array = $.csv.toArrays(data_tableau, csv_options);
-	console.log(data_tableau);
-		console.log(csv_data_as_array);
-return;
 
 	displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 	}	
