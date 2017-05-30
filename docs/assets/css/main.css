@@ -5,7 +5,15 @@
    ========================================================================== */
 
 
-
+.panel-heading span
+    {
+        margin-top: -20px;
+        font-size: 15px;
+    }
+  .clickable
+    {
+        cursor: pointer;
+    }
 #bloc-infos {background-color: #f4f5f5;}
 #bloc-texte {background-color: #9cbaed;
 overflow-x:scroll;

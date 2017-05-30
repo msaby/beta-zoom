@@ -209,7 +209,8 @@
 		contenu_fiche = "<div class = 'content-fiche' id='content-fiche-'"+num_text+"'>";
 		contenu_fiche += "<row class='row-eq-height'>";
 		contenu_fiche += "<div class='col-md-6' id='bloc-infos'>";
-		contenu_fiche +="<h3 class='titre-fiche'>Fiche "+num_text+"</h3>";
+		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h3 class='titre-fiche'>Fiche "+num_text+"</h3><span> (cliquez pour réduire) </span><span class='pull-right clickable'><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
+		contenu_fiche += "<div class='panel-body'>";
 		contenu_fiche +="<div class = 'content-fiche-author'>";
 		contenu_fiche +="<h4>Informations sur l&apos;auteur</h4>";
 		contenu_fiche +="<div class = 'row cle-valeur'>";
@@ -265,12 +266,19 @@
 		contenu_fiche += "</div>";
 		contenu_fiche += "</div>"; // row
 		contenu_fiche += "</div>"; // content-fiche-process		
-		contenu_fiche += "</div>"; 	
-		contenu_fiche += "<div class='col-md-6' id='bloc-texte'><h4>Texte encodé</h4><div class='textajax'></div></div>";
+		contenu_fiche += "</div>"; // panel-body
+		contenu_fiche += "</div>"; // panel
+		contenu_fiche += "</div>"; //bloc-info
+		contenu_fiche += "<div class='col-md-6' id='bloc-texte'>";
+		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h3 class='titre-fiche'>Texte en TEI</h3><span> (cliquez pour réduire) </span><span class='pull-right clickable'><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
+		contenu_fiche += "<div class='panel-body'>";
+		contenu_fiche +="<div class='textajax'></div>";
+		contenu_fiche += "</div>"; // panel-body
+		contenu_fiche += "</div>"; // panel
+		contenu_fiche += "</div>"; //bloc-texte
 		contenu_fiche += "</row>";
 		contenu_fiche += "</div>"; 	
 		$("#" + el).html(contenu_fiche);
-		
 		
 		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){$("div .textajax").text(data);});
 	  }
