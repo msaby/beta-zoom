@@ -117,13 +117,14 @@
 	console.log (csv_options);
 	
 		csv_entetes= $.csv.toArrays(data, csv_options);
+			console.log (csv_entetes);
+
 	}	
 	
 	
 	function handleData(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
     csv_data_as_array = $.csv.toArrays(data, csv_options);
 	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data,textStatus,jqXHR,csv_options)});
-	console.log (csv_entetes);
     displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 				
 	
