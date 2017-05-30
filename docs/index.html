@@ -76,12 +76,12 @@
             $('#' + el + '-table tbody').append(row_html);
           }
 
-          $('#' + el + '-table').DataTable(datatables_options);
+          var tableau = $('#' + el + '-table').DataTable(datatables_options);
 		  
-		  $('#' + el + '-table').prepend ('<div>Toggle column: <a class="toggle-vis" data-column="0">Name</a> - <a class="toggle-vis" data-column="1">Position</a> - <a class="toggle-vis" data-column="2">Office</a> - <a class="toggle-vis" data-column="3">Age</a> - <a class="toggle-vis" data-column="4">Start date</a> - <a class="toggle-vis" data-column="5">Salary</a></div>');
+		  $('#' + el + '-table').prepend ('<div>Masquer colonnes: <a class="toggle-vis" data-column="0">Name</a> - <a class="toggle-vis" data-column="1">Position</a> - <a class="toggle-vis" data-column="2">Office</a> - <a class="toggle-vis" data-column="3">Age</a> - <a class="toggle-vis" data-column="4">Start date</a> - <a class="toggle-vis" data-column="5">Salary</a></div>');
 		  $('a.toggle-vis').on( 'click', function (e) {
 			e.preventDefault(); 
-			var column = table.column( $(this).attr('data-column') );
+			var column = tableau.column( $(this).attr('data-column') );
 			column.visible( ! column.visible() );
 		} );
 
