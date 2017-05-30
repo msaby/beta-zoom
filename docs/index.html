@@ -80,7 +80,10 @@
           }
 
           var tableau = $('#' + el + '-table').DataTable(datatables_options);
-	
+				
+				
+				console.log (csv_entetes);
+
 /*	
 		  $('#example').dataTable( {
   "columns": [
@@ -102,6 +105,20 @@
 				});		
 		} );
 		*/
+		
+		
+		$("table").on("click", ".btn-text-info", function(event){
+		display_text($(this).attr('value'));
+		ele="#fiche";
+		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
+	  });
+    $("table").on("click", ".btn-text-DL", function(event){
+		// var win = window.open(get_text_file_path(), '_blank');
+		// win.focus();   
+		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){alert (data);});
+				// getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting)});
+
+	  });
 	}
 	
 	function get_text_file_path(path,filename) {
@@ -114,31 +131,9 @@
 
 	function handleData_entete(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
 
-	console.log (data);
-	console.log (csv_options);
-	
-		csv_entetes= $.csv.toArrays(data, csv_options);
-			console.log (csv_entetes);
-
-			
-			    csv_data_as_array = $.csv.toArrays(data, csv_options);
-
-			
-			 displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
-				
-	
-    $("table").on("click", ".btn-text-info", function(event){
-		display_text($(this).attr('value'));
-		ele="#fiche";
-		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
-	  });
-    $("table").on("click", ".btn-text-DL", function(event){
-		// var win = window.open(get_text_file_path(), '_blank');
-		// win.focus();   
-		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){alert (data);});
-				// getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting)});
-
-	  });
+	csv_entetes= $.csv.toArrays(data, csv_options);
+	csv_data_as_array = $.csv.toArrays(data, csv_options);
+	displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 	}	
 	
 	
