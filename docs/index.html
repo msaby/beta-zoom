@@ -204,7 +204,19 @@
 	  
 	  
 	  function display_text(num_text) {
-	  	console.log(get_info_text(num_text));
+	  	info_text=get_info_text(num_text);
+	  	meta_author=[];
+	  	meta_work=[];
+	  	meta_text=[];
+	  	meta_passage=[];
+	  	meta_zoom=[];
+
+	  	for (let i of info_text) {
+	  		if (i[1]=="author"){	
+	  			meta_author.push([i[0],i[2]]);
+	  		} 
+	  	}
+
 		el = 'fiche';
 		contenu_fiche = "<div class = 'content-fiche' id='content-fiche-'"+num_text+"'>";
 		contenu_fiche += "<row class='row-eq-height'>";
@@ -213,14 +225,18 @@
 		contenu_fiche += "<div class='panel-body panel-collapse collapse in' id='collapse1'>";
 		contenu_fiche +="<div class = 'content-fiche-author'>";
 		contenu_fiche +="<h4>Informations sur l&apos;auteur</h4>";
+
+
+for (let i of meta_author) {
 		contenu_fiche +="<div class = 'row cle-valeur'>";
 		contenu_fiche +="<div class = 'cle col-md-2'>";
-		contenu_fiche +="Auteur";
+		contenu_fiche +=i[0];
 		contenu_fiche += "</div>";
 		contenu_fiche += "<div class = 'valeur col-md-4'>";
-		contenu_fiche +="Aristote";
+		contenu_fiche +=i[1];
 		contenu_fiche += "</div>";
 		contenu_fiche += "</div>"; // row
+	}
 		contenu_fiche += "</div>"; // content-fiche-author
 		contenu_fiche +="<div class = 'content-fiche-work'>";
 		contenu_fiche +="<h4>Informations sur l&apos;oeuvre</h4>";
