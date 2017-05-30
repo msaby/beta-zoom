@@ -96,8 +96,8 @@
     $("table").on("click", ".btn-text-DL", function(event){
 		// var win = window.open(get_text_file_path(), '_blank');
 		// win.focus();   
-		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){alert data});
-		
+		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){alert (data);});
+				// getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting)});
 
 	  });
 }
@@ -224,7 +224,7 @@
         datatables_options: {
 			"language": {"search": "Recherchez un élément:"},
 			"paging": false,
-			"columnDefs": [{ "visible": false,  "targets": [ 2,3,4,5,6,8 ] }]},
+			"columnDefs": [{ "visible": false,  "targets": [ 2,3,4,5,6,8,10,11,12,13,14 ] }]},
 		custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
 		};
       process(options);
