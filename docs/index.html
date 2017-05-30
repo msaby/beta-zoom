@@ -48,8 +48,6 @@
 	// TODO correction pour ne pas modifier le tableau
 	{
 	
-					console.log (csv_entetes);
-					console.log (datatables_options);
 
 		var csv_data_display = csv_data_as_array;
 		var table_head = "<thead><tr>";
@@ -83,22 +81,16 @@
             $('#' + el + '-table tbody').append(row_html);
           }
 
-       //   var tableau = $('#' + el + '-table').DataTable(datatables_options);
-				
-				
+          var tableau = $('#' + el + '-table').DataTable(datatables_options);
+		  
+		  var col_entetes = [];
+		  for(var i= 0; i < csv_entetes.length; i++) {
+			col_entetes = col_entetes.push ({"title":csv_entetes[2]});
+		  } 
+		  console.log (col_entetes)
+		  tableau ({"columns":col_entetes});
+		  
 
-/*	
-		  $('#example').dataTable( {
-  "columns": [
-    { "title": "My column title" },
-    null,
-    null,
-    null,
-    null
-  ]
-} );
-
-*/
 		  // inutile pour l'instant
 		  /*
 		  $('a.display-all').on( 'click', function (e) {
@@ -132,15 +124,15 @@
 	
 	
 
-	function handleData_entete(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting ) {
+	function handleData_entete(data, textStatus, jqXHR,data_table,el,csv_options,datatables_options,custom_formatting ) {
 
 	csv_entetes= $.csv.toArrays(data, csv_options);
-	csv_data_as_array = $.csv.toArrays(data, csv_options);
+	csv_data_as_array = $.csv.toArrays(data_table, csv_options);
 	displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 	}	
 	
 	function handleData(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
-	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting )});
+	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data, textStatus, jqXHR,data_table,el,csv_options,datatables_options,custom_formatting )});
    
 }
 	
