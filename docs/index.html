@@ -80,7 +80,7 @@
 	function create_file_path(path,filename) {
 		var path = "tlg0627/tlg005";
 		var filename = "tlg0627.tlg005.perseus-grc1.xml";
-		return "data"+path+filename;
+		return "data/"+path+"/"+filename;
 	}
 	
 	function handleData(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting ) {
@@ -92,9 +92,9 @@
 		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
 	  });
     $("table").on("click", ".btn-text-DL", function(event){
-		alert (create_file_path())	
+		var win = window.open(create_file_path(), '_blank');
+		win.focus();   
 	  });
-    //do some stuff
 }
 	
 	
@@ -121,7 +121,7 @@
       }
 
 	  function detail_link(ref){
-        return '<button type="button" class="btn btn-info btn-text-info" id="button-text-info-'+ref+'" value="'+ref+'" data-toggle="button">Détails</button><br/><button type="button" class="btn btn-info btn-text-DL" id="button-text-DL-'+ref+'" value="'+ref+'" data-toggle="button">Téléchargement</button>';
+        return '<button type="button" class="btn btn-info btn-text-info" id="button-text-info-'+ref+'" value="'+ref+'" data-toggle="button">Détails</button><br/><button type="button" class="btn btn-info btn-text-DL" id="button-text-DL-'+ref+'" value="'+ref+'" data-toggle="button">Texte brut (nouvel onglet)</button>';
       }
 	  
 	  
