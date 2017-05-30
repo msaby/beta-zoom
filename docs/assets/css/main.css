@@ -10,7 +10,8 @@
 #bloc-texte {background-color: #9cbaed;
 overflow-x:scroll;
 overflow-y:scroll;
-max-height:300px;
+max-height:600px;
+font-size:80%;
 }
 .cle {font-weight:bold; 
 border-right: 1px solid red;}
