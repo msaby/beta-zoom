@@ -18,7 +18,7 @@
       <h2 class="alert">Textes pour Zoomathia (en construction)</h2>
 
       <p>Tableau affichée dynamiquement à partir d'un fichier csv.</p>
-	  <p>Seules certaines colonnes sont affichées.</p>
+	  <p>Seules certaines colonnes sont affichées. <a class="display-all">Cliquez ici pour afficher toutes les colonnes</a><p>
 	  <p>Cliquez sur un bouton dans la première colonne du tableau pour afficher la fiche détaillée pour chaque texte.</p>
 	  
 	  
@@ -35,6 +35,8 @@
 {% include scripts.html %}
  <script type="text/javascript">
 	var csv_data_as_array = [];
+	var csv_entetes = [];
+		
 	function getData(path) {
 		return $.ajax({
 			url : path,
@@ -79,13 +81,12 @@
 
           var tableau = $('#' + el + '-table').DataTable(datatables_options);
 		  
-		  $('#' + el + '-table').prepend ('<div>Masquer colonnes: <a class="toggle-vis" data-column="0">Name</a> - <a class="toggle-vis" data-column="1">Position</a> - <a class="toggle-vis" data-column="2">Office</a> - <a class="toggle-vis" data-column="3">Age</a> - <a class="toggle-vis" data-column="4">Start date</a> - <a class="toggle-vis" data-column="5">Salary</a></div>');
-		  $('a.toggle-vis').on( 'click', function (e) {
+		  $('a.display-all').on( 'click', function (e) {
 			e.preventDefault(); 
-			var column = tableau.column( $(this).attr('data-column') );
-			column.visible( ! column.visible() );
+			tableau.columns().every( function () {
+				column.visible=true;
+				});		
 		} );
-
 	}
 	
 	function get_text_file_path(path,filename) {
@@ -94,12 +95,12 @@
 		return "texts/"+path+"/"+filename;
 	}
 	
-	function handleData(data, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting ) {
+	function handleData(data, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
     csv_data_as_array = $.csv.toArrays(data, csv_options);
+	getData(csv_path_entete).done(function (data,textStatus,jqXHR){csv_entetes= $.csv.toArrays(data, csv_options);});	
+	console.log (csv_entetes);
     displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
-	
-	
-			
+				
 	
     $("table").on("click", ".btn-text-info", function(event){
 		display_text($(this).attr('value'));
@@ -224,20 +225,22 @@
 		$("#" + el).html("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
 		if (allow_download) 
 			$("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger le CSV</a></p>");
-		getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting)});
+		getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting)});
 
 	}
 	$( document ).ready(function(){
 	  
       var options = {
       	csv_path: 'data/ZOOM_corpus.csv',
+		csv_path_entete:'ZOOM_corpus_entetes.csv',
         element: 'table-container', 
         allow_download: true,
         csv_options: {separator: ',', delimiter: '"'},
         datatables_options: {
 			"language": {"search": "Recherchez un élément:"},
-			"paging": false,
-			"columnDefs": [{ "visible": false,  "targets": [ 2 ] }]},
+			"paging": false
+			// ,"columnDefs": [{ "visible": false,  "targets": [ 2 ] }]
+			},
 		custom_formatting: [[0, detail_link],[3, format_link],[6, format_link],[16, format_link],[17, format_link],[22, format_link],[23, format_link]]
 		};
       process(options);
