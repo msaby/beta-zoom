@@ -17,35 +17,36 @@ num,label,label_clair,categorie
 15,work_language,Langue,work
 16,work_URI_data_bnf,URI Data.bnf,work
 17,work_URI_perseus_Catalog,URI Catalogue Perseus (œuvre),work
-18,work_reference_editions,Editions de référence,work
-19,work_available_editions,Editions disponibles,work
-20,work_genre,Genre,work
-21,work_description,Description,work
-22,text_old_Perseus_URI,URI site Perseus,text
-23,text_Perseus_or_First1KGreek_Github_URI,URI Github Perseus ou F1KG,text
-24,text_Perseus_edition,Edition Perseus,text
-25,text_Perseus_main_structure,Structure principale Perseus,text
-26,text_Perseus_secondary_structure,Structure secondaire Perseus,text
-27,text_Perseus_milestone,Milestones Perseus,text
-28,text_Perseus_CTS _refdecl,Compatible CTS Perseus,text
-29,text_Perseus_enrichment,Enrichissement Perseus,text
-30,text_other_source_URI,Autres sources (URI),text
-31,text_other_source_version,Autres sources (editions),text
-32,text_other_source_format,Autres sources (format),text
-33,text_other_source_licence,Autres sources (licence),text
-34,text_commentary,Commentaires sur le texte,text
-35,relevant_passages_ref,Références passages,passage
-36,relevant_passages_length,Longueur passage,passage
-37,relevant_passages_commentary,Commentaires sur les passages,passage
-38,zoom_step,zoom_step,zoom
-39,zoom_ref_added_by,zoom_ref_added_by,zoom
-40,zoom_ref_confirmed_by,zoom_ref_confirmed_by,zoom
-41,zoom_text_added_by,zoom_text_added_by,zoom
-42,zoom_text_source,zoom_text_source,zoom
-43,zoom_text_version,zoom_text_version,zoom
-44,zoom_text_confirmed_by,zoom_text_confirmed_by,zoom
-45,zoom_commented_by,zoom_commented_by,zoom
-46,zoom_checked_by,zoom_checked_by,zoom
-47,zoom_update_date,zoom_update_date,zoom
-48,zoom_file_work_path,zoom_file_work_path,zoom
-49,zoom_file_name,zoom_file_name,zoom
+18,work_URI_RSPA,URI RSPA,work
+19,work_reference_editions,Editions de référence,work
+20,work_available_editions,Editions disponibles,work
+21,work_genre,Genre,work
+22,work_description,Description,work
+23,text_old_Perseus_URI,URI site Perseus,text
+24,text_Perseus_or_First1KGreek_Github_URI,URI Github Perseus ou F1KG,text
+25,text_Perseus_edition,Edition Perseus,text
+26,text_Perseus_main_structure,Structure principale Perseus,text
+27,text_Perseus_secondary_structure,Structure secondaire Perseus,text
+28,text_Perseus_milestone,Milestones Perseus,text
+29,text_Perseus_CTS _refdecl,Compatible CTS Perseus,text
+30,text_Perseus_enrichment,Enrichissement Perseus,text
+31,text_other_source_URI,Autres sources (URI),text
+32,text_other_source_version,Autres sources (editions),text
+33,text_other_source_format,Autres sources (format),text
+34,text_other_source_licence,Autres sources (licence),text
+35,text_commentary,Commentaires sur le texte,text
+36,relevant_passages_ref,Références passages,passage
+37,relevant_passages_length,Longueur passage,passage
+38,relevant_passages_commentary,Commentaires sur les passages,passage
+39,zoom_step,zoom_step,zoom
+40,zoom_ref_added_by,zoom_ref_added_by,zoom
+41,zoom_ref_confirmed_by,zoom_ref_confirmed_by,zoom
+42,zoom_text_added_by,zoom_text_added_by,zoom
+43,zoom_text_source,zoom_text_source,zoom
+44,zoom_text_version,zoom_text_version,zoom
+45,zoom_text_confirmed_by,zoom_text_confirmed_by,zoom
+46,zoom_commented_by,zoom_commented_by,zoom
+47,zoom_checked_by,zoom_checked_by,zoom
+48,zoom_update_date,zoom_update_date,zoom
+49,zoom_file_work_path,zoom_file_work_path,zoom
+50,zoom_file_name,zoom_file_name,zoom
