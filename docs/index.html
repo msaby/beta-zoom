@@ -217,16 +217,16 @@
 	  			meta_author.push([i[0],i[2]]);
 	  		} 
 	  		if (i[1]=="work"){	
-	  			meta_author.push([i[0],i[2]]);
+	  			meta_work.push([i[0],i[2]]);
 	  		} 
 	  		if (i[1]=="text"){	
-	  			meta_author.push([i[0],i[2]]);
+	  			meta_text.push([i[0],i[2]]);
 	  		} 
 	  		if (i[1]=="passage"){	
-	  			meta_author.push([i[0],i[2]]);
+	  			meta_passage.push([i[0],i[2]]);
 	  		} 
 	  		if (i[1]=="zoom"){	
-	  			meta_author.push([i[0],i[2]]);
+	  			meta_zoom.push([i[0],i[2]]);
 	  		} 
 	  	}
 	  	metas = [meta_author,meta_work,meta_text,meta_passage,meta_zoom];
@@ -239,17 +239,10 @@
 		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title titre-fiche'>Fiche "+num_text+"</h4><span class='pull-right clickable' data-toggle='collapse' data-target='#collapse1'><span> (cliquez pour réduire) </span><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
 		contenu_fiche += "<div class='panel-body panel-collapse collapse in' id='collapse1'>";
 
-		for (var j=0;j<5;j++){
+		for (let j=0;j<5;j++){
 		contenu_fiche +="<div class = 'content-fiche'>";
 		contenu_fiche +="<h4>"+meta_title[j]+"</h4>";
-console.log ("j1");
-console.log (j);
-
 for (let i of metas[j]) {
-console.log ("j2");
-console.log (j);
-		contenu_fiche +="<h5>"+i[j]+"</h5>";
-/*
 
 		contenu_fiche +="<div class = 'row cle-valeur'>";
 		contenu_fiche +="<div class = 'cle col-md-4'>";
@@ -259,7 +252,6 @@ console.log (j);
 		contenu_fiche +=i[1];
 		contenu_fiche += "</div>";
 		contenu_fiche += "</div>"; // row
-		*/
 
 	}
 
