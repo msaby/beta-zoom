@@ -142,8 +142,7 @@
 			a["title"]=csv_entetes[i][2];
 			col_entetes.push (a);
 		  } 
-		  console.log (col_entetes);
-		  // datatables_options ["columns"] = col_entetes;
+		 
 		  
 		  var tableau = $('#' + el + '-table').DataTable(datatables_options);
 
@@ -212,19 +211,13 @@
 		return infos; 
 	}
 
-	function handleData_entete(data, textStatus, jqXHR,data_tableau,el,csv_options,datatables_options,custom_formatting ) {
-
-	csv_entetes= $.csv.toArrays(data, csv_options);
-	csv_entetes.shift();
+	
+	function handleData(data_tableau, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting ) {
+	csv_entetes= $.csv.toArrays(data_tableau.slice(1,3), csv_options);
+	data_tableau.splice(1,2);
 	csv_data_as_array = $.csv.toArrays(data_tableau, csv_options);
-
 	displayTable(csv_data_as_array,el,datatables_options,custom_formatting);
 	displayStats();
-	}	
-	
-	function handleData(data_tableau, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
-	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data, textStatus, jqXHR,data_tableau,el,csv_options,datatables_options,custom_formatting )});
-   
 }
 	
 	
@@ -334,7 +327,6 @@ for (let i of metas[j]) {
 	   function process(options) {
 		options = options || {};
 		var csv_path = options.csv_path || "";
-		var csv_path_entete = options.csv_path_entete || "";
 		var el = options.element || "table-container";
 		var allow_download = options.allow_download || false;
 		var csv_options = options.csv_options || {};
@@ -343,14 +335,13 @@ for (let i of metas[j]) {
 		$("#" + el).html("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
 		if (allow_download) 
 			$("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger la liste complète en CSV</a></p>");
-		getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting)});
+		getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting)});
 
 	}
 	$( document ).ready(function(){
 	  
       var options = {
       	csv_path: 'data2/ZOOM_corpus.csv',
-		csv_path_entete:'data2/ZOOM_corpus_entetes.csv',
         element: 'table-container', 
         allow_download: true,
         csv_options: {separator: ',', delimiter: '"'},
