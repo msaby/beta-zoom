@@ -21,8 +21,8 @@
 	  <p><b>Statistiques</b></p>:
 	  <p>Auteurs: <span id="nb_authors"/>></p>
 	  <p>Textes référencés: <span id="nb_texts"/></p>
-	  <p>Textes disponibles en TEI: <span id="nb_available_texts"/></p>
-	  <p>Textes annotés (achevé): <span id="nb_annotated_texts"/></p>
+	  <p>- dont disponibles en TEI: <span id="nb_available_texts"/></p>
+	  <p>- dont annotés: <span id="nb_annotated_texts"/></p>
 	  
 	  <!-- <p>Seules certaines colonnes sont affichées. <a class="display-all">Cliquez ici pour afficher toutes les colonnes</a><p> -->
 	  <p>Cliquez sur un bouton dans la première colonne du tableau pour afficher la fiche détaillée pour chaque texte, et le texte en TEI s'il est disponible.</p>
@@ -83,7 +83,7 @@
 		console.log(text_by_step);
 		console.log(text_by_step[0]+text_by_step[1]+text_by_step[2]+text_by_step[3]);
 		
-		
+		$("#nb_authors").text("");
 		$("#nb_texts").text(text_by_step[0]+text_by_step[1]+text_by_step[2]+text_by_step[3]);
 		$("#nb_available_texts").text(text_by_step[2]);
 		$("#nb_annotated_texts").text(text_by_step[3]);
@@ -91,8 +91,6 @@
 	
 	function displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 	{
-	
-
 		var csv_data_display = deepCopy (csv_data_as_array);
 		var table_head = "<thead><tr>";
 
@@ -176,7 +174,7 @@
 		}
 		for (let ligne of csv_data_as_array){
 			if (ligne[0]==num_text) {
-			    if ((zoom_file_name!="") and (zoom_file_work_path!="")) {
+			    if ((zoom_file_name!="") && (zoom_file_work_path!="")) {
 					file_path="texts/"+ligne[zoom_file_work_path_pos]+"/"+ligne[zoom_file_name_pos];
 				}
 				break;
