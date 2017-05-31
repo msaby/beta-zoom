@@ -239,7 +239,7 @@
 		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title titre-fiche'>Fiche "+num_text+"</h4><span class='pull-right clickable' data-toggle='collapse' data-target='#collapse1'><span> (cliquez pour réduire) </span><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
 		contenu_fiche += "<div class='panel-body panel-collapse collapse in' id='collapse1'>";
 
-		for (let j=0;j<5;j++){
+		for (var j=0;j<5;j++){
 		contenu_fiche +="<div class = 'content-fiche'>";
 		contenu_fiche +="<h4>"+meta_title[j]+"</h4>";
 console.log ("j1");
@@ -248,7 +248,7 @@ console.log (j);
 for (let i of metas[j]) {
 console.log ("j2");
 console.log (j);
-		contenu_fiche +="<h5>"+meta_title[j]+"</h5>";
+		contenu_fiche +="<h5>"+i[j]+"</h5>";
 /*
 
 		contenu_fiche +="<div class = 'row cle-valeur'>";
