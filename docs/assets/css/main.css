@@ -14,7 +14,8 @@
     {
         cursor: pointer;
     }
-#bloc-infos {background-color: #f4f5f5;}
+#bloc-infos {background-color: #f4f5f5;font-size:80%;overflow-x:scroll;
+overflow-y:scroll;}
 #bloc-texte {background-color: #9cbaed;
 overflow-x:scroll;
 overflow-y:scroll;
