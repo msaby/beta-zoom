@@ -139,10 +139,21 @@
 	  });
 	}
 	
-	function get_text_file_path(path,filename) {
-		var path = "tlg0627/tlg005";
-		var filename = "tlg0627.tlg005.perseus-grc1.xml";
-		return "texts/"+path+"/"+filename;
+	function get_text_file_path(num_text) {
+		var file_path="";		
+		var zoom_file_work_path_pos=0;
+		var zoom_file_name_pos=0;
+		for (let i;i<csv_data_as_array[0].length;i++) {
+			if (csv_data_as_array[0][i]=="zoom_file_name")  {zoom_file_name_pos=i;}
+			if (csv_data_as_array[0][i]=="zoom_file_work_path")  {zoom_file_work_path_pos=i;}
+		}
+		for (let ligne of csv_data_as_array){
+			if (ligne[0]==num_text) {
+				file_path="texts/"+ligne[zoom_file_work_path_pos]+"/"+ligne[zoom_file_name_pos];
+				break;
+			}
+		}
+	return file_path;
 	}
 	
 	function get_info_text(num_text) {
@@ -205,6 +216,7 @@
 	  
 	  
 	  function display_text(num_text) {
+	    text_file_path = get_text_file_path(num_text);
 	  	info_text=get_info_text(num_text);
 	  	meta_author=[];
 	  	meta_work=[];
@@ -227,7 +239,7 @@
 	  		} 
 	  		if (i[1]=="zoom"){	
 	  			meta_zoom.push([i[0],i[2]]);
-	  		} 
+	  		} 			
 	  	}
 	  	metas = [meta_author,meta_work,meta_text,meta_passage,meta_zoom];
 	  	meta_title = ['Auteur','Oeuvre','Version','Passage(s) pertinent(s)','Traitement'];
@@ -271,8 +283,12 @@ for (let i of metas[j]) {
 		contenu_fiche += "</row>";
 		contenu_fiche += "</div>"; 	
 		$("#" + el).html(contenu_fiche);
-		
-		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){$("div .textajax").text(data);});
+		alert (text_file_path);
+		if (text_file_path=="") {$("div .textajax").text("Texte absent de la base");}
+		else {
+			$("div .textajax").text("Texte en cours de chargement");
+			getData (text_file_path).done(function (data,textStatus,jqXHR){$("div .textajax").text(data);});
+		}
 	  }
 
 
