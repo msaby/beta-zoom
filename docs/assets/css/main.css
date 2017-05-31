@@ -4,7 +4,10 @@
    Author's custom styles
    ========================================================================== */
 
-
+div.dataTables_filter {
+    text-align: left;
+}
+	
 .panel-heading span
     {
         margin-top: -20px;
@@ -14,9 +17,9 @@
     {
         cursor: pointer;
     }
-#bloc-infos {background-color: #f4f5f5;font-size:80%;overflow-x:scroll;
+#bloc-infos {font-size:80%;overflow-x:scroll;
 overflow-y:scroll;}
-#bloc-texte {background-color: #9cbaed;
+#bloc-texte {
 overflow-x:scroll;
 overflow-y:scroll;
 max-height:600px;
