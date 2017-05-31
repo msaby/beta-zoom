@@ -4,8 +4,8 @@
    Author's custom styles
    ========================================================================== */
 
-div.dataTables_filter {
-    text-align: left;
+div.dataTables_wrapper div.dataTables_filter {
+    text-align: left !important;
 }
 	
 .panel-heading span
