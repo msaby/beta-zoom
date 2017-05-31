@@ -213,9 +213,12 @@
 
 	
 	function handleData(data_tableau, textStatus, jqXHR,el,csv_options,datatables_options,custom_formatting ) {
-	csv_entetes= $.csv.toArrays(data_tableau.slice(1,3), csv_options);
-	data_tableau.splice(1,2);
 	csv_data_as_array = $.csv.toArrays(data_tableau, csv_options);
+	csv_entetes=[];
+	for (let j=1;j<csv_data_as_array[1].length;j++){
+		csv_entetes.push([csv_data_as_array[1][j],sv_data_as_array[2][j]]);
+	}
+	csv_data_as_array.splice(1,2);
 	displayTable(csv_data_as_array,el,datatables_options,custom_formatting);
 	displayStats();
 }
