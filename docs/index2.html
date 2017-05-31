@@ -15,9 +15,9 @@
 <section class="main-content">
 <div class="container-fluid">
 
-      <h2 class="alert">Textes pour Zoomathia (en construction)</h2>
+      <h2 class="alert">Textes pour Zoomathia (en construction) - V2</h2>
 
-      <p>Tableau affichée dynamiquement à partir d'un fichier csv.</p>
+      <p>Tableau affiché dynamiquement à partir d'un fichier csv.</p>
 	  <p><b>Statistiques</b>:</p>
 	  <p>Auteurs: <span id="nb_authors"/></p>
 	  <p>Textes référencés: <span id="nb_texts"/></p>
@@ -187,7 +187,7 @@
 		for (let ligne of csv_data_as_array){
 			if (ligne[0]==num_text) {
 			    if ((ligne[zoom_file_name_pos]!="") && (ligne[zoom_file_work_path_pos]!="")) {
-					file_path="texts/"+ligne[zoom_file_work_path_pos]+"/"+ligne[zoom_file_name_pos];
+					file_path="texts2/"+ligne[zoom_file_work_path_pos]+"/"+ligne[zoom_file_name_pos];
 				}
 				break;
 			}
@@ -349,8 +349,8 @@ for (let i of metas[j]) {
 	$( document ).ready(function(){
 	  
       var options = {
-      	csv_path: 'data/ZOOM_corpus.csv',
-		csv_path_entete:'data/ZOOM_corpus_entetes.csv',
+      	csv_path: 'data2/ZOOM_corpus.csv',
+		csv_path_entete:'data2/ZOOM_corpus_entetes.csv',
         element: 'table-container', 
         allow_download: true,
         csv_options: {separator: ',', delimiter: '"'},
