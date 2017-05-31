@@ -209,7 +209,7 @@
 	  	meta_work=[];
 	  	meta_text=[];
 	  	meta_passage=[];
-	  	meta_zoom=[];
+	  	meta_zoom=[]; 
 
 	  	for (let i of info_text) {
 	  		if (i[1]=="author"){	
@@ -228,6 +228,8 @@
 	  			meta_author.push([i[0],i[2]]);
 	  		} 
 	  	}
+	  	metas = [meta_author,meta_work,meta_text,meta_passage,meta_zoom];
+	  	meta_title = ['Auteur','Oeuvre','Version','Passage(s) pertinent(s)','Traitement'];
 
 		el = 'fiche';
 		contenu_fiche = "<div class = 'content-fiche' id='content-fiche-'"+num_text+"'>";
@@ -235,75 +237,23 @@
 		contenu_fiche += "<div class='col-md-6' id='bloc-infos'>";
 		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title titre-fiche'>Fiche "+num_text+"</h4><span class='pull-right clickable' data-toggle='collapse' data-target='#collapse1'><span> (cliquez pour réduire) </span><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
 		contenu_fiche += "<div class='panel-body panel-collapse collapse in' id='collapse1'>";
-		contenu_fiche +="<div class = 'content-fiche-author'>";
-		contenu_fiche +="<h4>Informations sur l&apos;auteur</h4>";
 
+		for (let i=0;i<5;i++){
+		contenu_fiche +="<div class = 'content-fiche'>";
+		contenu_fiche +="<h4>"+meta_title[i]+"/h4>";
+for (let i of meta[i]) {
+		contenu_fiche +="<div class = 'row cle-valeur'>";
+		contenu_fiche +="<div class = 'cle col-md-4'>";
+		contenu_fiche +=i[0];
+		contenu_fiche += "</div>";
+		contenu_fiche += "<div class = 'valeur col-md-8'>";
+		contenu_fiche +=i[1];
+		contenu_fiche += "</div>";
+		contenu_fiche += "</div>"; // row
+	}
+		contenu_fiche += "</div>"; // content-fiche
+	}
 
-for (let i of meta_author) {
-		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-4'>";
-		contenu_fiche +=i[0];
-		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-8'>";
-		contenu_fiche +=i[1];
-		contenu_fiche += "</div>";
-		contenu_fiche += "</div>"; // row
-	}
-		contenu_fiche += "</div>"; // content-fiche-author
-		contenu_fiche +="<div class = 'content-fiche-work'>";
-		contenu_fiche +="<h4>Informations sur l&apos;oeuvre</h4>";
-for (let i of meta_work) {
-		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-4'>";
-		contenu_fiche +=i[0];
-		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-8'>";
-		contenu_fiche +=i[1];
-		contenu_fiche += "</div>";
-		contenu_fiche += "</div>"; // row
-	}
-		contenu_fiche += "</div>"; // content-fiche-work
-		contenu_fiche +="<div class = 'content-fiche-text'>";
-		contenu_fiche +="<h4>Informations sur le texte</h4>";
-		
-	for (let i of meta_text) {
-		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-4'>";
-		contenu_fiche +=i[0];
-		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-8'>";
-		contenu_fiche +=i[1];
-		contenu_fiche += "</div>";
-		contenu_fiche += "</div>"; // row
-	}
-		contenu_fiche += "</div>"; // content-fiche-text
-		contenu_fiche +="<div class = 'content-fiche-passage'>";
-		contenu_fiche +="<h4>Informations sur le(s) passage(s)</h4>";
-		
-	for (let i of meta_passage) {
-		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-4'>";
-		contenu_fiche +=i[0];
-		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-8'>";
-		contenu_fiche +=i[1];
-		contenu_fiche += "</div>";
-		contenu_fiche += "</div>"; // row
-	}
-		contenu_fiche += "</div>"; // content-fiche-passage
-		contenu_fiche +="<div class = 'content-fiche-process'>";
-		contenu_fiche +="<h4>Informations sur le traitement</h4>";	
-	for (let i of meta_zoom) {
-		contenu_fiche +="<div class = 'row cle-valeur'>";
-		contenu_fiche +="<div class = 'cle col-md-4'>";
-		contenu_fiche +=i[0];
-		contenu_fiche += "</div>";
-		contenu_fiche += "<div class = 'valeur col-md-8'>";
-		contenu_fiche +=i[1];
-		contenu_fiche += "</div>";
-		contenu_fiche += "</div>"; // row
-	}
-		contenu_fiche += "</div>"; // content-fiche-process		
 		contenu_fiche += "</div>"; // panel-body
 		contenu_fiche += "</div>"; // panel
 		contenu_fiche += "</div>"; //bloc-info
