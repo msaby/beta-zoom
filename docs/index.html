@@ -131,13 +131,13 @@
 		ele="#fiche";
 		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
 	  });
-    $("table").on("click", ".btn-text-DL", function(event){
+    /* $("table").on("click", ".btn-text-DL", function(event){
 		// var win = window.open(get_text_file_path(), '_blank');
 		// win.focus();   
 		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){alert (data);});
 				// getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting)});
 
-	  });
+	  }); */
 	}
 	
 	function get_text_file_path(num_text) {
@@ -145,7 +145,8 @@
 		var zoom_file_work_path_pos=0;
 		var zoom_file_name_pos=0;
 		for (let i;i<csv_data_as_array[0].length;i++) {
-			if (csv_data_as_array[0][i]=="zoom_file_name")  {zoom_file_name_pos=i;}
+			console.log(csv_data_as_array[0][i]);
+			if (csv_data_as_array[0][i]=="zoom_file_name")  {zoom_file_name_pos=i;alert (i);}
 			if (csv_data_as_array[0][i]=="zoom_file_work_path")  {zoom_file_work_path_pos=i;}
 		}
 		for (let ligne of csv_data_as_array){
