@@ -18,7 +18,7 @@
       <h2 class="alert">Textes pour Zoomathia (en construction)</h2>
 
       <p>Tableau affichée dynamiquement à partir d'un fichier csv.</p>
-	  <p><b>Statistiques</b></p>:
+	  <p><b>Statistiques</b>:</p>
 	  <p>Auteurs: <span id="nb_authors"/>></p>
 	  <p>Textes référencés: <span id="nb_texts"/></p>
 	  <p>- dont disponibles en TEI: <span id="nb_available_texts"/></p>
@@ -71,6 +71,7 @@
 
 	function displayStats(){
 		var zoom_step_pos=0;
+		var author_canonical_name_pos=0;
 		var text_by_step=[0,0,0,0];
 		for (let i=0;i<csv_data_as_array[0].length;i++) {
 			if (csv_data_as_array[0][i]=="zoom_step")  {zoom_step_pos=i;}
@@ -80,11 +81,21 @@
 			step = parseInt(ligne [zoom_step_pos].charAt(0));
 			text_by_step[step]=text_by_step[step]+1;
 		}
-		console.log(text_by_step);
-		console.log(text_by_step[0]+text_by_step[1]+text_by_step[2]+text_by_step[3]);
 		
-		$("#nb_authors").text("");
+		for (let i=0;i<csv_data_as_array[0].length;i++) {
+			if (csv_data_as_array[0][i]=="author_canonical_name")  {author_canonical_name_pos=i;}
+		}
+		var authors=[];
+		for (let ligne of csv_data_as_array){
+			if (authors.indexOf (ligne [author_canonical_name_pos]) < 0) {
+				authors.indexOf.push  (ligne [author_canonical_name_pos]);
+			}
+			
+		}
+		
+		$("#nb_authors").text((authors.length)-1);
 		$("#nb_texts").text(text_by_step[0]+text_by_step[1]+text_by_step[2]+text_by_step[3]);
+		$("#nb_unprecise_texts").text(text_by_step[1]);
 		$("#nb_available_texts").text(text_by_step[2]);
 		$("#nb_annotated_texts").text(text_by_step[3]);
 	}  
