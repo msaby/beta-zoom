@@ -80,6 +80,8 @@
 			step = parseInt(ligne [zoom_step_pos].charAt(0));
 			text_by_step[step]=text_by_step[step]+1;
 		}
+		console.log(text_by_step);
+		console.log(text_by_step[0]+text_by_step[1]+text_by_step[2]+text_by_step[3]);
 		$(#nb_texts).text(text_by_step[0]+text_by_step[1]+text_by_step[2]+text_by_step[3]);
 		$(#nb_available_texts).text(text_by_step[2]);
 		$(#nb_annotated_texts).text(text_by_step[3]);
