@@ -16,6 +16,7 @@
 <div class="container-fluid">
 
       <h2 class="alert">Textes pour Zoomathia (en construction) - V2</h2>
+      <p id="url_page"></p>
 
       <p>Tableau affiché dynamiquement à partir d'un fichier csv.</p>
 	  <p><b>Statistiques</b>:</p>
@@ -358,9 +359,12 @@ for (let i of metas[j]) {
 
 	}
 	$( document ).ready(function(){
-		   alert(getUrlParameter("numtext"));
+		var num_text = getUrlParameter("numtext");
+		if (num_text != "") {
+			$("#"+url_page).text('https://msaby.github.io/beta-zoom/index2.html?numtext='+numtext);
+		}
 
-	  
+
       var options = {
       	csv_path: 'data2/ZOOM_corpus.csv',
         element: 'table-container', 
