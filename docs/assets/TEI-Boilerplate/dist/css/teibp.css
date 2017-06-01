@@ -999,13 +999,13 @@ stdf:before {
   font-size: 2em;
   font-weight: bold;
 }
-stdf:before {
+text:before {
   content: "[BLOC TEXT CONTENANT LE TEXTE]";
   margin-top: 1em;
   font-size: 2em;
   font-weight: bold;
 }
-stdf:before {
+teiHeader:before {
   content: "[BLOC TEIHEADER CONTENANT L'ENTETE DU FICHIER]";
   margin-top: 1em;
   font-size: 2em;
