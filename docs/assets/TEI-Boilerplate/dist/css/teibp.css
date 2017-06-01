@@ -1019,7 +1019,10 @@ interpGrp interp {
   display:block;
 }
 interpGrp interp:before {
-  content: "   - ";
+  content: "   * ";
+}
+interpGrp interp:after {
+  content: " : "+attr(value);
 }
 
 moduleRef {
