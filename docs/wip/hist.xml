@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/xsl" href="teibp.xsl"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader>
+    <fileDesc>
+        <titleStmt>
+            <title>Historia animalium</title>
+            <author>Aristotle</author>
+            <editor>Immanuel Bekker</editor>
+            <funder>Andrew W. Mellon Foundation</funder>
+            <respStmt>
+                <persName xml:id="DDD">Digital Divide Data</persName>
+                <resp>Keyboarding</resp>
+            </respStmt>
+        </titleStmt>
+        <publicationStmt>
+            <authority>A Digital Corpus for Graeco-Arabic Studies, funded by the Andrew W. Mellon Foundation</authority>
+            <publisher>University of Leipzig</publisher>
+            <pubPlace>Germany</pubPlace>
+            <idno type="filename">tlg0086.tlg014.1st1K-grc1-zoom1.xml</idno>
+            <availability>
+                <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2016</date>
+        </publicationStmt>
+        <sourceDesc>
+            <biblStruct>
+                <monogr>
+                    <title>Aristotelis Opera</title>
+                    <author>Aristotle</author>
+                    <editor>Immanuel Bekker</editor>
+                    <imprint>
+                        <publisher>Oxford University Press</publisher>
+                        <pubPlace>Oxford</pubPlace>
+                        <biblScope unit="vol">4</biblScope>
+                        <biblScope unit="pp" from="1" to="383">1-383</biblScope>
+                        <date>1837</date>
+                    </imprint>
+                </monogr>
+                <ref target="https://catalog.hathitrust.org/Record/001222547">HathiTrust</ref>
+            </biblStruct>
+        </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+        <p>The following text is encoded in accordance with EpiDoc standards and with the CTS/CITE Architecture.</p>
+        <refsDecl n="CTS">
+            <cRefPattern matchPattern="(.+).(.+)" n="chapter" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+            <cRefPattern matchPattern="(.+)" n="book" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"/>
+        </refsDecl>
+    </encodingDesc>
+    <profileDesc>
+        <langUsage>
+            <language ident="greek">Greek</language>
+        </langUsage>
+    </profileDesc>
+</teiHeader>
+
+<text>
+    <body>
+        <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0086.tlg014.1st1K-grc1-zoom1">
+			<pb n="1" ed="Bekker"/>			
+            <div type="textpart" subtype="book" n="1">
+                <div type="textpart" subtype="chapter" n="1">
+					<head>ΠΕΡΙ ΤΑ ΖΩΙΑ ΙΣΤΟΡΙΩΝ Α.</head>
+                    <p>ΤΩΝ ἐν τοῖς ζῴοις μορίων τὰ μέν ἐστιν ἀσύνθετα, ὅσα <lb/>διαιρεῖται εἰς ὁμοιομερῆ, οἷον <milestone xml:id="begin-com1"/>
+					σάρκες</milestone> εἰς σάρκας, τὰ δὲ σύνθετα, <lb/>ὅσα εἰς ἀνομοιομερῆ, οἷον ἡ χεὶρ οὐκ εἰς χεῖρας διαιρεῖται <lb/>οὐδὲ τὸ πρόσωπον εἰς πρόσωπα. Τῶν δὲ τοιούτων <lb/>ἔνια οὐ μόνον μέρη ἀλλὰ καὶ μέλη καλεῖται. Τοιαῦτα <lb/>δ’ ἐστὶν ὅσα τῶν μερῶν ὅλα ὄντα ἕτερα μέρη ἔχει ἐν αὑτοῖς, <lb/>οἷον <milestone xml:id="begin-com2">κεφαλὴ</milestone> καὶ σκέλος καὶ χεὶρ καὶ ὅλος ὁ βραχίων <lb/>καὶ ὁ θώραξ· ταῦτα γὰρ αὐτά τέ ἐστι μέρη ὅλα, καὶ ἔστιν <lb/>αὐτῶν ἕτερα μόρια. Πάντα δὲ τὰ ἀνομοιομερῆ σύγκειται <lb/>ἐκ τῶν ὁμοιομερῶν, οἷον χεὶρ ἐκ σαρκὸς καὶ νεύρων καὶ ὀστῶν. <lb/>Ἔχει δὲ τῶν ζῴων ἔνια μὲν πάντα τὰ μόρια ταὐτὰ ἀλλήλοις, <lb/>ἔνια δ’ ἕτερα. Ταὐτὰ δὲ τὰ μὲν εἴδει τῶν <lb/>μορίων ἐστίν, οἷον ἀνθρώπου ῥὶς καὶ ὀφθαλμὸς ἀνθρώπου <lb/>ῥινὶ καὶ ὀφθαλμῷ, καὶ σαρκὶ σὰρξ καὶ ὀστῷ ὀστοῦν· τὸν <lb/>αὐτὸν δὲ τρόπον καὶ ἵππου καὶ τῶν ἄλλων ζῴων, ὅσα <lb/>τῷ εἴδει ταὐτὰ λέγομεν ἑαυτοῖς· ὁμοίως γὰρ ὥσπερ τὸ <lb/>ὅλον ἔχει πρὸς τὸ ὅλον, καὶ τῶν μορίων ἔχει ἕκαστον πρὸς <lb/>ἕκαστον. Τὰ δὲ ταὐτὰ μέν ἐστιν, διαφέρει δὲ καθ’ ὑπεροχὴν <lb/>καὶ ἔλλειψιν, ὅσων τὸ γένος ἐστὶ ταὐτόν. Λέγω δὲ <lb/>γένος οἷον ὄρνιθα καὶ ἰχθύν· τούτων γὰρ ἑκάτερον ἔχει διαφορὰν <lb/>κατὰ τὸ γένος, καὶ ἔστιν εἴδη πλείω ἰχθύων καὶ <lb/>ὀρνίθων. Διαφέρει δὲ σχεδὸν τὰ πλεῖστα τῶν μορίων ἐν <pb n="2"ed="Bekker"/> αὑτοῖς παρὰ τὰς τῶν παθημάτων ἐναντιώσεις, οἷον χρώματος <lb/>καὶ σχήματος, τῷ τὰ μὲν μᾶλλον αὐτὰ πεπονθέναι τὰ δὲ <lb/>ἧττον, ἔτι δὲ πλήθει καὶ ὀλιγότητι καὶ μεγέθει καὶ σμικρότητι <lb/>καὶ ὅλως ὑπεροχῇ καὶ ἐλλείψει. Τὰ μὲν γάρ ἐστι <lb/>μαλακόσαρκα αὐτῶν τὰ δὲ σκληρόσαρκα, καὶ τὰ μὲν <lb/>μακρὸν ἔχει τὸ ῥύγχος τὰ δὲ βραχύ, καὶ τὰ μὲν πολύπτερα <lb/>τὰ δ’ ὀλιγόπτερά ἐστιν. Οὐ μὴν ἀλλ’ ἔνιά γε καὶ ἐν τούτοις <lb/>ἕτερα ἑτέροις μόρια ὑπάρχει, οἷον τὰ μὲν ἔχει πλῆκτρα <lb/>τὰ δ’ οὔ, καὶ τὰ μὲν λόφον ἔχει τὰ δ’ οὐκ ἔχει. Ἀλλ’ <lb/>ὡς εἰπεῖν τὰ πλεῖστα καὶ ἐξ ὧν μερῶν ὁ πᾶς ὄγκος συνέστηκεν, <lb/>ἢ ταὐτά ἐστιν ἢ διαφέρει τοῖς ἐναντίοις καὶ καθ’ <lb/>ὑπεροχὴν καὶ ἔλλειψιν· τὸ γὰρ μᾶλλον καὶ ἧττον ὑπεροχὴν <lb/>ἄν τις καὶ ἔλλειψιν θείη. Ἔνια δὲ τῶν ζῴων οὔτε εἴδει <lb/>τὰ μόρια ταὐτὰ ἔχει οὔτε καθ’ ὑπεροχὴν καὶ ἔλλειψιν, <lb/>ἀλλὰ κατ’ ἀναλογίαν, οἷον πέπονθεν ὀστοῦν πρὸς ἄκανθαν <lb/>καὶ ὄνυξ πρὸς ὁπλὴν καὶ χεὶρ πρὸς χηλὴν καὶ πρὸς πτερὸν <lb/>λεπίς· ὃ γὰρ ἐν ὄρνιθι πτερόν, τοῦτο ἐν ἰχθύϊ ἐστὶ λεπίς. <lb/>Κατὰ μὲν οὖν μόρια ἃ ἔχουσιν ἕκαστα τῶν ζῴων, τοῦτόν <lb/>τε τὸν τρόπον ἕτερά ἐστι καὶ ταὐτά, καὶ ἔτι τῇ θέσει τῶν <lb/>μερῶν· πολλὰ γὰρ τῶν ζῴων ἔχει μὲν ταὐτὰ μέρη, ἀλλὰ <lb/>κείμενα οὐχ ὡσαύτως, οἷον μαστοὺς τὰ μὲν ἐν τῷ στήθει τὰ <lb/>δὲ πρὸς τοῖς μηροῖς. Ἔστι δὲ τῶν ὁμοιομερῶν τὰ μὲν <lb/>μαλακὰ καὶ ὑγρά, τὰ δὲ ξηρὰ καὶ στερεά, ὑγρὰ μέν, ἢ ὅλως <lb/>ἢ ἕως ἂν ᾖ ἐν τῇ φύσει, οἷον αἷμα, ἰχώρ, πιμελή, στέαρ, <lb/>μυελός, γονή, χολή, γάλα ἐν τοῖς ἔχουσι, σάρξ τε καὶ τὰ <lb/>τούτοις ἀνάλογον, ἔτι ἄλλον τρόπον τὰ περιττώματα, οἷον <pb n="3" ed="Bekker"/> φλέγμα, καὶ τὰ ὑποστήματα τῆς κοιλίας καὶ κύστεως· ξηρὰ <lb/>δὲ καὶ στερεὰ οἷον νεῦρον, δέρμα, φλέψ, θρίξ, ὀστοῦν, <lb/>χόνδρος, ὄνυξ, κέρας (ὁμώνυμον γὰρ πρὸς τὸ γένος, ὅταν <lb/>τῷ σχήματι καὶ τὸ ὅλον λέγηται κέρας), ἔτι ὅσα ἀνάλογον <lb/>τούτοις.</p>
+            </div>
+        </div>
+    </body>
+</text>
+<stdf xmlns="http://standoff.proposal">
+      <soHeader/>
+      <annotations>
+         <annotationGrp >
+			<interpGrp type="thezoo" resp="zoomathia">
+				<desc>Concepts du thésaurus Zoomathia</desc>
+				<interp xml:id="concept105124" value="http://web.cepam.cnrs.fr/opentheso/?idc=105124">Tête</interp>
+				<interp xml:id="concept105975" value="http://web.cepam.cnrs.fr/opentheso/?idc=105975">Chair</interp>
+			</interpGrp>
+            <spanGrp xmlns="http://www.tei-c.org/ns/1.0" type="adefinir">
+				<span from="from-com1" to="end-com1" ana="concept105124"/>				
+				<span from="from-com2" to="end-com2" ana="concept105975"/>
+			</spanGrp>
+		</annotationGrp>
+	  </annotations>
+</stdf>
+</TEI>
