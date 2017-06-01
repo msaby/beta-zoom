@@ -104,6 +104,7 @@
 	function displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
 	{
 		var csv_data_display = deepCopy (csv_data_as_array);
+		csv_data_display [0]= csv_entetes[0];
 		var table_head = "<thead><tr>";
 
           for (head_id = 0; head_id < csv_data_display[0].length; head_id++) { 
