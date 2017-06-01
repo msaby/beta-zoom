@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-stylesheet type="text/xsl" href="../assets/TEI-Boilerplate/src/content/teibp.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../assets/TEI-Boilerplate/dist/content/teibp.xsl"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
 <teiHeader>
     <fileDesc>
