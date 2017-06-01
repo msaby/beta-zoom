@@ -219,8 +219,9 @@ var getUrlParameter = function getUrlParameter(sParam) {
 		}
 		if (j==-1) {return 0;}
 		var infos=[];
-		for(var i= 0; i < csv_entetes.length; i++) {
-			var a = [csv_entetes[i][0],csv_entetes[i][1],csv_data_as_array[j][i]];
+		for(var i= 0; i < csv_data_as_array[j]; i++) {
+			var a = [csv_entetes[0][i],csv_entetes[1][i],csv_data_as_array[j][i]];
+			console.log(a);
 			infos.push (a);
 		}
 		return infos; 
