@@ -986,13 +986,12 @@ metSym {
   /* Empty Rule Set */
 }
 milestone {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: inline;
+  margin:0;
   text-align: center;
 }
 milestone:before {
-  content: "* * * * *";
+  content: "|";
 }
 moduleRef {
   /* probably hide, not sure how we want to deal */
@@ -1724,7 +1723,7 @@ title[level=m] {
 /* as a hack to solve a JavaScript/jQuery issue. */
 titleStmt > tei-title {
   display: block;
-  font-family: Arvo, sans-serif;
+  font-family: Arial;
   font-weight: normal;
   font-weight: bold !important;
   font-size: 150%;
@@ -1838,7 +1837,7 @@ html {
   margin-left: 2em;
   margin-right: 4em;
   padding: 2.5em;
-  font-family: "Gentium Book Basic", Cochin, Georgia, Serif;
+  font-family: Arial;
   font-size: 14pt;
   background-color: #EBEBEB;
   color: #292929;
