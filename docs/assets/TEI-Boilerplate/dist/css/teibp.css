@@ -993,6 +993,23 @@ milestone {
 milestone:before {
   content: "|";
 }
+stdf:before {
+  content: "[BLOC STDF CONTENANT LE CONTENU DES ANNOTATIONS]";
+  margin-top: 1em;
+  font-size: 2em;
+  font-weight: bold;
+}
+stdf:before {
+  content: "[BLOC TEXT CONTENANT LE TEXTE]";
+  margin-top: 1em;
+  font-size: 2em;
+  font-weight: bold;
+}stdf:before {
+  content: "[BLOC TEIHEADER CONTENANT L'ENTETE DU FICHIER]";
+  margin-top: 1em;
+  font-size: 2em;
+  font-weight: bold;
+}
 moduleRef {
   /* probably hide, not sure how we want to deal */
 }
