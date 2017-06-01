@@ -1004,12 +1004,24 @@ stdf:before {
   margin-top: 1em;
   font-size: 2em;
   font-weight: bold;
-}stdf:before {
+}
+stdf:before {
   content: "[BLOC TEIHEADER CONTENANT L'ENTETE DU FICHIER]";
   margin-top: 1em;
   font-size: 2em;
   font-weight: bold;
 }
+interpGrp desc {
+  display:block;
+  font-weight: bold;
+}
+interpGrp interp {
+  display:block;
+}
+interpGrp interp:before {
+  content: "   - ";
+}
+
 moduleRef {
   /* probably hide, not sure how we want to deal */
 }
