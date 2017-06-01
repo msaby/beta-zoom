@@ -44,7 +44,7 @@
 		<xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>
 		
 	-->
-	<xsl:param name="filePrefix" select="'..'"/>
+	<xsl:param name="filePrefix" select="'../assets/TEI-Boilerplate/src'"/>
 	
 	<xsl:param name="teibpCSS" select="concat($filePrefix,'/css/teibp.css')"/>
 	<xsl:param name="teibpLESS" select="concat($filePrefix,'/css/teibp.less')"/>
