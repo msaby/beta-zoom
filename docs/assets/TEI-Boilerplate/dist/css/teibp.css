@@ -126,6 +126,17 @@ choice orig + reg:after,
 choice reg + orig:after {
   content: ")";
 }
+
+.simple {
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.clearfix:after {
+    content:"";
+    display:block;
+    clear:both;
+}
 /* A */
 ab {
   display: block;
@@ -598,6 +609,7 @@ figure {
   margin-left: auto;
   margin-right: auto;
 }
+
 /* g */
 g {
   /* Empty Rule Set */

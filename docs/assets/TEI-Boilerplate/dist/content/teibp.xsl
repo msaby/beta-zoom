@@ -211,34 +211,6 @@
     </xsl:copy>
   </xsl:template>
 	
-	<!--
-	<xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
-		<xd:desc>
-			<xd:p>Transforms TEI figure/head to HTML figcaption</xd:p>
-		</xd:desc>
-	</xd:doc>
-	<xsl:template match="tei:figure/tei:head">
-		<figcaption><xsl:apply-templates/></figcaption>
-	</xsl:template>
-	-->
-    <!--
-	<xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
-		<xd:desc>
-			<xd:p>Adds some javascript just before end of root tei element. Javascript sets the
-				/html/head/title element to an appropriate title selected from the TEI document.
-				This could also be achieved through XSLT but is here to demonstrate some simple
-				javascript, using JQuery, to manipulate the DOM containing both html and TEI.</xd:p>
-		</xd:desc>
-	</xd:doc>
-	
-	
-	<xsl:template match="tei:TEI" priority="99">
-		<xsl:element name="{local-name()}">
-			<xsl:call-template name="addID"/>
-			<xsl:apply-templates select="@*|node()"/>
-		</xsl:element>
-	</xsl:template>
-	-->
 	
 	<xsl:template name="addID">
 		<xsl:if test="not(ancestor::eg:egXML)">
@@ -381,7 +353,7 @@
 		</xd:desc>
 	</xd:doc>
 	<xsl:variable name="htmlFooter">
-		<footer> Powered by <a href="{$teibpHome}">TEI Boilerplate</a>. TEI Boilerplate is licensed under a <a
+		<footer class="simple clearfix"> Powered by <a href="{$teibpHome}">TEI Boilerplate</a>. TEI Boilerplate is licensed under a <a
 				href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0
 				Unported License</a>. <a href="http://creativecommons.org/licenses/by/3.0/"><img
 					alt="Creative Commons License" style="border-width:0;"
