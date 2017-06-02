@@ -72,6 +72,7 @@
 					<xsl:apply-templates/>
 				</div>
 				<xsl:copy-of select="$htmlFooter"/>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 				<script type="text/javascript" src="{$teibpJS}"></script>
 			</body>
 		</html>
