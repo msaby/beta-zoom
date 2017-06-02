@@ -139,6 +139,8 @@ function createNavigationTree() {
 function show_annotations() {
 	var para = $("p[n='1']");
 	console.log(para.html());
+	console.log(para.html().split("<milestone>"));
+	console.log(para.html().split("<milestone id='begin-com1'>"));
 	console.log(para.html().split("<milestone id='begin-com1'>")[1]);
 }
 
