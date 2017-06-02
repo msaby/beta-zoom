@@ -130,8 +130,8 @@ function addPageBreaks(){
 
 
 function createNavigationTree() {
-	var content ="<h2>Navigation Tree:</h2>";
-	content +="<div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Menu 1</a></li><li><a href='#'>Menu 2</a><ul><li><a href='#'>Submenu 1</a></li></ul></li></ul></div>";
+	var content ="<h2>Navigation Tree (pas encore au point):</h2>";
+	content +="<div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Livre 1</a><ul><li><a href='#'>Chapitre 1</a></li><li><a href='#'>Chapitre 2</a></li></ul></li></ul></div>";
 	$("#navigation_tree").append(content);
 	$('#navigation_tree').ntm();
 	};
@@ -148,6 +148,9 @@ function show_annotations() {
 	console.log($("milestone#begin-com3").next().text());
 	console.log ("Nextsibling3until")
 	console.log($("milestone#begin-com3").nextUntil("milestone#end-com3").text());
+	$("milestone#begin-com3").nextUntil("milestone#end-com3").each(function( ) {console.log ("a")});
+	$("milestone#begin-com3").nextUntil("milestone#end-com3").each(function( index ) {console.log (index)});
+	$("milestone#begin-com3").nextUntil("milestone#end-com3").each(function( index ) {console.log (index + this.text())});
 }
 // $("#heading2")     .nextUntil("#heading3").andSelf()         .css("background", "red");
 function init(){
