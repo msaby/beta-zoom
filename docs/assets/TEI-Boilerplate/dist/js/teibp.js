@@ -131,9 +131,9 @@ function addPageBreaks(){
 
 function createNavigationTree() {
 	var content ="<h2>Navigation Tree:</h2>";
-	content +="<div class='ntm-default menu' id='navigation_tree'><ul><li><a href='#'>Menu 1</a></li><li><a href='#'>Menu 2</a><ul><li><a href='#'>Submenu 1</a></li></ul></li></ul></div>";
+	content +="<div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Menu 1</a></li><li><a href='#'>Menu 2</a><ul><li><a href='#'>Submenu 1</a></li></ul></li></ul></div>";
 	$("#navigation_tree").append(content);
-	$('.ntm-default').ntm();
+	$('#navigation_tree').ntm();
 	};
 	
 function show_annotations() {
