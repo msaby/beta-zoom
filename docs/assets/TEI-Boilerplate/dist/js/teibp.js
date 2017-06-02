@@ -135,6 +135,11 @@ function createNavigationTree() {
 	$("#navigation_tree").append(content);
 	$('.ntm-default').ntm();
 	};
+	
+function show_annotations() {
+	$("#id0x57d9290").html().split("<milestone id='begin-com1'>")[1];
+}
+
 function init(){
 	var pbt = document.getElementById('pbToggle');
 	if(pbt != null){
@@ -154,7 +159,9 @@ function init(){
 	if(htmlTitle != null && teiTitle != null)
 		htmlTitle.textContent = teiTitle.textContent;
 	createNavigationTree();
+	show_annotations();
 }
+
 
 function blockUI(){
 	var body = document.querySelector("body");
