@@ -132,11 +132,24 @@ choice reg + orig:after {
     padding-bottom: 10px;
 }
 
-.clearfix:after {
-    content:"";
-    display:block;
-    clear:both;
+.clearfix:after{
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
 }
+.clearfix{
+    display: block;
+}
+html[xmlns].clearfix{
+    display: block;
+}
+*.clearfix{
+    height: 1%;
+}
+
 /* A */
 ab {
   display: block;
@@ -1870,16 +1883,9 @@ zone {
   /* Empty Rule Set */
 }
 /* styles for html shell and html elements in TEI (e.g.,<a> and <img>) */
-html > body {
+html, body {
   margin: 0;
-  padding: 0;
-}
-html {
-  margin: 0;
-  padding: 0;
-  margin-left: 2em;
-  margin-right: 4em;
-  padding: 2.5em;
+  padding: 0;  
   font-family: Arial;
   font-size: 14pt;
   background-color: #EBEBEB;

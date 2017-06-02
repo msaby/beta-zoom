@@ -67,9 +67,11 @@
 		<html>
 			<xsl:call-template name="htmlHead"/>
 			<body>
+				<div id="maincontainer" class="clearfix">
 				<xsl:call-template name="teibpToolbox"/>
 				<div id="tei_wrapper">
 					<xsl:apply-templates/>
+				</div>
 				</div>
 				<xsl:copy-of select="$htmlFooter"/>
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
