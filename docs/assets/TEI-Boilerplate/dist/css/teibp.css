@@ -1022,7 +1022,7 @@ interpGrp interp:before {
   content: "   * ";
 }
 interpGrp interp:after {
-  content: " : "+attr(value);
+  content: " : " attr(value);
 }
 
 moduleRef {
