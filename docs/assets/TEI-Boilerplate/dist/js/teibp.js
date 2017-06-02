@@ -142,8 +142,12 @@ function show_annotations() {
 	console.log(para.html().split("<milestone"));
 	console.log(para.html().split("<milestone id='begin-com1'>"));
 	console.log(para.html().split("<milestone id='begin-com1'>")[1]);
-	console.log ("Nextsibling")
-	console.log($("milestone #begin-com1").nextSibling().text());
+	console.log ("Nextsibling1")
+	console.log($("milestone #begin-com1").next().text());
+	console.log ("Nextsibling3")
+	console.log($("milestone #begin-com3").next().text());
+	console.log ("Nextsibling3until")
+	console.log($("milestone #begin-com3").nextUntil("milestone #end-com3").text());
 }
 // $("#heading2")     .nextUntil("#heading3").andSelf()         .css("background", "red");
 function init(){
