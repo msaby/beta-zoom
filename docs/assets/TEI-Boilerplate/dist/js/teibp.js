@@ -137,7 +137,7 @@ function createNavigationTree() {
 	};
 	
 function show_annotations() {
-	$("#id0x57d9290").html().split("<milestone id='begin-com1'>")[1];
+	console.log($("#id0x57d9290").html().split("<milestone id='begin-com1'>")[1]);
 }
 
 function init(){
