@@ -137,7 +137,9 @@ function createNavigationTree() {
 	};
 	
 function show_annotations() {
-	console.log($("p[n='1']").html().split("<milestone id='begin-com1'>")[1]);
+	var para = $("p[n='1']");
+	console.log(para.html());
+	console.log(para.html().split("<milestone id='begin-com1'>")[1]);
 }
 
 function init(){
