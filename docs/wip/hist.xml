@@ -48,6 +48,11 @@
             <cRefPattern matchPattern="(.+).(.+)" n="chapter" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])"/>
             <cRefPattern matchPattern="(.+)" n="book" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"/>
         </refsDecl>
+		<listPrefixDef>
+			<prefixDef ident="thezoo" matchPattern="([A-Z]+)" replacementPattern="http://web.cepam.cnrs.fr/opentheso/?idc=$1">
+			<p> Ex: thezoo:105124 déréférence http://web.cepam.cnrs.fr/opentheso/?idc=105124 </p>
+			</prefixDef>
+		</listPrefixDef>
     </encodingDesc>
     <profileDesc>
         <langUsage>
@@ -76,16 +81,19 @@
       <soHeader/>
       <annotations>
          <annotationGrp >
-			<interpGrp type="thezoo" resp="zoomathia">
+			<interpGrp type="concept_thezoo" resp="zoomathia">
 				<desc>Concepts du thésaurus Zoomathia</desc>
-				<interp xml:id="concept105124" value="http://web.cepam.cnrs.fr/opentheso/?idc=105124">Tête</interp>
-				<interp xml:id="concept105975" value="http://web.cepam.cnrs.fr/opentheso/?idc=105975">Chair</interp>
+				<interp xml:id="thezoo:105124">Tête</interp>
+				<interp xml:id="thezoo:105975">Chair</interp>
 			</interpGrp>
             <spanGrp xmlns="http://www.tei-c.org/ns/1.0" type="adefinir">
-				<span from="from-com1" to="end-com1" ana="concept105124"/>				
-				<span from="from-com2" to="end-com2" ana="concept105975"/>
+				<span from="from-com1" to="end-com1" ana="thezoo:105124"/>				
+				<span from="from-com2" to="end-com2" ana="thezoo:105975"/>
 			</spanGrp>
 		</annotationGrp>
 	  </annotations>
 </stdf>
+
+
+
 </TEI>
