@@ -2037,5 +2037,5 @@ div.facsImage img:first-child {
 	  background-position: 4px 8px;
 	  background-repeat: no-repeat;
 }
-.tree-menu .closed > a { background-image: url(../img/icon-expand.gif); }
-.tree-menu .opened > a { background-image: url(../img/icon-collapse.gif); }
+.tree-menu .closed > a { background-image: url(../images/icon-expand.gif); }
+.tree-menu .opened > a { background-image: url(../images/icon-collapse.gif); }
