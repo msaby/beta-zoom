@@ -67,9 +67,7 @@
 		<html>
 			<xsl:call-template name="htmlHead"/>
 			<body>
-				<xsl:if test="$includeToolbox = true()">
-					<xsl:call-template name="teibpToolbox"/>
-				</xsl:if>
+				<xsl:call-template name="teibpToolbox"/>
 				<div id="tei_wrapper">
 					<xsl:apply-templates/>
 				</div>
@@ -392,17 +390,13 @@
 
 	<xsl:template name="teibpToolbox">
 		<div id="teibpToolbox">
-			<h1>Toolbox</h1>
-			<label for="pbToggle">Hide page breaks</label>
+			<h1>Navigation</h1>
+			<label for="pbToggle">Masquer les sauts de page</label>
 			<input type="checkbox" id="pbToggle" /> 
 			<div>
-				<h3>Themes:</h3>
+				<h3 id="navigation_pane" >Navigation:</h3>
 
-				<select id="themeBox" onchange="switchThemes(this);">
-					<option value="{$theme.default}" >Default</option>
-					<option value="{$theme.sleepytime}">Sleepy Time</option>
-					<option value="{$theme.terminal}">Terminal</option>
-				</select>			</div>
+				</div>
 		</div>
 	</xsl:template>
 	
