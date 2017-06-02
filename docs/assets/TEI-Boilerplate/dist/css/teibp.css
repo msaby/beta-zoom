@@ -1896,7 +1896,8 @@ a:hover {
 }
 #tei_wrapper{
 display:block;
-width: 80%;
+left: 21%;
+
 }
 #teibpToolbox {
   display:block;
