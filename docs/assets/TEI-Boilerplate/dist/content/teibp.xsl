@@ -394,9 +394,8 @@
 			<h1>Navigation</h1>
 			<label for="pbToggle">Masquer les sauts de page</label>
 			<input type="checkbox" id="pbToggle" /> 
-			<div>
-				<h3 id="navigation_pane" >Navigation:</h3>
-
+			<div id="navigation_tree">
+				
 				</div>
 		</div>
 	</xsl:template>

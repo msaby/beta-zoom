@@ -29,6 +29,13 @@ function addPageBreaks(){
 		breaks[i].style.display="block";
 }
 
+
+function createNavigationTree() {
+	var content ="<h2>Navigation Tree:</h2>";
+	content +="<div class='tree-menu demo' id='tree-menu'><ul><li><a href='#'>Menu 1</a></li><ul><li><a href='#'>Submenu 1</a></li></ul></li></ul></div>";
+	$("#navigation_tree").append(content);
+
+	};
 function init(){
 	var pbt = document.getElementById('pbToggle');
 	if(pbt != null){
@@ -47,6 +54,7 @@ function init(){
 	var teiTitle = document.querySelector("tei-title");
 	if(htmlTitle != null && teiTitle != null)
 		htmlTitle.textContent = teiTitle.textContent;
+	createNavigationTree();
 }
 
 function blockUI(){
