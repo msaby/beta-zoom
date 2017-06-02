@@ -1,6 +1,5 @@
 /* imports */
 /* @import url("shell.css"); */
-@import url('http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic|Gentium+Book+Basic:400,400italic,700,700italic');
 /* namespaces */
 /* @namespace "http://www.tei-c.org/ns/1.0"; */
 /* @namespace with prefix, as below, throws and error in less. */
@@ -266,7 +265,7 @@ author {
 }
 titleStmt > author {
   display: block;
-  font-family: Arvo, sans-serif;
+  font-family: Arial, sans-serif;
   font-weight: normal;
   margin-bottom: 1em;
 }
@@ -676,7 +675,7 @@ handShift {
 /* Need head with TEI parent to distinguish from HTML head */
 TEI head {
   display: block;
-  font-family: Arvo, sans-serif;
+  font-family: Arial, sans-serif;
   font-weight: normal;
 }
 body > head {
@@ -1893,10 +1892,13 @@ a:active {
 a:hover {
   color: #5f0000;
   text-decoration: underline;
-}
+}*
+
+
 #tei_wrapper{
 display:block;
-left: 21%;
+float:right;
+width:70%;
 
 }
 #teibpToolbox {
@@ -1910,7 +1912,7 @@ left: 21%;
   border-radius: 15px;
   border: 1px solid #AAA;
   background: #FAFAFA;
-  font-family: Arvo, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   text-align: justify;
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
@@ -1974,7 +1976,7 @@ div.facsImage img:first-child {
   margin-top: 0;
 }
 .head-font {
-  font-family: Arvo, sans-serif;
+  font-family: Arial, sans-serif;
   font-weight: normal;
 }
 
