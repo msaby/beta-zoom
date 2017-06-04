@@ -171,19 +171,19 @@ for (let i=0;i<menuitems.length;i++) {
 	if (levelAfter == level) {html += "</li>\n";} 
 	else if (levelAfter > level)
 	//	{html += "</li>";niv++;} 
-		{html +="<ul>";niv++;}
+		{html +="<ul>\n";niv++;}
 	else 
 		// {html += "</li>";niv++;} 
-	{html +="</li>/</ul>";niv--;}
+	{html +="</li>/</ul>\n";niv--;}
 if (i==(menuitems.length-1)){
 		for (let j=1;j<niv;j++){
-			html+="</li></ul>";
+			html+="</li></ul>\n";
 			alert ('on ferme');
 		}
 	}
 }
 
-	html += "</ul></div>";
+	html += "\n</ul></div>";
 	alert (html);
 	$("#navigation_tree").append(html);
 
