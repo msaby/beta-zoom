@@ -170,7 +170,7 @@ for (let i=0;i<menuitems.length;i++) {
 	html += "<li>"+niv+"<a id='link-"+menuitems[i]["selectorRefId"]+"' href = '#"+menuitems[i]["selectorRefId"]+"'>"+menuitems[i]["menutitle"]+"</a>";
 	if (levelAfter == level) {html += "</li>}";} 
 	else 
-		if (levelAfter < level) {html +="<ul>";niv++;}
+		if (levelAfter > level) {html +="<ul>";niv++;}
 	else {html +="</li>/</ul>";niv--;}
 }
 
