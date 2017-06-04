@@ -174,7 +174,7 @@ function createNavigationTree() {
 				menutitle:s["menutitle"]+" "+ RefN // faire une fonction
 			 }); 
 			});
-	}
+	
 	console.log ('frghj');
 	console.log (menuitems);
 
