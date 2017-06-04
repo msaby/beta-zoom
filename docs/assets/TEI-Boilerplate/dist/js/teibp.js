@@ -189,7 +189,7 @@ for (let i=0;i<menuitems.length;i++) {
 	let levelAfter = 0;
 	if (i> 0) {levelBefore = menuitems[i-1]["menulevel"];}
 	if (i<(menuitems.length-1)){levelAfter = menuitems[i+1]["menulevel"];}
-	html += "<li>"+niv+"<a id='link-"+menuitems[i]["selectorRefId"]+"' href = '#"+menuitems[i]["selectorRefId"]+"'>"+menuitems[i]["menutitle"]+"</a>";
+	html += "<li><a id='link-"+menuitems[i]["selectorRefId"]+"' href = '#"+menuitems[i]["selectorRefId"]+"'>"+menuitems[i]["menutitle"]+"</a>";
 	if (levelAfter == level) {html += "</li>\n";} 
 	else if (levelAfter > level)
 	//	{html += "</li>";niv++;} 
@@ -200,16 +200,16 @@ for (let i=0;i<menuitems.length;i++) {
 if (i==(menuitems.length-1)){
 		for (let j=1;j<niv;j++){
 			html+="\n</li>\n</ul>\n";
-			alert ('on ferme');
+		//	alert ('on ferme');
 		}
 	}
 }
 
 	// html += "\n</ul></div>";
 	html += "\n</li></ul>";
-	alert (html);
+	//alert (html);
 
-	html2 = "<ul>	<li>1<a href='#id0x1aba6700' id='link-id0x1aba6700'>Texte urn:cts:greekLit:tlg0086.tlg014.1st1K-grc1-zoom1</a> <ul><li>2<a href='#id0x1acdfe00' id='link-id0x1acdfe00'>Livre 1</a>					<ul>						<li>3<a href='#id0x1ace0000' id='link-id0x1ace0000'>Chapitre 1</a></li>						<li>3<a href='#id0x1bc5cb00' id='link-id0x1bc5cb00'>Chapitre 2</a></li>						<li>3<a href='#id0x1bc5cf00' id='link-id0x1bc5cf00'>Chapitre 3</a></li>					</ul>				</li>				<li>2<a href='#id0x1bc64700' id='link-id0x1bc64700'>Livre 2</a><ul>	<li>3<a href='#id0x1bce1200' id='link-id0x1bce1200'>Chapitre 4</a></li>	</ul>				</li>			</ul>	</li></ul>";
+	//html2 = "<ul>	<li>1<a href='#id0x1aba6700' id='link-id0x1aba6700'>Texte urn:cts:greekLit:tlg0086.tlg014.1st1K-grc1-zoom1</a> <ul><li>2<a href='#id0x1acdfe00' id='link-id0x1acdfe00'>Livre 1</a>					<ul>						<li>3<a href='#id0x1ace0000' id='link-id0x1ace0000'>Chapitre 1</a></li>						<li>3<a href='#id0x1bc5cb00' id='link-id0x1bc5cb00'>Chapitre 2</a></li>						<li>3<a href='#id0x1bc5cf00' id='link-id0x1bc5cf00'>Chapitre 3</a></li>					</ul>				</li>				<li>2<a href='#id0x1bc64700' id='link-id0x1bc64700'>Livre 2</a><ul>	<li>3<a href='#id0x1bce1200' id='link-id0x1bce1200'>Chapitre 4</a></li>	</ul>				</li>			</ul>	</li></ul>";
 	
 	$("#navigation_tree").append(html);
 	$("#navigation_tree").ntm();
