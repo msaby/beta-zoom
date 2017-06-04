@@ -153,16 +153,19 @@ function createNavigationTree() {
 			selectorRefN:RefN,
 			menulevel:s["menulevel"],
 			selector:s["selector"],
-			menutitle:s["menutitle"] + RefN}); // faire une fonction
+			menutitle:s["menutitle"]
+			}); // faire une fonction
 			};
 	}
 	console.log (menuitems);
-//				menuitems.push (
-//					{selectid: $(s["selector"]).attr("id"),
-//					menuN:(s["selector"]).attr("n"),
-//					menulevel:s["menulevel"],
-//					selector:s["selector"],
-//					menutitle:s["menutitle"] + (s["selector"]).attr("n")};
+
+var i=2;
+menuitemsByLevel = menuitems.filter(function(){
+	if (this.menulevel==2){return true;}
+	return false;
+});
+console.log(menuitemsByLevel);
+
 	//	if (s["menulevel"]==1) {
 	//		selectid = $(s["selector"]).attr("id");
 	//		("<li><a id='link-"+selectid+"' href = '#"+selectid+"'>"+s["menutitle"]+"</a><li>");
