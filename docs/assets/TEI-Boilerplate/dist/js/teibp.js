@@ -108,6 +108,29 @@ if(document.addEventListener){
     };
 })(jQuery);
 
+function getTextNodesBetween(rootNode, startNode, endNode) {
+    var pastStartNode = false, reachedEndNode = false, textNodes = [];
+
+    function getTextNodes(node) {
+        if (node == startNode) {
+            pastStartNode = true;
+        } else if (node == endNode) {
+            reachedEndNode = true;
+        } else if (node.nodeType == 3) {
+            if (pastStartNode && !reachedEndNode && !/^\s*$/.test(node.nodeValue)) {
+                textNodes.push(node);
+            }
+        } else {
+            for (var i = 0, len = node.childNodes.length; !reachedEndNode && i < len; ++i) {
+                getTextNodes(node.childNodes[i]);
+            }
+        }
+    }
+
+    getTextNodes(rootNode);
+    return textNodes;
+}
+
 function clearPageBreaks(){
 	var breaks = document.querySelectorAll("pb");
 	for(var i = 0; i < breaks.length; i++)
@@ -211,7 +234,7 @@ if (i==(menuitems.length-1)){
 
 	//html2 = "<ul>	<li>1<a href='#id0x1aba6700' id='link-id0x1aba6700'>Texte urn:cts:greekLit:tlg0086.tlg014.1st1K-grc1-zoom1</a> <ul><li>2<a href='#id0x1acdfe00' id='link-id0x1acdfe00'>Livre 1</a>					<ul>						<li>3<a href='#id0x1ace0000' id='link-id0x1ace0000'>Chapitre 1</a></li>						<li>3<a href='#id0x1bc5cb00' id='link-id0x1bc5cb00'>Chapitre 2</a></li>						<li>3<a href='#id0x1bc5cf00' id='link-id0x1bc5cf00'>Chapitre 3</a></li>					</ul>				</li>				<li>2<a href='#id0x1bc64700' id='link-id0x1bc64700'>Livre 2</a><ul>	<li>3<a href='#id0x1bce1200' id='link-id0x1bce1200'>Chapitre 4</a></li>	</ul>				</li>			</ul>	</li></ul>";
 	
-	html3="<ul><li><a href="#">Menu 1</a></li><li><a href="#">Menu 2</a></li><li><a href='#''>Menu 3</a><ul>   <li><a href='#''>Submenu 1</a></li></ul></li></ul>";
+	html3="<ul><li><a href="#">Menu 1</a></li><li><a href='#''>Menu 2</a></li><li><a href='#''>Menu 3</a><ul>   <li><a href='#''>Submenu 1</a></li></ul></li></ul>";
 
 	$("#navigation_tree").append(html3);
 	$("#navigation_tree").ntm();
