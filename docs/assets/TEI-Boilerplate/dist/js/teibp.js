@@ -173,13 +173,13 @@ for (let i=0;i<menuitems.length;i++) {
 	if (levelAfter == level) {html += "</li>\n";} 
 	else if (levelAfter > level)
 	//	{html += "</li>";niv++;} 
-		{html +="<ul>\n";niv++;}
+		{html +="\n<ul>\n";niv++;}
 	else 
 		// {html += "</li>";niv++;} 
-	{html +="</li>/\n</ul>\n";niv--;}
+	{html +="\n</li>/\n</ul>\n</li>";niv--;}
 if (i==(menuitems.length-1)){
 		for (let j=1;j<niv;j++){
-			html+="</li>\n</ul>\n";
+			html+="\n</li>\n</ul>\n";
 			alert ('on ferme');
 		}
 	}
