@@ -144,25 +144,25 @@ function createNavigationTree() {
 // build list of menu items
 	var menuitems = [];
 	for (let s of selectors) {
-		// le sélecteur doit renvoyer une liste d'élements identifiables
+		// le sélecteur doit renvoyer une liste d'élements identifiables avec un id
 		$(s["selector"]).each(function(){
 			let RefId=$(this).attr("id");
 			let RefN=$(this).attr("n");
 
 			menuitems.push (
-			{selectorRefId:RefId,
-			selectorRefN:RefN,
+				{selectorRefId:RefId,
+				selectorRefN:RefN,
 				menulevel:s["menulevel"],
 				selector:s["selector"],
-				menutitle:s["menutitle"]
-			 }); // faire une fonction
+				menutitle:s["menutitle"] // faire une fonction
+			 }); 
 			});
 	}
 	console.log (menuitems);
 
-var i=2;
-menuitemsByLevel = menuitems.filter(function(){
-	if (this.menulevel==2){return true;}
+var i=3;
+menuitemsByLevel = menuitems.filter(function(e){
+	if (e["menulevel"]==i){return true;}
 	return false;
 });
 console.log(menuitemsByLevel);
