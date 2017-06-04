@@ -86,8 +86,12 @@ if(document.addEventListener){
                     item.toggleClass(options.expandClass).toggleClass(options.collapseClass);
 
                     if (options.slideEffect) {
+                    	alert ("slide");
                         content.slideToggle();
+
                     } else {
+                    	                    	alert ("to");
+
                         content.toggle();
                     }
 
