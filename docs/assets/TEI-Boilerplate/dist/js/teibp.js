@@ -130,7 +130,26 @@ function addPageBreaks(){
 
 
 function createNavigationTree() {
-   	var toc = $("#toc").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
+	var selectors = [
+		{menulevel:1,
+		selector:"div[type='edition']",
+		menutitle:"titre"},
+		{menulevel:2,
+		selector:"div[type='textpart'][subtype='book']",
+		menutitle:"titre2"}
+		{menulevel:3,
+		selector:"div[type='textpart'][subtype='chapter']",
+		menutitle:"titre3"}];
+	maxlevel=3;
+
+	for (s of selectors) {
+		if (s[menulevel]==1) {
+			selectid = $(s[selector]).attr("id");
+			$("#navigation_tree").append("<a id='link-"+selectid+"' href = '#'>"+s[menutitle]+"</a>");
+
+		}
+	}
+//   	var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
    	// 	var content ="<h2>Navigation Tree (pas encore au point):</h2>"; 
    	// content +="<div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Livre 1</a><ul><li><a href='#'>Chapitre 1</a></li><li><a href='#'>Chapitre 2</a></li></ul></li></ul></div>";
 	// $("#navigation_tree").append(content);
