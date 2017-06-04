@@ -159,7 +159,7 @@ function createNavigationTree() {
 			});
 	}
 
-	alert (menuitems);
+	consol.log (menuitems);
 
 var html="<div class='tree-menu menu' id='navigation_tree'><ul>";
 var niv = 1;
