@@ -9,7 +9,8 @@ div.tree-menu {margin-top:2em; !important}
 #navigation_tree2 {margin-top:2em; !important}
 .rouge {color:red; !important}
 
-.tree-menu ul { list-style: none; }
+.tree-menu ul { list-style: none; display:block; }
+.tree-menu li { display:list-item; }
 .tree-menu > ul { padding: 0; }
 .tree-menu a {
   display: block;
