@@ -181,7 +181,7 @@ function createNavigationTree() {
 	console.log ('frghj');
 	console.log (menuitems);
 
-var html="<div class='tree-menu menu' id='navigation_tree'>\n<ul>";
+var html="<ul>";
 var niv = 1;
 for (let i=0;i<menuitems.length;i++) {
 	let level = menuitems[i]["menulevel"];
@@ -207,11 +207,11 @@ if (i==(menuitems.length-1)){
 
 	// html += "\n</ul></div>";
 	html += "\n</ul>";
-	html += "\n</div>";
 	alert (html);
-	// $("#navigation_tree").append(html);
+	$("#navigation_tree").append(html);
 
-//   	var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
+//   	// <div class='tree-menu menu' id='navigation_tree'>\n
+// var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
    	// 	var content ="<h2>Navigation Tree (pas encore au point):</h2>"; 
    	// content +="<div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Livre 1</a><ul><li><a href='#'>Chapitre 1</a></li><li><a href='#'>Chapitre 2</a></li></ul></li></ul></div>";
 	// $("#navigation_tree").append(content);
