@@ -161,21 +161,23 @@ function createNavigationTree() {
 	*/
 	let listselector = [];
 	for (s of selectors){listselector.push (s["selectorCSS"]);}
-		alert(listselector.join(', '));
 
 		$(listselector.join(', ')).each(function(){
-			let RefId=$(this).attr("id");
-			let RefN=$(this).attr("n");
-
-			menuitems.push (
+			for (s of selectors){
+				if ($(this).is(s["selectorCSS"])){
+					let RefId=$(this).attr("id");
+					let RefN=$(this).attr("n");
+					menuitems.push (
 				{selectorRefId:RefId,
 				selectorRefN:RefN,
 				menulevel:s["menulevel"],
 				selector:s["selectorCSS"],
 				menutitle:s["menutitle"]+" "+ RefN // faire une fonction
-			 }); 
-			});
-	
+
+				});
+				}
+			}
+		});
 	console.log ('frghj');
 	console.log (menuitems);
 
