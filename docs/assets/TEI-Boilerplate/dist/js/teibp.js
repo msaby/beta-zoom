@@ -133,13 +133,13 @@ function createNavigationTree() {
 	var selectors = [
 		{menulevel:1,
 		selector:"div[type='edition']",
-		menutitle:"titre"},
+		menutitle:"Texte"},
 		{menulevel:2,
 		selector:"div[type='textpart'][subtype='book']",
-		menutitle:"titre2"},
+		menutitle:"Livre"},
 		{menulevel:3,
 		selector:"div[type='textpart'][subtype='chapter']",
-		menutitle:"titre3"}];
+		menutitle:"Chapitre"}];
 	var maxlevel=3;
 // build list of menu items
 	var menuitems = [];
@@ -154,7 +154,7 @@ function createNavigationTree() {
 				selectorRefN:RefN,
 				menulevel:s["menulevel"],
 				selector:s["selector"],
-				menutitle:s["menutitle"] + RefN // faire une fonction
+				menutitle:s["menutitle"]+" "+ RefN // faire une fonction
 			 }); 
 			});
 	}
@@ -168,11 +168,11 @@ for (let i=0;i<menuitems.length;i++) {
 	if (i> 0) {levelBefore = menuitems[i-1]["menulevel"];}
 	if (i<(menuitems.length-1)){levelAfter = menuitems[i+1]["menulevel"];}
 	html += "<li>"+niv+"<a id='link-"+menuitems[i]["selectorRefId"]+"' href = '#"+menuitems[i]["selectorRefId"]+"'>"+menuitems[i]["menutitle"]+"</a>";
-	if (levelAfter == level) {html += "</li>}";} 
+	if (levelAfter == level) {html += "</li>";} 
 	else 
-		{html += "</li>}";} 
+		{html += "</li>";} 
 	//	if (levelAfter > level) {html +="<ul>";niv++;}
-	// else {html += "</li>}";} 
+	// else {html += "</li>";} 
 	//{html +="</li>/</ul>";niv--;}
 }
 
