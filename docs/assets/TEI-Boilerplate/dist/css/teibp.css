@@ -5,7 +5,7 @@
 /* @namespace with prefix, as below, throws and error in less. */
 /* @namespace html "http://www.w3.org/1999/xhtml"; */
 
-div.tree-menu {margin-top:2em;}
+div.tree-menu {margin-top:2em; !important}
 
 .tree-menu ul { list-style: none; }
 .tree-menu > ul { padding: 0; }
