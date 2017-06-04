@@ -148,7 +148,7 @@ function createNavigationTree() {
 
 		var selectorsByLevel = selectors.filter (function (s){	console.log("ta");
 
-			if (s["menulevel"]==i) {console.log (i);return i;} 
+			if (s["menulevel"]==i) {console.log (i);console.log (s["selector"]);return i;} 
 		})
 	//	if (s["menulevel"]==1) {
 	//		selectid = $(s["selector"]).attr("id");
