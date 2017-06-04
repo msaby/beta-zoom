@@ -151,7 +151,7 @@ function show_annotations() {
 	console.log($("milestone#begin-com3").nextUntil("milestone#end-com3").text());
 	$("milestone#begin-com3").nextUntil("milestone#end-com3").each(function( ) {console.log ("a")});
 	$("milestone#begin-com3").nextUntil("milestone#end-com3").each(function( index ) {console.log (index)});
-	$("milestone#begin-com3").nextUntil("milestone#end-com3").each(function( index ) {console.log (index + this.text())});
+	$("milestone#begin-com3").nextUntil("milestone#end-com3").each(function( index ) {console.log (this)});
 }
 // $("#heading2")     .nextUntil("#heading3").andSelf()         .css("background", "red");
 function init(){
