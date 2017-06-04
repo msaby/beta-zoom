@@ -33,7 +33,6 @@ if(document.addEventListener){
 
     var methods = {
         init: function(params) {
-        	alert(this);
             var options = $.extend({}, defaults, params);
 
             var items = this.find('li');
@@ -241,7 +240,7 @@ if (i==(menuitems.length-1)){
 	// $("#nav-wrapper").append("<div id='navigation_tree2'></div>");
 	
 
-$("#navigation_tree").ntm();
+// $("#navigation_tree").ntm();
 
 //   	// <div class='tree-menu menu' id='navigation_tree'>\n
 // var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
