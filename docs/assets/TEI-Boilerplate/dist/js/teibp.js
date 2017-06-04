@@ -137,6 +137,9 @@ function createNavigationTree() {
 		{menulevel:2,
 		selector:"div[type='textpart'][subtype='book']",
 		menutitle:"titre2"},
+		{menulevel:2,
+		selector:"div[type='textpart2'][subtype='book']",
+		menutitle:"titre342"},
 		{menulevel:3,
 		selector:"div[type='textpart'][subtype='chapter']",
 		menutitle:"titre3"}];
@@ -144,18 +147,22 @@ function createNavigationTree() {
 // build list of menu items
 	var menuitems = [];
 	for (let i=1;i<=maxlevel;i++){
-			console.log("toto");
+		let selectorsByLevel = selectors.filter (function (s){
+			if (s["menulevel"]==i) {return true;} return false;})
+		menuitems.push({i:selectorsByLevel});
+	}
+	console.log (menuitems);
 
-		var selectorsByLevel = selectors.filter (function (s){	console.log("ta");
-
-			if (s["menulevel"]==i) {console.log (i);console.log (s["selector"]);return i;} 
-		})
+//				menuitems.push (
+//					{selectid: $(s["selector"]).attr("id"),
+//					menuN:(s["selector"]).attr("n"),
+//					menulevel:s["menulevel"],
+//					selector:s["selector"],
+//					menutitle:s["menutitle"] + (s["selector"]).attr("n")};
 	//	if (s["menulevel"]==1) {
 	//		selectid = $(s["selector"]).attr("id");
 	//		("<li><a id='link-"+selectid+"' href = '#"+selectid+"'>"+s["menutitle"]+"</a><li>");
 
-
-	}
 
 
 
