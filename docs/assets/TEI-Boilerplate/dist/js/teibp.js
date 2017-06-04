@@ -159,6 +159,8 @@ function createNavigationTree() {
 			});
 	}
 
+	alert (menuitems);
+
 var html="<div class='tree-menu menu' id='navigation_tree'><ul>";
 var niv = 1;
 for (let i=0;i<menuitems.length;i++) {
@@ -183,7 +185,8 @@ if (i==(menuitems.length-1)){
 	}
 }
 
-	html += "\n</ul></div>";
+	// html += "\n</ul></div>";
+	html += "\n</div>";
 	alert (html);
 	$("#navigation_tree").append(html);
 
