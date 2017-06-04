@@ -239,6 +239,8 @@ if (i==(menuitems.length-1)){
 	html3="<div id='navigation_tree' class='menu tree-menu'><ul><li><a href='#'>Menu 1</a></li><li><a href='#'>Menu 3</a><ul><li><a href='#'>Submenu 1</a></li></ul></li></ul></div>";
 
 	$("#nav-wrapper").append(html3);
+	$("#nav-wrapper").append("<div id='navigation_tree2' class='tree-menu'></div>");
+
 //	$("#navigation_tree").ntm();
 
 //   	// <div class='tree-menu menu' id='navigation_tree'>\n
