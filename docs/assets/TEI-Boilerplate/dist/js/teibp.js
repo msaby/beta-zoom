@@ -162,7 +162,7 @@ function createNavigationTree() {
 	let listselector = [];
 	for (s of selectors){listselector.push (s["selectorCSS"]);}
 
-		$(s[listselector]).each(function(){
+		$(s[listselector.join(',')]).each(function(){
 			let RefId=$(this).attr("id");
 			let RefN=$(this).attr("n");
 
