@@ -33,6 +33,7 @@ if(document.addEventListener){
 
     var methods = {
         init: function(params) {
+        	alert(this);
             var options = $.extend({}, defaults, params);
 
             var items = this.find('li');
