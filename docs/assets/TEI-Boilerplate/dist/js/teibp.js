@@ -209,7 +209,7 @@ if (i==(menuitems.length-1)){
 	html += "\n</ul>";
 	html += "\n</div>";
 	alert (html);
-	$("#navigation_tree").append(html);
+	// $("#navigation_tree").append(html);
 
 //   	var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
    	// 	var content ="<h2>Navigation Tree (pas encore au point):</h2>"; 
