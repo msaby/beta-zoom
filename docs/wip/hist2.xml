@@ -76,6 +76,7 @@
 
         </div>
                     <div type="textpart" subtype="book" n="2">Livre 2
+                                <div type="textpart" subtype="chapter" n="4">Ch 4</div>
 </div>
 
 	</div>
