@@ -241,8 +241,8 @@ if (i==(menuitems.length-1)){
 	$("#nav-wrapper").html(html3);
 	// $("#nav-wrapper").append("<div id='navigation_tree2'></div>");
 	
-	$("#teibpToolbox").append ("<p class='rouge'>ROUGE</p>");
-	$('body').html ("<p class='rouge'>ROUGE</p>");
+	$('#teibpToolbox').html ("<p class='rouge'>ROUGE</p>");
+	$('#navigation_tree').html ("<p class='rouge'>ROUGE</p>");
 
 $("#navigation_tree").ntm();
 
