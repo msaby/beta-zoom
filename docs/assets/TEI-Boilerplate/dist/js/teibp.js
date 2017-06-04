@@ -163,9 +163,9 @@ var html="<div class='tree-menu menu' id='navigation_tree'><ul>";
 var niv = 1;
 for (let i=0;i<menuitems.length;i++) {
 	let level = menuitems[i]["menulevel"];
-	let levelBefore=0;
+	let levelBefore = 0;
 	let levelAfter = 0;
-	if (i> O) {levelBefore = menuitems[i-1]["menulevel"];}
+	if (i> 0) {levelBefore = menuitems[i-1]["menulevel"];}
 	if (i<(menuitems.length-1)){levelAfter = menuitems[i+1]["menulevel"];}
 	html += "<li>"+niv+"<a id='link-"+menuitems[i]["selectorRefId"]+"' href = '#"+menuitems[i]["selectorRefId"]+"'>"+menuitems[i]["menutitle"]+"</a>";
 	if (levelAfter == level) {html += "</li>}";} 
