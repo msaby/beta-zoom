@@ -9,6 +9,8 @@ if(document.addEventListener){
 	window.attachEvent( "onload", init);
 }
 
+// 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+//			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.js"></script>
 
 /* jQuery Nxeed's Tree Menu v1 | (c) 2014 Nxeed | https://github.com/nxeed */
 
@@ -26,7 +28,7 @@ if(document.addEventListener){
         spoilerButtonClickMaxX: 20,
         spoilerButtonClickMinY: 8,
         spoilerButtonClickMaxY: 24,
-        slideEffect: true
+        slideEffect: false
     };
 
     var methods = {
@@ -86,12 +88,8 @@ if(document.addEventListener){
                     item.toggleClass(options.expandClass).toggleClass(options.collapseClass);
 
                     if (options.slideEffect) {
-                    	alert ("slide");
                         content.slideToggle();
-
                     } else {
-                    	                    	alert ("to");
-
                         content.toggle();
                     }
 
