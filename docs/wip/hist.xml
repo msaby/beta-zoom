@@ -71,7 +71,9 @@
 					ἐν <pb n="2" ed="Bekker"/> αὑτοῖς παρὰ τὰς τῶν παθημάτων ἐναντιώσεις, οἷον χρώματος [...]</p>
 					<p n="2">Suite</p>
             </div>
-			<div type="textpart" subtype="chapter" n="2">Ch 2</div>
+            <div type="textpart" subtype="chapter" n="2">Ch 2</div>
+            <div type="textpart" subtype="chapter" n="3">Ch 3</div>
+            <div type="textpart" subtype="book" n="2">Livre 2</div>
 
         </div>
 	</div>
