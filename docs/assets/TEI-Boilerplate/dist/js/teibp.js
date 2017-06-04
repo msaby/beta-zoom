@@ -242,6 +242,7 @@ if (i==(menuitems.length-1)){
 	// $("#nav-wrapper").append("<div id='navigation_tree2'></div>");
 	
 	$("#teibpToolbox").append ("<p class='rouge'>ROUGE</p>");
+	$('body').prepend ("<p class='rouge'>ROUGE</p>");
 
 //	$("#navigation_tree").ntm();
 
