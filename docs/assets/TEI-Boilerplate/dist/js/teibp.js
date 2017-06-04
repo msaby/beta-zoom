@@ -141,15 +141,41 @@ function createNavigationTree() {
 		selector:"div[type='textpart'][subtype='chapter']",
 		menutitle:"titre3"}];
 	var maxlevel=3;
-console.log (selectors);
+// build list of menu items
+	var menuitems = [];
+	for (let i=1;i<=maxlevel;i++){
+		selectorsByLevel = selectors.filter (function (s){
+			if (s["menulevel"]==i) {console.log (i);return i;} 
+		})
+	//	if (s["menulevel"]==1) {
+	//		selectid = $(s["selector"]).attr("id");
+	//		("<li><a id='link-"+selectid+"' href = '#"+selectid+"'>"+s["menutitle"]+"</a><li>");
+
+
+	}
+
+
+
+
+	var html="<div class='tree-menu menu' id='navigation_tree'><ul>";
+
+
+// <div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Livre 1</a><ul><li><a href='#'>Chapitre 1</a></li><li><a href='#'>Chapitre 2</a></li></ul></li></ul></div>";
+	// $("#navigation_tree").append(content);
+	//	$('#navigation_tree').ntm();
+//	};
+
 	for (let s of selectors) {
-console.log (s);
 		if (s["menulevel"]==1) {
 			selectid = $(s["selector"]).attr("id");
-			$("#navigation_tree").append("<a id='link-"+selectid+"' href = '#"+selectid+"'>"+s["menutitle"]+"</a>");
+			("<li><a id='link-"+selectid+"' href = '#"+selectid+"'>"+s["menutitle"]+"</a><li>");
 
 		}
 	}
+
+	html += "</ul></div>";
+	$("#navigation_tree").append(html);
+
 //   	var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
    	// 	var content ="<h2>Navigation Tree (pas encore au point):</h2>"; 
    	// content +="<div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Livre 1</a><ul><li><a href='#'>Chapitre 1</a></li><li><a href='#'>Chapitre 2</a></li></ul></li></ul></div>";
