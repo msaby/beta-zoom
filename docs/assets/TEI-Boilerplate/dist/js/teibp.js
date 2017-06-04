@@ -208,7 +208,7 @@ if (i==(menuitems.length-1)){
 	// html += "\n</ul></div>";
 	html += "\n</ul>";
 	alert (html);
-	$("#navigation_tree").append(html);
+	$("#navigation_tree").append("<ul><li>toto</li><li>tota</li></ul>");
 
 //   	// <div class='tree-menu menu' id='navigation_tree'>\n
 // var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
