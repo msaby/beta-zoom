@@ -154,42 +154,25 @@ function createNavigationTree() {
 				selectorRefN:RefN,
 				menulevel:s["menulevel"],
 				selector:s["selector"],
-				menutitle:s["menutitle"] // faire une fonction
+				menutitle:s["menutitle"] + RefN // faire une fonction
 			 }); 
 			});
 	}
-	console.log (menuitems);
 
-var i=3;
-menuitemsByLevel = menuitems.filter(function(e){
-	if (e["menulevel"]==i){return true;}
-	return false;
-});
-console.log(menuitemsByLevel);
-
-	//	if (s["menulevel"]==1) {
-	//		selectid = $(s["selector"]).attr("id");
-	//		("<li><a id='link-"+selectid+"' href = '#"+selectid+"'>"+s["menutitle"]+"</a><li>");
-
-
-
-
-
-	var html="<div class='tree-menu menu' id='navigation_tree'><ul>";
-
-
-// <div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Livre 1</a><ul><li><a href='#'>Chapitre 1</a></li><li><a href='#'>Chapitre 2</a></li></ul></li></ul></div>";
-	// $("#navigation_tree").append(content);
-	//	$('#navigation_tree').ntm();
-//	};
-
-	for (let s of selectors) {
-		if (s["menulevel"]==1) {
-			selectid = $(s["selector"]).attr("id");
-			("<li><a id='link-"+selectid+"' href = '#"+selectid+"'>"+s["menutitle"]+"</a><li>");
-
-		}
-	}
+var html="<div class='tree-menu menu' id='navigation_tree'><ul>";
+var niv = 1;
+for (let i=0;i<menuitems.length;i++) {
+	let level = menulevel;
+	let levelBefore=0;
+	let levelAfter = 0;
+	if (i> O){levelBefore = menuitems[i-1]["menulevel"];}
+	if (i<(menuitems.length-1)){levelAfter = menuitems[i+1]["menulevel"];}
+	html += "<li>"niv+"<a id='link-"+menuitems["selectorRefId"]+"' href = '#"+menuitems["selectorRefId"]+"'>"+menuitems["menutitle"]+"</a>";
+	if (levelAfter == level) {html += "</li>}";} 
+	else 
+		if (levelAfter < level) {html +="<ul>";niv++;}
+	else {html +="</li>/</ul>";niv--;}
+}
 
 	html += "</ul></div>";
 	$("#navigation_tree").append(html);
