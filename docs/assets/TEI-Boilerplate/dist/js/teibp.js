@@ -194,7 +194,7 @@ for (let i=0;i<menuitems.length;i++) {
 	else if (levelAfter > level)
 	//	{html += "</li>";niv++;} 
 		{html +="\n<ul>\n";niv++;}
-	else 
+	else if (levelAfter !=0)
 		// {html += "</li>";niv++;} 
 	{html +="\n</li>\n</ul>\n</li>";niv--;}
 if (i==(menuitems.length-1)){
