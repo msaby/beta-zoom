@@ -145,8 +145,8 @@ console.log (selectors);
 	for (let s of selectors) {
 console.log (s);
 		if (s["menulevel"]==1) {
-			selectid = $(s[selector]).attr("id");
-			$("#navigation_tree").append("<a id='link-"+selectid+"' href = '#'>"+s[menutitle]+"</a>");
+			selectid = $(s["selector"]).attr("id");
+			$("#navigation_tree").append("<a id='link-"+selectid+"' href = '#'>"+s["menutitle"]+"</a>");
 
 		}
 	}
