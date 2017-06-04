@@ -208,7 +208,10 @@ if (i==(menuitems.length-1)){
 	// html += "\n</ul></div>";
 	html += "\n</ul>";
 	alert (html);
-	$("#navigation_tree").append("<ul><li>toto</li><li>tota</li></ul>");
+
+	html2 = "<ul>	<li>1<a href='#id0x1aba6700' id='link-id0x1aba6700'>Texte urn:cts:greekLit:tlg0086.tlg014.1st1K-grc1-zoom1</a> <ul><li>2<a href='#id0x1acdfe00' id='link-id0x1acdfe00'>Livre 1</a>					<ul>						<li>3<a href='#id0x1ace0000' id='link-id0x1ace0000'>Chapitre 1</a></li>						<li>3<a href='#id0x1bc5cb00' id='link-id0x1bc5cb00'>Chapitre 2</a></li>						<li>3<a href='#id0x1bc5cf00' id='link-id0x1bc5cf00'>Chapitre 3</a></li>					</ul>				</li>				<li>2<a href='#id0x1bc64700' id='link-id0x1bc64700'>Livre 2</a><ul>	<li>3<a href='#id0x1bce1200' id='link-id0x1bce1200'>Chapitre 4</a></li>	</ul>				</li>			</ul>	</li></ul>";
+	
+	$("#navigation_tree").append(html2);
 
 //   	// <div class='tree-menu menu' id='navigation_tree'>\n
 // var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
