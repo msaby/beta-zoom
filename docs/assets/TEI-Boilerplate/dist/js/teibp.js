@@ -130,10 +130,11 @@ function addPageBreaks(){
 
 
 function createNavigationTree() {
-	var content ="<h2>Navigation Tree (pas encore au point):</h2>";
-	content +="<div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Livre 1</a><ul><li><a href='#'>Chapitre 1</a></li><li><a href='#'>Chapitre 2</a></li></ul></li></ul></div>";
-	$("#navigation_tree").append(content);
-	$('#navigation_tree').ntm();
+   	var toc = $("#toc").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
+   	// 	var content ="<h2>Navigation Tree (pas encore au point):</h2>"; 
+   	// content +="<div class='tree-menu menu' id='navigation_tree'><ul><li><a href='#'>Livre 1</a><ul><li><a href='#'>Chapitre 1</a></li><li><a href='#'>Chapitre 2</a></li></ul></li></ul></div>";
+	// $("#navigation_tree").append(content);
+	//	$('#navigation_tree').ntm();
 	};
 	
 function show_annotations() {

@@ -277,7 +277,7 @@
 
 			<script src="{$lessJS}"></script>
 			<link id="maincss" rel="stylesheet" type="text/css" href="{$teibpCSS}"/>
-			<link rel="stylesheet" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/stylesheets/jquery.tocify.css" />
+			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/stylesheets/jquery.tocify.css" />
 			<link id="customcss" rel="stylesheet" type="text/css" href="{$customCSS}"/>
 
 			<xsl:call-template name="tagUsage2style"/>
