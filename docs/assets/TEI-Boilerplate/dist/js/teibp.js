@@ -137,22 +137,26 @@ function createNavigationTree() {
 		{menulevel:2,
 		selector:"div[type='textpart'][subtype='book']",
 		menutitle:"titre2"},
-		{menulevel:2,
-		selector:"div[type='textpart2'][subtype='book']",
-		menutitle:"titre342"},
 		{menulevel:3,
 		selector:"div[type='textpart'][subtype='chapter']",
 		menutitle:"titre3"}];
 	var maxlevel=3;
 // build list of menu items
 	var menuitems = [];
-	for (let i=1;i<=maxlevel;i++){
-		let selectorsByLevel = selectors.filter (function (s){
-			if (s["menulevel"]==i) {return true;} return false;})
-		menuitems.push({i:selectorsByLevel});
+	for (let s of selectors) {
+		// le sélecteur doit renvoyer une liste d'élements identifiables
+		$(s["selector"]).each(function(){
+			let RefId=$(this).attr("id");
+			let RefN=$(this).attr("n");
+
+			menuitems.push ({selectorRefId:RefId,
+			selectorRefN:RefN,
+			menulevel:s["menulevel"],
+			selector:s["selector"],
+			menutitle:s["menutitle"] + RefN}); // faire une fonction
+			};
 	}
 	console.log (menuitems);
-
 //				menuitems.push (
 //					{selectid: $(s["selector"]).attr("id"),
 //					menuN:(s["selector"]).attr("n"),
