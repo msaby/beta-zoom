@@ -240,7 +240,7 @@ if (i==(menuitems.length-1)){
 
 	$("#navigation_tree").append(html3);
 //	$("#navigation_tree").ntm();
-$('#navigation_tree2').append ("<li>new</li>");
+$('#navigation_tree2 ul').append ("<li>new</li>");	
 
 //   	// <div class='tree-menu menu' id='navigation_tree'>\n
 // var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
