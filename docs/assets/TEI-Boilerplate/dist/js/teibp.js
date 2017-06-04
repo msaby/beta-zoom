@@ -136,7 +136,7 @@ function createNavigationTree() {
 		menutitle:"titre"},
 		{menulevel:2,
 		selector:"div[type='textpart'][subtype='book']",
-		menutitle:"titre2"}
+		menutitle:"titre2"},
 		{menulevel:3,
 		selector:"div[type='textpart'][subtype='chapter']",
 		menutitle:"titre3"}];
