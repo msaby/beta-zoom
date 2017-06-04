@@ -365,7 +365,7 @@
 		<div id="teibpToolbox">
 			<h1>Contenu</h1>
 			<h2>Options d'affichage</h2>
-			<label for="pbToggle">Masquer les sauts de page</label>
+			<label class='rouge' for="pbToggle">Masquer les sauts de page</label>
 			<input type="checkbox" id="pbToggle" />
 			<h2>Navigation</h2>
 			<div id="nav-wrapper"></div>
