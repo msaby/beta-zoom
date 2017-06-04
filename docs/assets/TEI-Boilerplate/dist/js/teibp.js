@@ -132,18 +132,18 @@ function addPageBreaks(){
 function createNavigationTree() {
 	var selectors = [
 		{menulevel:1,
-		selector:"div[type='edition']",
+		selectorCSS:"div[type='edition']",
 		menutitle:"Texte"},
 		{menulevel:2,
-		selector:"div[type='textpart'][subtype='book']",
+		selectorCSS:"div[type='textpart'][subtype='book']",
 		menutitle:"Livre"},
 		{menulevel:3,
-		selector:"div[type='textpart'][subtype='chapter']",
+		selectorCSS:"div[type='textpart'][subtype='chapter']",
 		menutitle:"Chapitre"}];
 	var maxlevel=3;
 // build list of menu items
 	var menuitems = [];
-	for (let s of selectors) {
+/*	for (let s of selectors) {
 		// le sélecteur doit renvoyer une liste d'élements identifiables avec un id
 		$(s["selector"]).each(function(){
 			let RefId=$(this).attr("id");
@@ -158,6 +158,23 @@ function createNavigationTree() {
 			 }); 
 			});
 	}
+	*/
+	let listselector = [];
+	for (s of selectors){listselector.push (s["selectorCSS"]);}
+
+		$(s[listselector]).each(function(){
+			let RefId=$(this).attr("id");
+			let RefN=$(this).attr("n");
+
+			menuitems.push (
+				{selectorRefId:RefId,
+				selectorRefN:RefN,
+				menulevel:s["menulevel"],
+				selector:s["selectorCSS"],
+				menutitle:s["menutitle"]+" "+ RefN // faire une fonction
+			 }); 
+			});
+	}
 	console.log ('frghj');
 	console.log (menuitems);
 
@@ -165,8 +182,8 @@ var html="<div class='tree-menu menu' id='navigation_tree'>\n<ul>";
 var niv = 1;
 for (let i=0;i<menuitems.length;i++) {
 	let level = menuitems[i]["menulevel"];
-	let levelBefore = level;
-	let levelAfter = level;
+	let levelBefore = 0;
+	let levelAfter = 0;
 	if (i> 0) {levelBefore = menuitems[i-1]["menulevel"];}
 	if (i<(menuitems.length-1)){levelAfter = menuitems[i+1]["menulevel"];}
 	html += "<li>"+niv+"<a id='link-"+menuitems[i]["selectorRefId"]+"' href = '#"+menuitems[i]["selectorRefId"]+"'>"+menuitems[i]["menutitle"]+"</a>";
