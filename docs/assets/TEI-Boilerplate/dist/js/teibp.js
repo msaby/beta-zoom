@@ -161,7 +161,7 @@ function createNavigationTree() {
 
 	consol.log (menuitems);
 
-var html="<div class='tree-menu menu' id='navigation_tree'><ul>";
+var html="<div class='tree-menu menu' id='navigation_tree'>\n<ul>";
 var niv = 1;
 for (let i=0;i<menuitems.length;i++) {
 	let level = menuitems[i]["menulevel"];
@@ -176,10 +176,10 @@ for (let i=0;i<menuitems.length;i++) {
 		{html +="<ul>\n";niv++;}
 	else 
 		// {html += "</li>";niv++;} 
-	{html +="</li>/</ul>\n";niv--;}
+	{html +="</li>/\n</ul>\n";niv--;}
 if (i==(menuitems.length-1)){
 		for (let j=1;j<niv;j++){
-			html+="</li></ul>\n";
+			html+="</li>\n</ul>\n";
 			alert ('on ferme');
 		}
 	}
