@@ -168,7 +168,7 @@ for (let i=0;i<menuitems.length;i++) {
 	if (i> 0) {levelBefore = menuitems[i-1]["menulevel"];}
 	if (i<(menuitems.length-1)){levelAfter = menuitems[i+1]["menulevel"];}
 	html += "<li>"+niv+"<a id='link-"+menuitems[i]["selectorRefId"]+"' href = '#"+menuitems[i]["selectorRefId"]+"'>"+menuitems[i]["menutitle"]+"</a>";
-	if (levelAfter == level) {html += "</li>";} 
+	if (levelAfter == level) {html += "</li>\n";} 
 	else if (levelAfter > level)
 	//	{html += "</li>";niv++;} 
 		{html +="<ul>";niv++;}
