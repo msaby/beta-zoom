@@ -1922,7 +1922,7 @@ width:76%;
   display:block;
   width: 20%;
   top: 25px;
-  position: absolute;
+  position: fixed;
   overflow-y: auto;
   overflow-x: auto;
   font-size: 100%;
