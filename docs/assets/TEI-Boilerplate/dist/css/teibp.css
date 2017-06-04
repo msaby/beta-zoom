@@ -1923,6 +1923,8 @@ width:76%;
   width: 20%;
   top: 25px;
   position: fixed;
+  overflow-y: auto;
+  overflow-x: auto;
   font-size: 100%;
   margin-right: 1em;
   padding: 1em;
