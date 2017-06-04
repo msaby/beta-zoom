@@ -144,7 +144,10 @@ function createNavigationTree() {
 // build list of menu items
 	var menuitems = [];
 	for (let i=1;i<=maxlevel;i++){
-		selectorsByLevel = selectors.filter (function (s){
+			console.log("toto");
+
+		var selectorsByLevel = selectors.filter (function (s){	console.log("ta");
+
 			if (s["menulevel"]==i) {console.log (i);return i;} 
 		})
 	//	if (s["menulevel"]==1) {
