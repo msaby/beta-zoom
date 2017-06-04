@@ -158,8 +158,8 @@ function createNavigationTree() {
 			 }); 
 			});
 	}
-
-	consol.log (menuitems);
+	console.log ('frghj');
+	console.log (menuitems);
 
 var html="<div class='tree-menu menu' id='navigation_tree'>\n<ul>";
 var niv = 1;
