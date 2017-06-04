@@ -206,6 +206,7 @@ if (i==(menuitems.length-1)){
 }
 
 	// html += "\n</ul></div>";
+	html += "\n</ul>";
 	html += "\n</div>";
 	alert (html);
 	$("#navigation_tree").append(html);
