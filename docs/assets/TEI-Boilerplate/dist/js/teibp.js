@@ -170,13 +170,21 @@ for (let i=0;i<menuitems.length;i++) {
 	html += "<li>"+niv+"<a id='link-"+menuitems[i]["selectorRefId"]+"' href = '#"+menuitems[i]["selectorRefId"]+"'>"+menuitems[i]["menutitle"]+"</a>";
 	if (levelAfter == level) {html += "</li>";} 
 	else if (levelAfter > level)
-		{html += "</li>";niv++;} 
-	//	 {html +="<ul>";niv++;}
-	else {html += "</li>";niv++;} 
-	//{html +="</li>/</ul>";niv--;}
+	//	{html += "</li>";niv++;} 
+		{html +="<ul>";niv++;}
+	else 
+		// {html += "</li>";niv++;} 
+	{html +="</li>/</ul>";niv--;}
+//	if (i==menuitems.length){
+//		for (let j=1;j<niv;j++){
+//			html+="</ul>";
+//			alert ('on ferme');
+//		}
+//	}
 }
 
 	html += "</ul></div>";
+	alert (html);
 	$("#navigation_tree").append(html);
 
 //   	var toc = $("#navigation_tree").tocify({ selectors:"div[type='edition'],div[type='textpart'][subtype='book'],div[type='textpart'][subtype='chapter']"});
