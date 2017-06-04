@@ -149,12 +149,13 @@ function createNavigationTree() {
 			let RefId=$(this).attr("id");
 			let RefN=$(this).attr("n");
 
-			menuitems.push ({selectorRefId:RefId,
-			selectorRefN:RefN,
-			menulevel:s["menulevel"],
-			selector:s["selector"],
-			menutitle:s["menutitle"]
-			}); // faire une fonction
+			menuitems.push (a);
+			//{selectorRefId:RefId,
+			//	selectorRefN:RefN,
+			//	menulevel:s["menulevel"],
+			//	selector:s["selector"],
+			//	menutitle:s["menutitle"]
+			// }); // faire une fonction
 			};
 	}
 	console.log (menuitems);
