@@ -175,12 +175,12 @@ for (let i=0;i<menuitems.length;i++) {
 	else 
 		// {html += "</li>";niv++;} 
 	{html +="</li>/</ul>";niv--;}
-//	if (i==menuitems.length){
-//		for (let j=1;j<niv;j++){
-//			html+="</ul>";
-//			alert ('on ferme');
-//		}
-//	}
+if (i==menuitems.length){
+		for (let j=1;j<niv;j++){
+			html+="</li></ul>";
+			alert ('on ferme');
+		}
+	}
 }
 
 	html += "</ul></div>";
