@@ -140,9 +140,10 @@ function createNavigationTree() {
 		{menulevel:3,
 		selector:"div[type='textpart'][subtype='chapter']",
 		menutitle:"titre3"}];
-	maxlevel=3;
-
-	for (s of selectors) {
+	var maxlevel=3;
+console.log (selectors);
+	for (let s of selectors) {
+console.log (s);
 		if (s[menulevel]==1) {
 			selectid = $(s[selector]).attr("id");
 			$("#navigation_tree").append("<a id='link-"+selectid+"' href = '#'>"+s[menutitle]+"</a>");
