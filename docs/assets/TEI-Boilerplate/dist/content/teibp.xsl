@@ -75,6 +75,8 @@
 				</div>
 				<xsl:copy-of select="$htmlFooter"/>
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+				<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.js"></script>
 				<script type="text/javascript" src="{$teibpJS}"></script>
 			</body>
 		</html>
@@ -275,6 +277,7 @@
 
 			<script src="{$lessJS}"></script>
 			<link id="maincss" rel="stylesheet" type="text/css" href="{$teibpCSS}"/>
+			<link rel="stylesheet" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/stylesheets/jquery.tocify.css" />
 			<link id="customcss" rel="stylesheet" type="text/css" href="{$customCSS}"/>
 
 			<xsl:call-template name="tagUsage2style"/>
@@ -365,12 +368,13 @@
 
 	<xsl:template name="teibpToolbox">
 		<div id="teibpToolbox">
-			<h1>Navigation</h1>
+			<h1>Contenu</h1>
+			<h2>Options d'affichage</h2>
 			<label for="pbToggle">Masquer les sauts de page</label>
-			<input type="checkbox" id="pbToggle" /> 
+			<input type="checkbox" id="pbToggle" />
+			<h2>Navigation</h2>
 			<div id="navigation_tree">
-				
-				</div>
+			</div>
 		</div>
 	</xsl:template>
 	
