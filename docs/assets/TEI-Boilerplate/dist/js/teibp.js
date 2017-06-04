@@ -156,16 +156,16 @@ function addPageBreaks(){
 
 function createNavigationTree() {
 	var selectors = [
+	//	{menulevel:1,
+	//	selectorCSS:"div[type='edition']",
+	//	menutitle:"Texte"},
 		{menulevel:1,
-		selectorCSS:"div[type='edition']",
-		menutitle:"Texte"},
-		{menulevel:2,
 		selectorCSS:"div[type='textpart'][subtype='book']",
 		menutitle:"Livre"},
-		{menulevel:3,
+		{menulevel:2,
 		selectorCSS:"div[type='textpart'][subtype='chapter']",
 		menutitle:"Chapitre"}];
-	var maxlevel=3;
+	var maxlevel=2;
 // build list of menu items
 	var menuitems = [];
 /*	for (let s of selectors) {
