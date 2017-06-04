@@ -172,7 +172,7 @@ for (let i=0;i<menuitems.length;i++) {
 	else 
 		{html += "</li>}";} 
 	//	if (levelAfter > level) {html +="<ul>";niv++;}
-	else {html += "</li>}";} 
+	// else {html += "</li>}";} 
 	//{html +="</li>/</ul>";niv--;}
 }
 
