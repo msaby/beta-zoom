@@ -1,0 +1,50 @@
+num,label,label_clair,categorie
+0,text_id,text_id,tech
+1,author_canonical_name,Nom canonique,author
+2,author_fre_name,Nom français,author
+3,author_eng_name,Nom anglais,author
+4,author_dates,Dates,author
+5,author_period,Période,author
+6,author_ISNI,ISNI,author
+7,author_URI_Perseus_catalog,URI Catalogue Perseus (auteur),author
+8,author_CTS_code,URI CTS,author
+9,author_biography,Biographie,author
+10,work_canonical_title,Titre canonique,work
+11,work_orig_title,Titre original,work
+12,work_fre_title,Titre français,work
+13,work_eng_title,Titre anglais,work
+14,work_date,Date (œuvre),work
+15,work_language,Langue,work
+16,work_URI_data_bnf,URI Data.bnf,work
+17,work_URI_perseus_Catalog,URI Catalogue Perseus (œuvre),work
+18,work_URI_RSPA,URI RSPA,work
+19,work_reference_editions,Editions de référence,work
+20,work_available_editions,Editions disponibles,work
+21,work_genre,Genre,work
+22,work_description,Description,work
+23,text_Perseus_or_First1KGreek_Github_URI,URI Github Perseus ou F1KG,text
+24,text_Perseus_edition,Edition Perseus,text
+25,text_Perseus_main_structure,Structure principale Perseus,text
+26,text_Perseus_secondary_structure,Structure secondaire Perseus,text
+27,text_Perseus_milestone,Milestones Perseus,text
+28,text_Perseus_CTS _refdecl,Compatible CTS Perseus,text
+29,text_Perseus_enrichment,Enrichissement Perseus,text
+30,text_other_source_URI,Autres sources (URI),text
+31,text_other_source_version,Autres sources (editions),text
+32,text_other_source_format,Autres sources (format),text
+33,text_other_source_licence,Autres sources (licence),text
+34,text_commentary,Commentaires sur le texte,text
+35,relevant_passages_ref,Références passages,passage
+36,relevant_passages_length,Longueur passage,passage
+37,relevant_passages_commentary,Commentaires sur les passages,passage
+38,zoom_step,zoom_step,zoom
+39,zoom_ref_added_by,zoom_ref_added_by,zoom
+40,zoom_ref_confirmed_by,zoom_ref_confirmed_by,zoom
+41,zoom_text_added_by,zoom_text_added_by,zoom
+42,zoom_text_source,zoom_text_source,zoom
+43,zoom_text_version,zoom_text_version,zoom
+44,zoom_text_confirmed_by,zoom_text_confirmed_by,zoom
+45,zoom_commented_by,zoom_commented_by,zoom
+46,zoom_checked_by,zoom_checked_by,zoom
+47,zoom_update_date,zoom_update_date,zoom
+48,zoom_file_name,zoom_file_name,zoom
