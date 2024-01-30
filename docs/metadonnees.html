@@ -1,0 +1,370 @@
+---
+# this is an empty front matter
+---
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="fr"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+<head>
+{% include meta %}
+</head>
+<body>
+{% include header.html %}
+
+<section class="main-content">
+<div class="container-fluid">
+
+      <h2 class="alert">Corpus de textes pour le projet Zoomathia (prototype)</h2>
+	<p> Les textes en TEI ont été récupérés en janvier 2024 sur les dépot github du projet Perseus https://github.com/PerseusDL et du projet First1KGreek https://github.com/OpenGreekAndLatin </p>
+
+      <p>Tableau affiché dynamiquement à partir d'un fichier csv.</p>
+	  <p><b>Statistiques</b>:</p>
+	  <p>Auteurs: <span id="nb_authors"/></p>
+	  <p>Textes référencés: <span id="nb_texts"/></p>
+	  <p>- dont références à préciser: <span id="nb_unprecise_texts"/></p>
+	  <p>- dont disponibles en TEI: <span id="nb_available_texts"/></p>
+	  <p>- dont annotés: <span id="nb_annotated_texts"/></p>
+	  
+	  <!-- <p>Seules certaines colonnes sont affichées. <a class="display-all">Cliquez ici pour afficher toutes les colonnes</a><p> -->
+	  <p>Cliquez sur un bouton dans la première colonne du tableau pour afficher la fiche détaillée pour chaque texte, et le texte en TEI s'il est disponible.</p>
+	  
+	  
+	  <div id='fiche'></div>
+
+	  
+      <div id='table-container'></div>
+
+    </div><!-- /.container -->
+	</section>
+	  <footer>
+{% include footer.html %}
+      </footer>
+{% include scripts.html %}
+ <script type="text/javascript">
+	var csv_data_as_array = [];
+	var csv_entetes = [];
+		
+	function getData(path) {
+		return $.ajax({
+			url : path,
+			type: 'GET',
+			dataType: "text"
+    });
+	}
+
+	function deepCopy(obj) {
+    if (Object.prototype.toString.call(obj) === '[object Array]') {
+        var out = [], i = 0, len = obj.length;
+        for ( ; i < len; i++ ) {
+            out[i] = arguments.callee(obj[i]);
+        }
+        return out;
+    }
+    if (typeof obj === 'object') {
+        var out = {}, i;
+        for ( i in obj ) {
+            out[i] = arguments.callee(obj[i]);
+        }
+        return out;
+    }
+    return obj;
+}
+
+	function displayStats(){
+		var zoom_step_pos=0;
+		var author_canonical_name_pos=0;
+		var text_by_step=[0,0,0,0];
+		for (let i=0;i<csv_data_as_array[0].length;i++) {
+			if (csv_data_as_array[0][i]=="zoom_step")  {zoom_step_pos=i;}
+		}
+		for (let ligne of csv_data_as_array){		
+			step=0;
+			step = parseInt(ligne [zoom_step_pos].charAt(0));
+			text_by_step[step]=text_by_step[step]+1;
+		}
+		
+		for (let i=0;i<csv_data_as_array[0].length;i++) {
+			if (csv_data_as_array[0][i]=="author_canonical_name")  {author_canonical_name_pos=i;}
+		}
+		var authors=[];
+		for (let ligne of csv_data_as_array){
+			if (authors.indexOf (ligne [author_canonical_name_pos]) < 0) {
+				authors.push  (ligne [author_canonical_name_pos]);
+			}
+			
+		}
+		
+		$("#nb_authors").text((authors.length)-1);
+		$("#nb_texts").text(text_by_step[0]+text_by_step[1]+text_by_step[2]+text_by_step[3]);
+		$("#nb_unprecise_texts").text(text_by_step[0]);
+		$("#nb_available_texts").text(text_by_step[2]);
+		$("#nb_annotated_texts").text(text_by_step[3]);
+	}  
+	
+	function displayTable(csv_data_as_array,el,datatables_options,custom_formatting)
+	{
+		var csv_data_display = deepCopy (csv_data_as_array);
+		var table_head = "<thead><tr>";
+
+          for (head_id = 0; head_id < csv_data_display[0].length; head_id++) { 
+            table_head += "<th>" + csv_data_display[0][head_id] + "</th>";
+          }
+
+          table_head += "</tr></thead>";
+          $('#' + el + '-table').append(table_head);
+          $('#' + el + '-table').append("<tbody></tbody>");
+
+          for (row_id = 1; row_id < csv_data_display.length; row_id++) { 
+            var row_html = "<tr>";
+
+            //takes in an array of column index and function pairs
+            if (custom_formatting != []) {
+              $.each(custom_formatting, function(i, v){
+                var col_idx = v[0]
+                var func = v[1];
+                csv_data_display[row_id][col_idx]= func(csv_data_display[row_id][col_idx]);
+              }
+			  )
+            }
+
+            for (col_id = 0; col_id < csv_data_display[row_id].length; col_id++) { 
+              row_html += "<td>" + csv_data_display[row_id][col_id] + "</td>";
+            }
+              
+            row_html += "</tr>";
+            $('#' + el + '-table tbody').append(row_html);
+          }
+
+		  
+		  var col_entetes = [];
+		  for(var i= 0; i < csv_entetes.length; i++) {
+			var a = {}
+			a["title"]=csv_entetes[i][2];
+			col_entetes.push (a);
+		  } 
+		  console.log (col_entetes);
+		  // datatables_options ["columns"] = col_entetes;
+		  
+		  var tableau = $('#' + el + '-table').DataTable(datatables_options);
+
+		  
+		  			
+		  
+		  // inutile pour l'instant
+		  /*
+		  $('a.display-all').on( 'click', function (e) {
+			e.preventDefault(); 
+			tableau.columns().every( function () {
+				column.visible=true;
+				});		
+		} );
+		*/
+		
+		
+		$("table").on("click", ".btn-text-info", function(event){
+		display_text($(this).attr('value'));
+		ele="#fiche";
+		$('html, body').animate({scrollTop: $(ele).offset().top -100 }, 'slow');	
+	  });
+    /* $("table").on("click", ".btn-text-DL", function(event){
+		// var win = window.open(get_text_file_path(), '_blank');
+		// win.focus();   
+		getData (get_text_file_path()).done(function (data,textStatus,jqXHR){alert (data);});
+				// getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,el,csv_options,datatables_options,custom_formatting)});
+
+	  }); */
+	}
+	
+	function get_text_file_path(num_text) {
+		var file_path="";		
+		var zoom_file_work_path_pos=0;
+		var zoom_file_name_pos=0;
+		for (let i=0;i<csv_data_as_array[0].length;i++) {
+		//	console.log(csv_data_as_array[0][i]);
+			if (csv_data_as_array[0][i]=="zoom_file_name")  {zoom_file_name_pos=i;}
+			if (csv_data_as_array[0][i]=="zoom_file_work_path")  {zoom_file_work_path_pos=i;}
+		}
+		for (let ligne of csv_data_as_array){
+			if (ligne[0]==num_text) {
+			    if ((ligne[zoom_file_name_pos]!="") && (ligne[zoom_file_work_path_pos]!="")) {
+					file_path="texts/"+ligne[zoom_file_work_path_pos]+"/"+ligne[zoom_file_name_pos];
+				}
+				break;
+			}
+		}
+	return file_path;
+	}
+	
+	function get_info_text(num_text) {
+		var j=-1;
+		for (var i=0;i < csv_data_as_array.length;i++){
+			if (csv_data_as_array[i][0] == num_text) {
+				j=i;
+				break;
+			}
+		}
+		if (j==-1) {return 0;}
+		var infos=[];
+		for(var i= 0; i < csv_entetes.length; i++) {
+			var a = [csv_entetes[i][2],csv_entetes[i][3],csv_data_as_array[j][i]];
+			infos.push (a);
+		}
+		return infos; 
+	}
+
+	function handleData_entete(data, textStatus, jqXHR,data_tableau,el,csv_options,datatables_options,custom_formatting ) {
+
+	csv_entetes= $.csv.toArrays(data, csv_options);
+	csv_entetes.shift();
+	csv_data_as_array = $.csv.toArrays(data_tableau, csv_options);
+
+	displayTable(csv_data_as_array,el,datatables_options,custom_formatting);
+	displayStats();
+	}	
+	
+	function handleData(data_tableau, textStatus, jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting ) {
+	getData(csv_path_entete).done(function (data,textStatus,jqXHR){handleData_entete(data, textStatus, jqXHR,data_tableau,el,csv_options,datatables_options,custom_formatting )});
+   
+}
+	
+	
+	 function ValidURL(str) {
+	    var pattern = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+		if(!pattern.test(str)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+      function format_link(link){
+        if (link) {		
+		  if (ValidURL(link)) {
+			return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+			}
+		  else 
+			return "";
+		}			
+        else
+          return "";
+      }
+
+	  function detail_link(ref){
+        return '<button type="button" class="btn btn-info btn-text-info" id="button-text-info-'+ref+'" value="'+ref+'" data-toggle="button">Détails et texte</button>';
+		// <br/><button type="button" class="btn btn-info btn-text-DL" id="button-text-DL-'+ref+'" value="'+ref+'" data-toggle="button">Texte brut (nouvel onglet)</button>
+      }
+	  
+	  
+	  function display_text(num_text) {
+	    text_file_path = get_text_file_path(num_text);
+	  	info_text=get_info_text(num_text);
+	  	meta_author=[];
+	  	meta_work=[];
+	  	meta_text=[];
+	  	meta_passage=[];
+	  	meta_zoom=[]; 
+
+	  	for (let i of info_text) {
+	  		if (i[1]=="author"){	
+	  			meta_author.push([i[0],i[2]]);
+	  		} 
+	  		if (i[1]=="work"){	
+	  			meta_work.push([i[0],i[2]]);
+	  		} 
+	  		if (i[1]=="text"){	
+	  			meta_text.push([i[0],i[2]]);
+	  		} 
+	  		if (i[1]=="passage"){	
+	  			meta_passage.push([i[0],i[2]]);
+	  		} 
+	  		if (i[1]=="zoom"){	
+	  			meta_zoom.push([i[0],i[2]]);
+	  		} 			
+	  	}
+	  	metas = [meta_author,meta_work,meta_text,meta_passage,meta_zoom];
+	  	meta_title = ['Auteur','Oeuvre','Version','Passage(s) pertinent(s)','Traitement'];
+
+		el = 'fiche';
+		contenu_fiche = "<div class = 'content-fiche' id='content-fiche-'"+num_text+"'>";
+		contenu_fiche += "<row class='row-eq-height'>";
+		contenu_fiche += "<div class='col-md-6' id='bloc-infos'>";
+		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title titre-fiche'>Fiche "+num_text+"</h4><span class='pull-right clickable' data-toggle='collapse' data-target='#collapse1'><span> (cliquez pour réduire) </span><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
+		contenu_fiche += "<div class='panel-body panel-collapse collapse in' id='collapse1'>";
+
+		for (let j=0;j<5;j++){
+		contenu_fiche +="<div class = 'content-fiche'>";
+		contenu_fiche +="<h4>"+meta_title[j]+"</h4>";
+for (let i of metas[j]) {
+
+		contenu_fiche +="<div class = 'row cle-valeur'>";
+		contenu_fiche +="<div class = 'cle col-md-4'>";
+		contenu_fiche +=i[0];
+		contenu_fiche += "</div>";
+		contenu_fiche += "<div class = 'valeur col-md-8'>";
+		contenu_fiche +=i[1];
+		contenu_fiche += "</div>";
+		contenu_fiche += "</div>"; // row
+
+	}
+
+		contenu_fiche += "</div>"; // content-fiche
+	}
+
+		contenu_fiche += "</div>"; // panel-body
+		contenu_fiche += "</div>"; // panel
+		contenu_fiche += "</div>"; //bloc-info
+		contenu_fiche += "<div class='col-md-6' id='bloc-texte'>";
+		contenu_fiche += "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'>Texte en TEI</h4><span class='pull-right clickable' data-toggle='collapse' data-target='#collapse2'><span> (cliquez pour réduire) </span><i class='glyphicon glyphicon-chevron-up'></i></span></div>";
+		contenu_fiche += "<div class='panel-body panel-collapse collapse in' id='collapse2'>";
+		contenu_fiche +="<div class='textajax'></div>";
+		contenu_fiche += "</div>"; // panel-body
+		contenu_fiche += "</div>"; // panel
+		contenu_fiche += "</div>"; //bloc-texte
+		contenu_fiche += "</row>";
+		contenu_fiche += "</div>"; 	
+		$("#" + el).html(contenu_fiche);
+		if (text_file_path=="") {$("div .textajax").text("Texte absent de la base");}
+		else {
+			$("div .textajax").text("Texte en cours de chargement");
+			getData (text_file_path).done(function (data,textStatus,jqXHR){$("div .textajax").text(data);});
+		}
+	  }
+
+
+	   function process(options) {
+		options = options || {};
+		var csv_path = options.csv_path || "";
+		var csv_path_entete = options.csv_path_entete || "";
+		var el = options.element || "table-container";
+		var allow_download = options.allow_download || false;
+		var csv_options = options.csv_options || {};
+		var datatables_options = options.datatables_options || {};
+		var custom_formatting = options.custom_formatting || [];
+		$("#" + el).html("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
+		if (allow_download) 
+			$("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger la liste complète en CSV</a></p>");
+		getData(csv_path).done(function (data,textStatus,jqXHR){handleData(data,textStatus,jqXHR,csv_path_entete,el,csv_options,datatables_options,custom_formatting)});
+
+	}
+	$( document ).ready(function(){
+	  
+      var options = {
+      	csv_path: 'corpus/ZOOM_corpus.csv',
+	csv_path_entete:'corpus/ZOOM_corpus_entetes.csv',
+        element: 'table-container', 
+        allow_download: true,
+        csv_options: {separator: ',', delimiter: '"'},
+        datatables_options: {
+			"language": {"search": "Recherchez un élément:"},
+			"paging": false
+			// ,"columnDefs": [{ "visible": false,  "targets": [ 2 ] }]
+			},
+		custom_formatting: [[0, detail_link]]
+		};
+      process(options);
+  });
+  
+    </script>
+</body>
+</html>
