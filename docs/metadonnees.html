@@ -16,14 +16,6 @@
 <div class="container-fluid">
 
       <h2 class="alert">Métadonnées pour chaque texte (colonnes du tableau)</h2>
-
-	<p>Quatre types de métadonnées sont fournies pour chaque texte </p>
-	<ol>
-		<li>Métadonnées relatives à l'auteur</li>
-		<li>Métadonnées relatives à l'oeuvre</li>
-		<li>Métadonnées relatives au texte (édition précise de l'oeuvre utilisée dans le projet)</li>
-		<li>Métadonnées relatives au projet</li>
-	</ol>
 	
 <table border="1" class="dataframe">
   <thead>
@@ -31,254 +23,255 @@
       <th>nom de colonne</th>
       <th>libellé</th>
       <th>categorie</th>
-    </tr>
+	  <th>commentaire</th>
+</tr>
   </thead>
   <tbody>
     <tr>
       <td>text_id</td>
-      <td>Numéro du texte (interne)</td>
-      <td>lié au projet</td>
-    </tr>
+      <td>text_id</td>
+      <td>technique</td>
+    <td></td></tr>
     <tr>
       <td>author_canonical_name</td>
-      <td>Nom canonique de l'auteur</td>
+      <td>Nom canonique</td>
       <td>auteur</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>author_fre_name</td>
-      <td>Nom français de l'auteur</td>
+      <td>Nom français</td>
       <td>auteur</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>author_eng_name</td>
-      <td>Nom anglais de l'auteur</td>
+      <td>Nom anglais</td>
       <td>auteur</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>author_dates</td>
-      <td>Dates de l'auteur</td>
+      <td>Dates</td>
       <td>auteur</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>author_period</td>
-      <td>Période de l'auteur</td>
+      <td>Période</td>
       <td>auteur</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>author_ISNI</td>
-      <td>ISNI de l'auteyr</td>
+      <td>ISNI</td>
       <td>auteur</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>author_URI_Perseus_catalog</td>
-      <td>URI de l'auteur dans le Catalogue Perseus</td>
+      <td>URI Catalogue Perseus (auteur)</td>
       <td>auteur</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>author_CTS_code</td>
-      <td>URI Canonical Text Service de l'auteur</td>
+      <td>URI CTS</td>
       <td>auteur</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>author_biography</td>
-      <td>Biographie de l'auteur</td>
+      <td>Biographie</td>
       <td>auteur</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_canonical_title</td>
-      <td>Titre canonique de l'oeuvre</td>
+      <td>Titre canonique</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_orig_title</td>
-      <td>Titre original de l'oeuvre</td>
+      <td>Titre original</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_fre_title</td>
-      <td>Titre français de l'oeuvre</td>
+      <td>Titre français</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_eng_title</td>
-      <td>Titre anglais de l'oeuvre</td>
+      <td>Titre anglais</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_date</td>
-      <td>Date de l'oeuvre</td>
+      <td>Date (œuvre)</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_language</td>
-      <td>Langue originale de l'oeuvre</td>
+      <td>Langue</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_URI_data_bnf</td>
-      <td>URI de l'oeuvre dans data.bnf</td>
+      <td>URI Data.bnf</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_URI_perseus_Catalog</td>
-      <td>URI de l'ouevre dnas le Catalogue Perseus</td>
+      <td>URI Catalogue Perseus (œuvre)</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_URI_RSPA</td>
       <td>URI RSPA</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_reference_editions</td>
       <td>Editions de référence</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_available_editions</td>
       <td>Editions disponibles</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_genre</td>
       <td>Genre</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>work_description</td>
       <td>Description</td>
       <td>oeuvre</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_Perseus_or_First1KGreek_Github_URI</td>
       <td>URI Github Perseus ou F1KG</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_Perseus_edition</td>
       <td>Edition Perseus</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_Perseus_main_structure</td>
       <td>Structure principale Perseus</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_Perseus_secondary_structure</td>
       <td>Structure secondaire Perseus</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_Perseus_milestone</td>
       <td>Milestones Perseus</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_Perseus_CTS _refdecl</td>
       <td>Compatible CTS Perseus</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_Perseus_enrichment</td>
       <td>Enrichissement Perseus</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_other_source_URI</td>
       <td>Autres sources (URI)</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_other_source_version</td>
       <td>Autres sources (editions)</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_other_source_format</td>
       <td>Autres sources (format)</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_other_source_licence</td>
       <td>Autres sources (licence)</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>text_commentary</td>
       <td>Commentaires sur le texte</td>
       <td>texte</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>relevant_passages_ref</td>
       <td>Références passages</td>
       <td>passage</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>relevant_passages_length</td>
       <td>Longueur passage</td>
       <td>passage</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>relevant_passages_commentary</td>
       <td>Commentaires sur les passages</td>
       <td>passage</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_step</td>
       <td>zoom_step</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_ref_added_by</td>
       <td>zoom_ref_added_by</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_ref_confirmed_by</td>
       <td>zoom_ref_confirmed_by</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_text_added_by</td>
       <td>zoom_text_added_by</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_text_source</td>
       <td>zoom_text_source</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_text_version</td>
       <td>zoom_text_version</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_text_confirmed_by</td>
       <td>zoom_text_confirmed_by</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_commented_by</td>
       <td>zoom_commented_by</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_checked_by</td>
       <td>zoom_checked_by</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_update_date</td>
       <td>zoom_update_date</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
     <tr>
       <td>zoom_file_name</td>
       <td>zoom_file_name</td>
       <td>lié au projet</td>
-    </tr>
+    <td></td></tr>
   </tbody>
 </table>
 
