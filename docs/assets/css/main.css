@@ -4,6 +4,14 @@
    Author's custom styles
    ========================================================================== */
 
+
+.table-container-table tr {
+	position: sticky;
+  top: 0;
+  background-color: #F9F8F8;
+}
+
+
 div.dataTables_wrapper div.dataTables_filter {
     text-align: left !important;
 }
