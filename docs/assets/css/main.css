@@ -9,7 +9,9 @@
 
 #table-container-table th {
   position: sticky !important;
-  top: 0 !important;
+  background-color:lightgrey;
+	top: 50px !important;
+
 }
 
 
