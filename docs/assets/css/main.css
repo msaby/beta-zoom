@@ -5,14 +5,11 @@
    ========================================================================== */
 
 
-#table-container-table {
-  background-color: red !important;
-}
+ 
 
-#table-container-table thead {
-	position: sticky !important;
+#table-container-table th {
+  position: sticky !important;
   top: 0 !important;
-  background-color: green; !important;
 }
 
 
