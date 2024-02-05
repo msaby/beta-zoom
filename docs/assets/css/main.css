@@ -5,7 +5,8 @@
    ========================================================================== */
 
 
-.table-container-table tr {
+
+#table-container-table thead {
 	position: sticky;
   top: 0;
   background-color: #F9F8F8;
