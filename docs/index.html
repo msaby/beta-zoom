@@ -211,8 +211,11 @@ function get_info_text(num_text) {
     return infos;
 }
 
-function handleData(data_tableau, textStatus, jqXHR, metadata_path, el, csv_options, datatables_options, custom_formatting) {
-    csv_data_as_array = $.csv.toArrays(data_tableau, csv_options);
+
+ 
+function handleData(metadata,data, el, csv_options, datatables_options, custom_formatting) {
+    csv_metadata_as_array = $.csv.toArrays(metadata, csv_options);
+    csv_data_as_array = $.csv.toArrays(data, csv_options);
     displayTable(csv_data_as_array, el, datatables_options, custom_formatting);
     displayStats();
 }
@@ -320,7 +323,7 @@ function display_text(num_text) {
 
 function process(options) {
     options = options || {};
-    let csv_path = options.csv_path || "";
+    let corpus_path = options.corpus_path || "";
     let metadata_path = options.metadata_path || "";
     let el = options.element || "table-container";
     let allow_download = options.allow_download || false;
@@ -329,15 +332,19 @@ function process(options) {
     let custom_formatting = options.custom_formatting || [];
     $("#" + el).html("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
     if (allow_download)
-        $("#" + el).prepend("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger la liste complète en CSV</a></p>");
-    getData(csv_path).done(function(data, textStatus, jqXHR) {
-        handleData(data, textStatus, jqXHR, metadata_path, el, csv_options, datatables_options, custom_formatting)
-    });
-
+        $("#" + el).prepend("<p><a class='btn btn-info' href='" + corpus_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger la liste complète en CSV</a></p>");
+    getData(metadata_path).done(
+	    function(metadata, textStatusmetadata, jqXHRmetadata) {
+		    getData(corpus_path).done(
+			    function(data, textStatusdata, jqXHRdata) {
+			    handleData(metadata,data, el, csv_options, datatables_options, custom_formatting);
+		    });
+	    });
+	
 }
 $(document).ready(function() {
     let options = {
-        csv_path: 'corpus/ZOOMATHIA_corpus.csv',
+        corpus_path: 'corpus/ZOOMATHIA_corpus.csv',
         metadata_path: 'corpus/ZOOMATHIA_metadata.csv',
         element: 'table-container',
         allow_download: true,
