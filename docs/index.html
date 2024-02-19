@@ -164,21 +164,18 @@ function displayTable(csv_data_as_array, el, datatables_options, custom_formatti
 
 function get_text_file_path(num_text) {
     let file_path = "";
-    let zoom_file_work_path_pos = 0;
     let zoom_file_name_pos = 0;
     for (let i = 0; i < csv_data_as_array[0].length; i++) {
         //    console.log(csv_data_as_array[0][i]);
-        if (csv_data_as_array[0][i] == "zoom_file_name") {
+        if (csv_data_as_array[0][i] == "text_filename") {
             zoom_file_name_pos = i;
         }
-        if (csv_data_as_array[0][i] == "zoom_file_work_path") {
-            zoom_file_work_path_pos = i;
-        }
+         
     }
     for (let ligne of csv_data_as_array) {
         if (ligne[0] == num_text) {
-            if ((ligne[zoom_file_name_pos] != "") && (ligne[zoom_file_work_path_pos] != "")) {
-                file_path = "texts/" + ligne[zoom_file_work_path_pos] + "/" + ligne[zoom_file_name_pos];
+            if ((ligne[zoom_file_name_pos] != "") )) {
+                file_path = "texts/" + ligne[zoom_file_name_pos];
             }
             break;
         }
