@@ -45,6 +45,120 @@
 let csv_data_as_array = [];
 let csv_metadata = {};
 
+
+
+	
+    function csv_metadata_to_array_of_objects  (csv, options, callback) {
+      // if callback was passed to options swap callback with options
+      if (options !== undefined && typeof (options) === 'function') {
+        if (callback !== undefined) {
+          return console.error('You cannot 3 arguments with the 2nd argument being a function')
+        }
+        callback = options
+        options = {}
+      }
+
+      options = (options !== undefined ? options : {})
+      const config = {}
+      config.callback = ((callback !== undefined && typeof (callback) === 'function') ? callback : false)
+      config.separator = 'separator' in options ? options.separator : $.csv.defaults.separator
+      config.delimiter = 'delimiter' in options ? options.delimiter : $.csv.defaults.delimiter
+      config.headers = 'headers' in options ? options.headers : $.csv.defaults.headers
+      options.start = 'start' in options ? options.start : 1
+
+      // account for headers
+      if (config.headers) {
+        options.start++
+      }
+      if (options.end && config.headers) {
+        options.end++
+      }
+
+      // setup
+      let lines = []
+      let data = []
+
+      options = {
+        delimiter: config.delimiter,
+        separator: config.separator,
+        onPreParse: options.onPreParse,
+        onParseEntry: options.onParseEntry,
+        onParseValue: options.onParseValue,
+        onPostParse: options.onPostParse,
+        start: options.start,
+        end: options.end,
+        state: {
+          rowNum: 1,
+          colNum: 1
+        },
+        match: false,
+        transform: options.transform
+      }
+
+      // fetch the headers
+      const headerOptions = {
+        delimiter: config.delimiter,
+        separator: config.separator,
+        start: 1,
+        end: 1,
+        state: {
+          rowNum: 1,
+          colNum: 1
+        },
+        headers: true
+      }
+
+      // onPreParse hook
+      if (options.onPreParse !== undefined) {
+        csv = options.onPreParse(csv, options.state)
+      }
+
+      // parse the csv
+      const headerLine = $.csv.parsers.splitLines(csv, headerOptions)
+      const headers = $.csv.toArray(headerLine[0], headerOptions)
+
+      // fetch the data
+      lines = $.csv.parsers.splitLines(csv, options)
+
+      // reset the state for re-use
+      options.state.colNum = 1
+      if (headers) {
+        options.state.rowNum = 2
+      } else {
+        options.state.rowNum = 1
+      }
+
+      // convert data to objects
+      for (let i = 0, len = lines.length; i < len; i++) {
+        const entry = $.csv.toArray(lines[i], options)
+        const object = {}
+        for (let j = 0; j < headers.length; j++) {
+          object[headers[j]] = entry[j]
+        }
+        if (options.transform !== undefined) {
+          data.push(options.transform.call(undefined, object))
+        } else {
+          data.push(object)
+        }
+
+        // update row state
+        options.state.rowNum++
+      }
+
+      // onPostParse hook
+      if (options.onPostParse !== undefined) {
+        data = options.onPostParse(data, options.state)
+      }
+
+      // push the value to a callback if one is defined
+      if (!config.callback) {
+        return data
+      } else {
+        config.callback('', data)
+      }
+    }
+
+	 
 function getData(path) {
     return $.ajax({
         url: path,
@@ -216,7 +330,7 @@ function get_info_text(num_text) {
 	 
 function handleData(metadata,data, el, csv_options, datatables_options, custom_formatting) {
 	console.log ("handleData");
-    csv_metadata = $.csv.toObjects(metadata, csv_options);
+    csv_metadata = csv_metadata_to_array_of_objects(metadata, csv_options);
 		console.log (csv_metadata);
 	return;
 
