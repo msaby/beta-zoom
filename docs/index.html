@@ -132,15 +132,17 @@ let csv_metadata = {};
       for (let i = 0, len = lines.length; i < len; i++) {
         const entry = $.csv.toArray(lines[i], options)
         const object = {}
-        for (let j = 0; j < headers.length; j++) {
+	      // on zappe la 1re colonne qui servvira de clé
+	for (let j = 1; j < headers.length; j++) {
           object[headers[j]] = entry[j]
         }
         if (options.transform !== undefined) {
           data.push(options.transform.call(undefined, object))
         } else {
-          data.push(object)
-        }
-
+          // data.push(object)
+          // 1re colonne (label), servira de clé
+        data[entry[0]] = object;
+        }	      
         // update row state
         options.state.rowNum++
       }
