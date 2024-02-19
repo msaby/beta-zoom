@@ -297,7 +297,7 @@ function get_info_text(num_text) {
             for (let col = 0; col < csv_data_as_array[ligne].length; col++ )  {
 		    console.log ("clé : ");
 		    console.log (infos [csv_data_as_array[0][col]]);
-		    infos [csv_data_as_array[0][col]] = csv_data_as_array[ligne][col];
+		    infos [csv_data_as_array[0][col]] = ["value" : csv_data_as_array[ligne][col], csv_metadata [csv_data_as_array[0][col]]] ;
 	    }
 		  break;
 	}
