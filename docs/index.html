@@ -197,8 +197,16 @@
 	}
 	
 	function get_info_text(num_text) {
+		console.log("get_info_text");
+		console.log(num_text);
 		var j=-1;
 		for (var i=0;i < csv_data_as_array.length;i++){
+					console.log ("boucle");
+			console.log(i);
+
+					console.log(csv_data_as_array[i]);
+
+			
 			if (csv_data_as_array[i][0] == num_text) {
 				j=i;
 				break;
@@ -210,6 +218,7 @@
 			var a = [csv_entetes[i][2],csv_entetes[i][3],csv_data_as_array[j][i]];
 			infos.push (a);
 		}
+		console.log (infos);
 		return infos; 
 	}
 
@@ -266,6 +275,7 @@
 	  	meta_zoom=[]; 
 
 	  	for (let i of info_text) {
+			console.log (i);
 	  		if (i[1]=="author"){	
 	  			meta_author.push([i[0],i[2]]);
 	  		} 
