@@ -311,6 +311,7 @@ function handleData(metadata,data, el, csv_options, datatables_options, custom_f
 	console.log ("handleData");
     csv_metadata = csv_metadata_to_array_of_objects(metadata, csv_options);
 	console.log (csv_metadata);
+	console.log (data);
     csv_data_as_array = $.csv.toArrays(data, csv_options);
 	console.log (csv_data_as_array);
 
@@ -448,7 +449,8 @@ $(document).ready(function() {
         allow_download: true,
         csv_options: {
             separator: ',',
-            delimiter: '"'
+            delimiter: '"',
+	    headers: true
         },
         datatables_options: {
             "language": {
