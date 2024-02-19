@@ -132,7 +132,7 @@ let csv_metadata = {};
       for (let i = 0, len = lines.length; i < len; i++) {
         const entry = $.csv.toArray(lines[i], options)
         const object = {}
-	      // on zappe la 1re colonne qui servvira de clé
+	      // on zappe la 1re colonne qui servira de clé
 	for (let j = 1; j < headers.length; j++) {
           object[headers[j]] = entry[j]
         }
@@ -293,6 +293,7 @@ function get_info_text(num_text) {
     let infos = [];
     for (let ligne = 0; ligne < csv_data_as_array.length; ligne++) {
         if (csv_data_as_array[ligne][0] == num_text) {
+		console.log("la ligne"+ligne);
             for (let col = 0; col < csv_data_as_array[ligne].length; col++ )  {
 		    console.log ("clé : ");
 		    console.log (infos [csv_data_as_array[0][col]]);
