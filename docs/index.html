@@ -211,7 +211,7 @@ function get_info_text(num_text) {
     return infos;
 }
 
-function handleData_entete(data, textStatus, jqXHR, data_tableau, el, csv_options, datatables_options, custom_formatting) {
+function handleData_metadata(data, textStatus, jqXHR, data_tableau, el, csv_options, datatables_options, custom_formatting) {
 
     csv_metadata = $.csv.toArrays(data, csv_options);
     csv_metadata.shift();
@@ -223,7 +223,7 @@ function handleData_entete(data, textStatus, jqXHR, data_tableau, el, csv_option
 
 function handleData(data_tableau, textStatus, jqXHR, metadata_path, el, csv_options, datatables_options, custom_formatting) {
     getData(metadata_path).done(function(data, textStatus, jqXHR) {
-        handleData_entete(data, textStatus, jqXHR, data_tableau, el, csv_options, datatables_options, custom_formatting)
+        handleData_metadata(data, textStatus, jqXHR, data_tableau, el, csv_options, datatables_options, custom_formatting)
     });
 }
 
