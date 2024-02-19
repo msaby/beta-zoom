@@ -230,6 +230,7 @@ function displayTable(csv_data_as_array, el, datatables_options, custom_formatti
     for (head_id = 0; head_id < csv_data_display[0].length; head_id++) {
         table_head += "<th>" + csv_data_display[0][head_id] + "</th>";
     }
+	console.log (table_head);
 
     table_head += "</tr></thead>";
     $('#' + el + '-table').append(table_head);
@@ -254,8 +255,6 @@ function displayTable(csv_data_as_array, el, datatables_options, custom_formatti
         row_html += "</tr>";
         $('#' + el + '-table tbody').append(row_html);
     }
-
-   
 
     let tableau = $('#' + el + '-table').DataTable(datatables_options);
 
@@ -309,8 +308,12 @@ function get_info_text(num_text) {
 }
 	 
 function handleData(metadata,data, el, csv_options, datatables_options, custom_formatting) {
+	console.log ("handleData");
     csv_metadata = csv_metadata_to_array_of_objects(metadata, csv_options);
+	console.log (csv_metadata);
     csv_data_as_array = $.csv.toArrays(data, csv_options);
+	console.log (csv_data_as_array);
+
     displayTable(csv_data_as_array, el, datatables_options, custom_formatting);
     displayStats();
 }
