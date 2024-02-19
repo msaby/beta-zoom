@@ -43,7 +43,7 @@
 {% include scripts.html %}
  <script type="text/javascript">
 let csv_data_as_array = [];
-let csv_metadata = [];
+let csv_metadata_as_array = [];
 
 function getData(path) {
     return $.ajax({
@@ -143,9 +143,9 @@ function displayTable(csv_data_as_array, el, datatables_options, custom_formatti
 
 
     let col_entetes = [];
-    for (let i = 0; i < csv_metadata.length; i++) {
+    for (let i = 0; i < csv_metadata_as_array.length; i++) {
         let a = {}
-        a["title"] = csv_metadata[i][2];
+        a["title"] = csv_metadata_as_array[i][2];
         col_entetes.push(a);
     }
     console.log(col_entetes);
@@ -203,8 +203,8 @@ function get_info_text(num_text) {
         return 0;
     }
     let infos = [];
-    for (let i = 0; i < csv_metadata.length; i++) {
-        let a = [csv_metadata[i][2], csv_metadata[i][3], csv_data_as_array[j][i]];
+    for (let i = 0; i < csv_metadata_as_array.length; i++) {
+        let a = [csv_metadata_as_array[i][2], csv_metadata_as_array[i][3], csv_data_as_array[j][i]];
         infos.push(a);
     }
     console.log(infos);
@@ -214,7 +214,10 @@ function get_info_text(num_text) {
 
  
 function handleData(metadata,data, el, csv_options, datatables_options, custom_formatting) {
+	console.log ("handleData");
     csv_metadata_as_array = $.csv.toArrays(metadata, csv_options);
+		console.log (csv_metadata_as_array);
+
     csv_data_as_array = $.csv.toArrays(data, csv_options);
     displayTable(csv_data_as_array, el, datatables_options, custom_formatting);
     displayStats();
