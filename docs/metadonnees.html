@@ -120,7 +120,7 @@
       <td>work_language</td>
       <td>Langue originale de l'oeuvre</td>
       <td>oeuvre</td>
-    <td>2 valeurs : lat / grc / ara</td></tr>
+    <td>3 valeurs : lat / grc / ara</td></tr>
     <tr>
       <td>work_URI_data_bnf</td>
       <td>URI de l'oeuvre dans data.bnf (si elle y figure)</td>
@@ -163,41 +163,34 @@
       <td>Description de l'oeuvre</td>
       <td>oeuvre</td>
     <td>Pour certaines oeuvres, description rapide de leur contenu ou de leur historique de transmission. Source indiquée entre [] à la fin</td></tr>
+
+	  <tr>
+      <td>text_format</td>
+      <td>Format du fichier dans la base de données</td>
+      <td>texte</td>
+    <td>Actuellement exclusivement "TEI"</td></tr>
+  <tr>
+      <td>text_filename</td>
+      <td>Nom du fichier dans la base de données</td>
+      <td>texte</td>
+    <td></td></tr>
+<tr>
+      <td>text_source</td>
+      <td>Source du fichier intégré à la base de données</td>
+      <td>texte</td>
+    <td>Projets Perseus, First1KGreek, OpenGreekAndLatin</td></tr>
+	  
     <tr>
-      <td>text_Perseus_or_First1KGreek_Github_URI</td>
-      <td>URI du texte sur le Github Perseus ou F1KG</td>
+      <td>text_source_URI</td>
+      <td>URI du fichier sur le projet source</td>
       <td>texte</td>
     <td></td></tr>
     <tr>
-      <td>text_Perseus_edition</td>
-      <td>Edition Perseus</td>
+      <td>text_edition</td>
+      <td>Edition du texte intégré à la base de données</td>
       <td>texte</td>
     <td></td></tr>
-    <tr>
-      <td>text_Perseus_main_structure</td>
-      <td>Structure principale Perseus</td>
-      <td>texte</td>
-    <td></td></tr>
-    <tr>
-      <td>text_Perseus_secondary_structure</td>
-      <td>Structure secondaire Perseus</td>
-      <td>texte</td>
-    <td></td></tr>
-    <tr>
-      <td>text_Perseus_milestone</td>
-      <td>Milestones Perseus</td>
-      <td>texte</td>
-    <td></td></tr>
-    <tr>
-      <td>text_Perseus_CTS _refdecl</td>
-      <td>Compatible CTS Perseus</td>
-      <td>texte</td>
-    <td></td></tr>
-    <tr>
-      <td>text_Perseus_enrichment</td>
-      <td>Enrichissement Perseus</td>
-      <td>texte</td>
-    <td></td></tr>
+   
     <tr>
       <td>text_other_source_URI</td>
       <td>Autres sources (URI)</td>
@@ -256,16 +249,6 @@
     <tr>
       <td>zoomathia_text_added_by</td>
       <td>zoomathia_text_added_by</td>
-      <td>lié au projet</td>
-    <td></td></tr>
-    <tr>
-      <td>zoomathia_text_source</td>
-      <td>zoomathia_text_source</td>
-      <td>lié au projet</td>
-    <td></td></tr>
-    <tr>
-      <td>zoomathia_text_version</td>
-      <td>zoomathia_text_version</td>
       <td>lié au projet</td>
     <td></td></tr>
     <tr>
