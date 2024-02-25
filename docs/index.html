@@ -109,6 +109,8 @@ function displayTable(csv_data_as_array, el, datatables_options, custom_formatti
     let csv_data_display = deepCopy(csv_data_as_array);
     let table_head = "<thead><tr>";
 
+	
+
     for (head_id = 0; head_id < csv_data_display[0].length; head_id++) {
         table_head += "<th>" + csv_data_display[0][head_id] + "</th>";
     }
@@ -116,6 +118,12 @@ function displayTable(csv_data_as_array, el, datatables_options, custom_formatti
 
     table_head += "</tr></thead>";
     $('#' + el + '-table').append(table_head);
+
+	$('#table-container thead tr')
+        .clone(true)
+        .addClass('filters')
+        .appendTo('#table-container thead');
+	
     $('#' + el + '-table').append("<tbody></tbody>");
 
     for (row_id = 1; row_id < csv_data_display.length; row_id++) {
