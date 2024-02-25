@@ -22,7 +22,7 @@
 		<li>Métadonnées relatives à l'auteur (nom, dates...) </li>
 		<li>Métadonnées relatives à l'oeuvre (titre...) </li>
 		<li>Métadonnées relatives au texte (édition précise et URL d'origine du texte intégré à la base de données)</li>
-		<li>Métadonnées relatives au projet (passage pertinent...) </li>
+		<li>Métadonnées relatives au projet (identifiant interne, passage exploité scientifiquement...) </li>
 	</ol>
 	
 <table border="1">
@@ -144,16 +144,6 @@
       <td>oeuvre</td>
     <td>Le Répertoire des sources philosophiques antiques (https://rspa.ups2259.vjf.cnrs.fr/01/) est gérée par le Centre Jean Pépin (UMR 8230)</td></tr>
     <tr>
-      <td>work_reference_editions</td>
-      <td>Editions de référence de l'oeuvre</td>
-      <td>oeuvre</td>
-    <td></td></tr>
-    <tr>
-      <td>work_available_editions</td>
-      <td>Editions disponibles de l'oeuvre</td>
-      <td>oeuvre</td>
-    <td></td></tr>
-    <tr>
       <td>work_genre</td>
       <td>Genre de l'oeuvre</td>
       <td>oeuvre</td>
@@ -168,17 +158,17 @@
       <td>text_format</td>
       <td>Format du fichier dans la base de données</td>
       <td>texte</td>
-    <td>Actuellement exclusivement "TEI"</td></tr>
+    <td>Actuellement exclusivement format TEI</td></tr>
   <tr>
       <td>text_filename</td>
       <td>Nom du fichier dans la base de données</td>
       <td>texte</td>
     <td></td></tr>
 <tr>
-      <td>text_source</td>
-      <td>Source du fichier intégré à la base de données</td>
+      <td>text_licence</td>
+      <td>Licence du fichier intégré à la base de données</td>
       <td>texte</td>
-    <td>Projets Perseus, First1KGreek, OpenGreekAndLatin</td></tr>
+    <td></td></tr>
 	  
     <tr>
       <td>text_source_URI</td>
@@ -195,7 +185,7 @@
       <td>text_other_source_URI</td>
       <td>Autres sources (URI)</td>
       <td>texte</td>
-    <td></td></tr>
+    <td>Utile notamment pour les textes n'ayant pas pu être récupérés en TEI</td></tr>
     <tr>
       <td>text_other_source_version</td>
       <td>Autres sources (editions)</td>
