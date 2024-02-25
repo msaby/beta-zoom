@@ -121,14 +121,7 @@ function displayTable(csv_data_as_array, el, datatables_options, custom_formatti
     for (row_id = 1; row_id < csv_data_display.length; row_id++) {
         let row_html = "<tr>";
 
-        //takes in an array of column index and function pairs
-        if (custom_formatting != []) {
-            $.each(custom_formatting, function(i, v) {
-                let col_idx = v[0]
-                let func = v[1];
-                csv_data_display[row_id][col_idx] = func(csv_data_display[row_id][col_idx]);
-            })
-        }
+       
 
         for (col_id = 0; col_id < csv_data_display[row_id].length; col_id++) {
             row_html += "<td>" + csv_data_display[row_id][col_id] + "</td>";
