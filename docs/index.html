@@ -43,7 +43,14 @@
 let csv_data_as_array = [];
 
 
-
+function getData(path) {
+    return $.ajax({
+        url: path,
+        type: 'GET',
+        dataType: "text"
+    });
+}
+	 
 function deepCopy(obj) {
     if (Object.prototype.toString.call(obj) === '[object Array]') {
         let out = [],
