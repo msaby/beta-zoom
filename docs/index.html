@@ -218,7 +218,14 @@ $(document).ready(function() {
             "language": {
                 "search": "Recherchez un élément:"
             },
-            "paging": false
+            "paging": false,
+		columnDefs: [
+        {
+            targets: 0,
+            searchable: true
+        }
+    ]
+		
             // ,"columnDefs": [{ "visible": false,  "targets": [ 2 ] }]
         },
         custom_formatting: [
