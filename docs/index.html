@@ -16,9 +16,9 @@
 <div class="container-fluid">
 
       <h2 class="alert">Corpus de textes pour le projet Zoomathia (prototype)</h2>
-	<p>Une première version du corpus (récupération de textes et TEI, ajout de métadonnées) et de l'interface de navigation a été établie en mai 2017 à partir d'un fichier fourni par Arnaud Zucker.</p>
+	<p>Une première version du corpus (récupération de textes et TEI, ajout de métadonnées) a été établie en mai 2017 à partir d'un fichier fourni par Arnaud Zucker.</p>
 	<p>Une révision a eu lieu en février 2024 : nouvelles version de certains textes, ajout de textes, simplificaton des métadonnées, simplification de l'interface.</p>
-	<p>Auteur : Mathieu Saby, pour le SCD d'Université Côte d'Azur </p>
+	<p>Réalisation du SCD d'Université Côte d'Azur (Mathieu Saby)</p>
 	<p>Les textes ont été récupérés sur les dépots github du projet Perseus https://github.com/PerseusDL, du projet First1KGreek https://github.com/OpenGreekAndLatin/First1KGreek et du projet Open Greek and Latin https://github.com/OpenGreekAndLatin/Latin</p>
 
 	
@@ -29,8 +29,8 @@
 	  <p>- dont récupérés en TEI: <span id="nb_available_texts"/></p>
 	  <p>- dont annotés: <span id="nb_annotated_texts"/></p>
 	<p>Consultez l'onglet Métadonnées pour comprendre le contenu de chaque colonne</p>
-	  	        <p>Le tableau ci dessous est affiché dynamiquement à partir d'un fichier csv.</p>
-	<p>Les textes en TEI sont récupérables dans le dossier docs/texts du dépot github https://github.com/msaby/beta-zoom</p>
+	<p>Le tableau ci dessous est affiché dynamiquement à partir d'un fichier csv téléchargeable sur https://msaby.github.io/beta-zoom/corpus/ZOOMATHIA_corpus.csv</p>
+	<p>Les textes en TEI sont tééléchargeables sur https://github.com/msaby/beta-zoom/tree/master/docs/texts</p>
 
       <div id='table-container'></div>
 
@@ -190,13 +190,10 @@ function process(options) {
     options = options || {};
     let corpus_path = options.corpus_path || "";
     let el = options.element || "table-container";
-    let allow_download = options.allow_download || false;
     let csv_options = options.csv_options || {};
     let datatables_options = options.datatables_options || {};
     $("#" + el).html("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
-    if (allow_download)
-        $("#" + el).prepend("<p><a class='btn btn-info' href='" + corpus_path + "'><i class='glyphicon glyphicon-download'></i> Télécharger la liste complète en CSV</a></p>");
-    getData(corpus_path).done(
+        getData(corpus_path).done(
 			    function(data, textStatusdata, jqXHRdata) {
 			    handleData(data, el, csv_options, datatables_options);
 	    });
@@ -206,7 +203,6 @@ $(document).ready(function() {
     let options = {
         corpus_path: 'corpus/ZOOMATHIA_corpus.csv',
         element: 'table-container',
-        allow_download: true,
         csv_options: {
             separator: ',',
             delimiter: '"',
